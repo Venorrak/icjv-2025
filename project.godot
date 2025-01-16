@@ -13,6 +13,7 @@ config_version=5
 config/name="ICJV-2025"
 run/main_scene="res://Scenes/Levels/world.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
 config/icon="res://Rescources/Textures/icon.svg"
 
 [autoload]

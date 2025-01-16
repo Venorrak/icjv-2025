@@ -59,6 +59,7 @@ func getPlayerSkin() -> Array:
 
 func setPlayerSkin(props : Array) -> void:
 	playerSkin = props
+	SignalBus.nextBodyStatus.emit(props)
 	for i in props:
 		match props[i]["part"]:
 			"torso":

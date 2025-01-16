@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://v3d1b6ie34qo"]
+[gd_scene load_steps=12 format=3 uid="uid://v3d1b6ie34qo"]
 
 [ext_resource type="Script" path="res://Code/Scripts/tirroir.gd" id="1_d0u0p"]
 [ext_resource type="PackedScene" uid="uid://dyssjq8keq4xc" path="res://Scenes/Objects/body.tscn" id="2_dx4vt"]
+[ext_resource type="Texture2D" uid="uid://dqkvdvx6gmx6j" path="res://Rescources/Textures/arrow.png" id="3_cy4w0"]
 
 [sub_resource type="Animation" id="Animation_tpqb3"]
 resource_name = "open"
@@ -89,7 +90,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0.580392, 0.580392, 0.580392, 0)
 
 [node name="Anchor" type="Node2D"]
 
-[node name="Tirroir" type="Node2D" parent="." node_paths=PackedStringArray("pressLabel", "animator", "particles", "body")]
+[node name="Tirroir" type="Node2D" parent="." node_paths=PackedStringArray("pressLabel", "animator", "particles", "body", "cursor")]
 position = Vector2(-40, 0)
 script = ExtResource("1_d0u0p")
 pressLabel = NodePath("Label")
@@ -98,6 +99,7 @@ width = 80.0
 shakeStrength = 50.0
 particles = NodePath("../CPUParticles2D")
 body = NodePath("Body")
+cursor = NodePath("../Sprite2D")
 
 [node name="ColorRect" type="ColorRect" parent="Tirroir"]
 offset_top = -110.0
@@ -138,7 +140,7 @@ position = Vector2(40, -105)
 randomise = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(0, 10)
+position = Vector2(0, 60)
 emitting = false
 amount = 20
 one_shot = true
@@ -158,6 +160,17 @@ split_scale = true
 scale_curve_x = null
 scale_curve_y = null
 color_ramp = SubResource("Gradient_xdx1l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-31, 35)
+rotation = -1.07687
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_cy4w0")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
 
 [connection signal="body_entered" from="Tirroir/PlayerDetect" to="Tirroir" method="_on_player_detect_body_entered"]
 [connection signal="body_exited" from="Tirroir/PlayerDetect" to="Tirroir" method="_on_player_detect_body_exited"]

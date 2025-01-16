@@ -9,5 +9,5 @@ class_name signalBus
 signal directionShake
 signal getFocus
 signal freezePlayer
-signal requestNextBody
 signal setNextBody
+signal nextBodyStatus
