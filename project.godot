@@ -24,7 +24,7 @@ BBcodeBuild="*res://Code/Scripts/BBcodeBuilder.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/fabimakesgames.embed_game/plugin.cfg")
+enabled=PackedStringArray()
 
 [rendering]
 
