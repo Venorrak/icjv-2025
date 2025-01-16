@@ -1,22 +1,41 @@
 extends Sprite2D
+class_name Bar
 
 
+@export var maxSpeed : float = -300
+@export var acceleration := 0.01
+@export var fallSpeed : float = 300
 
-@export var maxSpeed : float = -600
-@export var acceleration := 0.02
-@export var fallSpeed : float = 600
+var player: Player
 var currentSpeed : float = 0
+var minBox : float = 500.0
+var topBox: float = -500.0
+var random_y:float
+
+func _ready() -> void:
+	player = get_parent().get_node("Player")
 
 func _process(delta: float) -> void:
 	
+	if(random_y < position.y):
+		currentSpeed = lerp(currentSpeed, maxSpeed, acceleration)
+	else:
+		currentSpeed = lerp(currentSpeed ,fallSpeed, acceleration)
+	if (position.y>=topBox && position.y<=minBox):
+		position.y += currentSpeed * delta
+	if (position.y<=topBox):
+		position.y += -currentSpeed * delta
+	if (position.y>=minBox):
+		position.y += -currentSpeed * delta
 
-	position.y += currentSpeed * delta
+	if(position.y >= player.position.y && position.y <= player.position.y + player.size.y):
+		print("JE SUIS LA")
+	else:
+		print("MOI PAS LA")
 	
 func _on_timer_timeout() -> void:
-	var random_y : float = randf_range(10.0,200.0)
-	if(random_y > position.y):
-		position.y = lerp(currentSpeed, maxSpeed, acceleration)
-	else:
-		position.y =lerp(currentSpeed ,fallSpeed, acceleration)
-		
+	random_y  = randf_range(-500.0,500.0)
+
+	
+
 	
