@@ -3,7 +3,8 @@
 [ext_resource type="Script" path="res://Code/Scripts/GlobalVars.gd" id="1_rqk8s"]
 
 [sub_resource type="Curve" id="Curve_djkt5"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.153465, 0.604396), 1.67983, 1.67983, 0, 0, Vector2(0.405941, 0.967033), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+max_value = 100.0
+_data = [Vector2(0, 40.6593), 0.0, 0.0, 0, 0, Vector2(0.0792079, 79.1209), 1.67983, 1.67983, 0, 0, Vector2(0.207921, 97.8022), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [node name="GlobalVars" type="Node"]

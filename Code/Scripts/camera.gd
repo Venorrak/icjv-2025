@@ -12,6 +12,8 @@ func _ready() -> void:
 	SignalBus.connect("getFocus", changeTarget)
 
 func _physics_process(delta: float) -> void:
+	if target == null:
+		target = player
 	global_position = lerp(global_position, target.global_position, cameraSpeed)
 	global_rotation_degrees = lerp(global_rotation_degrees, target.global_rotation_degrees, cameraSpeed)
 	updateShake()

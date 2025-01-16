@@ -7,6 +7,7 @@ extends Node2D
 @export var rightArm : Sprite2D
 @export var head : Sprite2D
 @export var randomise : bool
+@export var bloodEmitter : CPUParticles2D
 
 var creatureType : String
 var playerSkin : Array = []
@@ -56,9 +57,12 @@ func getPlayerSkin() -> Array:
 	return playerSkin
 
 func setPlayerSkin(props : Array) -> void:
+	if props.size() < getParts().size():
+		bloodEmitter.emitting = true
 	playerSkin = props
 	for sprites in get_children():
 		sprites.visible = false
+	bloodEmitter.visible = true
 	for prop in props:
 		match prop["part"]:
 			"torso":

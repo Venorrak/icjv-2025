@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cdu0u45dgmee5"]
+[gd_scene load_steps=11 format=3 uid="uid://cdu0u45dgmee5"]
 
 [ext_resource type="Script" path="res://Code/Scripts/main_menu.gd" id="1_mk6kf"]
 [ext_resource type="PackedScene" uid="uid://oo7vbl4x0ecv" path="res://Scenes/levels/Morgue.tscn" id="2_1yfcw"]
@@ -7,7 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://cfaosrbylr7ay" path="res://Rescources/Textures/start_push_20250116133625.png" id="4_oyi6m"]
 [ext_resource type="Texture2D" uid="uid://d241cris5p5mv" path="res://Rescources/Textures/quit_button_20250116132307.png" id="5_uxt42"]
 [ext_resource type="Texture2D" uid="uid://dj1apht300knw" path="res://Rescources/Textures/quit_button_push_20250116132331.png" id="6_3doyk"]
+[ext_resource type="Texture2D" uid="uid://dv5agwdps452m" path="res://Rescources/Textures/start_select_20250116134552.png" id="6_udjhf"]
 [ext_resource type="Texture2D" uid="uid://qsb1y3d5we2d" path="res://Rescources/Textures/ecran titre.png" id="7_r52qx"]
+[ext_resource type="Texture2D" uid="uid://crhmjaet44lu" path="res://Rescources/Textures/Bone_button_select_20250116134207.png" id="8_rdc2y"]
 
 [node name="MainMenu" type="Control" node_paths=PackedStringArray("playButton", "quitButton", "title")]
 layout_mode = 3
@@ -35,6 +37,7 @@ offset_bottom = 405.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("3_y7rqe")
 texture_pressed = ExtResource("4_oyi6m")
+texture_focused = ExtResource("6_udjhf")
 
 [node name="quitButton" type="TextureButton" parent="."]
 offset_left = 496.0
@@ -44,6 +47,7 @@ offset_bottom = 525.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("5_uxt42")
 texture_pressed = ExtResource("6_3doyk")
+texture_focused = ExtResource("8_rdc2y")
 
 [node name="EcranTitre" type="Sprite2D" parent="."]
 position = Vector2(558, 191)

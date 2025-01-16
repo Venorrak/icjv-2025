@@ -7,6 +7,8 @@ extends Node2D
 @export var body : Node2D
 @export var cursor : Sprite2D
 @export var timer : Timer
+@export var openingSound : AudioStream
+@export var takeMemberSound : AudioStream
 
 var direction : String = ""
 var members : Array = []
@@ -65,6 +67,7 @@ func _physics_process(delta: float) -> void:
 		if isOpen:
 			selectMember()
 		else:
+			AudioManager.playSound(openingSound, 1, 0.12)
 			applyOpenEffects()
 			animator.play("open")
 	if Input.is_action_just_pressed("interact") and cursor.visible:
@@ -101,7 +104,6 @@ func updateCursorData() -> void:
 func opened() -> void:
 	if not members.is_empty() and needsParts() and not hasBeenOpened and not GlobalVars.tirroirOpened:
 		GlobalVars.tirroirOpened = true
-		hasBeenOpened = true
 		isOpen = true
 		SignalBus.getFocus.emit(get_parent())
 		SignalBus.freezePlayer.emit(true)
@@ -109,6 +111,7 @@ func opened() -> void:
 		cursor.visible = true
 	else:
 		animator.play("close")
+	hasBeenOpened = true
 
 func updateNextBodyStatus(value : Array) -> void:
 	nextBody = value
@@ -144,6 +147,7 @@ func takeMember(memberName : String) -> Dictionary:
 		if member["part"] == memberName:
 			members.erase(member)
 			body.setPlayerSkin(members)
+			AudioManager.playSound(takeMemberSound)
 			return member
 	return {} #crashes
 

@@ -3,6 +3,11 @@ extends CanvasLayer
 @export var timerLabel : RichTextLabel
 @export var roundTimer : Timer
 @export var timerLabelAccent : Color
+@export var animator : AnimationPlayer
+@export var shockSound : AudioStream
+
+func _ready() -> void:
+	SignalBus.connect("newLoop", newLoopAnimation)
 
 func _physics_process(delta: float) -> void:
 	var remainingTime : float = roundTimer.time_left
@@ -27,3 +32,10 @@ func updateTimerLabel(remainingTime : float, accentColor : Color) -> void:
 	var amount : float = inverse_lerp(roundTimer.wait_time, 0.0, remainingTime)
 	text = BBcodeBuild.shake(text, amount * 50, 5, true)
 	timerLabel.text = text
+
+func newLoopAnimation() -> void:
+	animator.play("loop")
+	AudioManager.playSound(shockSound, 0.5)
+
+func loopAnimationEnd() -> void:
+	get_tree().reload_current_scene()

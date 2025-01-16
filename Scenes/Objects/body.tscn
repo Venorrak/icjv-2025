@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://dyssjq8keq4xc"]
+[gd_scene load_steps=4 format=3 uid="uid://dyssjq8keq4xc"]
 
 [ext_resource type="Script" path="res://Code/Scripts/body.gd" id="1_lflrb"]
 [ext_resource type="Texture2D" uid="uid://cnj655vne4vr4" path="res://Rescources/Textures/Spritesheet_corps_20250115231844.png" id="1_ne4q7"]
 
-[node name="Body" type="Node2D" node_paths=PackedStringArray("torso", "leftLeg", "rightLeg", "leftArm", "rightArm", "head")]
+[sub_resource type="Gradient" id="Gradient_1dsyt"]
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0.117647)
+
+[node name="Body" type="Node2D" node_paths=PackedStringArray("torso", "leftLeg", "rightLeg", "leftArm", "rightArm", "head", "bloodEmitter")]
 script = ExtResource("1_lflrb")
 torso = NodePath("Torso")
 leftLeg = NodePath("leftLeg")
@@ -11,6 +14,7 @@ rightLeg = NodePath("rightLeg")
 leftArm = NodePath("leftArm")
 rightArm = NodePath("rightArm")
 head = NodePath("head")
+bloodEmitter = NodePath("CPUParticles2D")
 
 [node name="Torso" type="Sprite2D" parent="."]
 visible = false
@@ -61,3 +65,23 @@ texture = ExtResource("1_ne4q7")
 hframes = 4
 vframes = 4
 frame = 11
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(0, 44)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.9
+emission_shape = 3
+emission_rect_extents = Vector2(10, 15.825)
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 20.2
+initial_velocity_max = 50.5
+angular_velocity_min = -130.91
+angular_velocity_max = 160.0
+scale_amount_min = 2.85
+scale_amount_max = 7.21
+color_ramp = SubResource("Gradient_1dsyt")

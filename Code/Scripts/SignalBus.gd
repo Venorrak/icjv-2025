@@ -11,3 +11,4 @@ signal getFocus
 signal freezePlayer
 signal setNextBody
 signal nextBodyStatus
+signal newLoop
