@@ -31,7 +31,7 @@ texture = ExtResource("1_ne4q7")
 flip_h = true
 hframes = 4
 vframes = 4
-frame = 10
+frame = 14
 
 [node name="rightLeg" type="Sprite2D" parent="."]
 visible = false
@@ -39,7 +39,7 @@ position = Vector2(4, 78)
 texture = ExtResource("1_ne4q7")
 hframes = 4
 vframes = 4
-frame = 10
+frame = 14
 
 [node name="leftArm" type="Sprite2D" parent="."]
 visible = false
@@ -48,7 +48,7 @@ texture = ExtResource("1_ne4q7")
 flip_h = true
 hframes = 4
 vframes = 4
-frame = 9
+frame = 13
 
 [node name="rightArm" type="Sprite2D" parent="."]
 visible = false
@@ -56,7 +56,7 @@ position = Vector2(17, 50)
 texture = ExtResource("1_ne4q7")
 hframes = 4
 vframes = 4
-frame = 9
+frame = 13
 
 [node name="head" type="Sprite2D" parent="."]
 visible = false
@@ -64,7 +64,7 @@ position = Vector2(0, 14)
 texture = ExtResource("1_ne4q7")
 hframes = 4
 vframes = 4
-frame = 11
+frame = 15
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 visible = false

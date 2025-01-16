@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://oo7vbl4x0ecv"]
+[gd_scene load_steps=23 format=4 uid="uid://oo7vbl4x0ecv"]
 
 [ext_resource type="Script" path="res://Code/Scripts/morgue.gd" id="1_0yhr0"]
 [ext_resource type="Script" path="res://Code/Scripts/spawn_helper.gd" id="2_ku3bk"]
@@ -7,9 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://xjo7fa6ofxby" path="res://Scenes/Objects/Player.tscn" id="4_7ocno"]
 [ext_resource type="Script" path="res://Code/Scripts/camera.gd" id="4_ek7m2"]
 [ext_resource type="Texture2D" uid="uid://chy6rf6vru8kk" path="res://Rescources/Textures/morgue-final.png" id="6_0cq2c"]
+[ext_resource type="Texture2D" uid="uid://dbbevtsxyyu0o" path="res://Rescources/Textures/table_chair_20250116142713.png" id="6_51hek"]
 [ext_resource type="Script" path="res://Code/Scripts/nextBodyManager.gd" id="7_bh073"]
 [ext_resource type="PackedScene" uid="uid://dyssjq8keq4xc" path="res://Scenes/Objects/body.tscn" id="7_ft27x"]
-[ext_resource type="Texture2D" uid="uid://bqfopub8tlebb" path="res://Rescources/Textures/table_20250116104529.png" id="7_hsya7"]
+[ext_resource type="Texture2D" uid="uid://dmxwwltq7dhd7" path="res://Rescources/Textures/PRESS_E_20250116130308.png" id="9_ysgd4"]
 [ext_resource type="Script" path="res://Code/Scripts/hud.gd" id="10_b5658"]
 [ext_resource type="Texture2D" uid="uid://c35gdl6e7xn2c" path="res://Rescources/Textures/éclair-Sheet.png" id="12_0vc0y"]
 [ext_resource type="AudioStream" uid="uid://bt0vppl4jrfr1" path="res://Rescources/Music/shock.mp3" id="12_8acy6"]
@@ -117,8 +118,8 @@ tile_size = Vector2i(40, 40)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_24psh")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_p4y41"]
-size = Vector2(80, 112)
+[sub_resource type="CircleShape2D" id="CircleShape2D_o8jol"]
+radius = 67.42
 
 [sub_resource type="Animation" id="Animation_45a0x"]
 resource_name = "loop"
@@ -416,19 +417,30 @@ tile_set = SubResource("TileSet_falgi")
 [node name="Table" type="StaticBody2D" parent="."]
 position = Vector2(400, 539)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
-position = Vector2(0, -24)
-shape = SubResource("RectangleShape2D_p4y41")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table"]
+polygon = PackedVector2Array(1, -95, 27, -73, 32, -40, 41, -40, 42, 122, -42, 122, -41, -40, -27, -41, -26, -74)
 
 [node name="Sprite2D" type="Sprite2D" parent="Table"]
-texture = ExtResource("7_hsya7")
+texture = ExtResource("6_51hek")
 
-[node name="Node2D" type="Node2D" parent="Table" node_paths=PackedStringArray("body")]
-position = Vector2(0, -71)
+[node name="Node2D" type="Node2D" parent="Table" node_paths=PackedStringArray("body", "pressLabel")]
+position = Vector2(0, -25)
 script = ExtResource("7_bh073")
 body = NodePath("Body")
+pressLabel = NodePath("../press")
 
 [node name="Body" parent="Table/Node2D" instance=ExtResource("7_ft27x")]
+
+[node name="Area2D" type="Area2D" parent="Table"]
+position = Vector2(0, -71)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Area2D"]
+shape = SubResource("CircleShape2D_o8jol")
+
+[node name="press" type="Sprite2D" parent="Table"]
+visible = false
+position = Vector2(0, -120)
+texture = ExtResource("9_ysgd4")
 
 [node name="Player" parent="." instance=ExtResource("4_7ocno")]
 position = Vector2(398, 320)
@@ -514,5 +526,7 @@ libraries = {
 "": SubResource("AnimationLibrary_4o58o")
 }
 
+[connection signal="body_entered" from="Table/Area2D" to="Table/Node2D" method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Table/Area2D" to="Table/Node2D" method="_on_area_2d_body_exited"]
 [connection signal="timeout" from="checkTirroir" to="." method="_on_check_tirroir_timeout"]
 [connection signal="timeout" from="roundTimer" to="." method="_on_round_timer_timeout"]
