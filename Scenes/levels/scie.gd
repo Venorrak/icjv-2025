@@ -1,12 +1,12 @@
 extends Sprite2D
-class_name Player
+class_name Scie
 
 @export var maxSpeed : float = -600
 @export var acceleration := 0.02
 @export var fallSpeed : float = 600
 var currentSpeed : float = 0
-var minBox : float = 500.0
-var topBox: float = -500.0
+var minBox : float = 150.0
+var topBox: float = -230.0
 
 func _process(delta: float) -> void:
 	

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://0vnc85a7sabg" path="res://Scenes/levels/cible.tres" id="2_357v4"]
 [ext_resource type="Texture2D" uid="uid://dm7y851hk6o2a" path="res://Scenes/levels/Scie.tres" id="3_5qb6x"]
 [ext_resource type="Script" path="res://Scenes/levels/bar.gd" id="3_ccjha"]
-[ext_resource type="Script" path="res://Scenes/levels/player.gd" id="4_lmwjm"]
+[ext_resource type="Script" path="res://Scenes/levels/scie.gd" id="4_lmwjm"]
 
 [node name="jeuPoche1" type="Node2D"]
 position = Vector2(-2, 2)
@@ -36,7 +36,7 @@ autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="Player" type="Sprite2D" parent="."]
+[node name="Scie" type="Sprite2D" parent="."]
 position = Vector2(-61, 84)
 scale = Vector2(4.58333, 3.6)
 texture = ExtResource("3_5qb6x")

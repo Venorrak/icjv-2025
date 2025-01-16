@@ -8,15 +8,18 @@ class_name Bar
 var progress: float = 0
 @export var progressSpeed: float = 15
 
-var player: Player
+var player: Scie
 var currentSpeed : float = 0
 var minBox : float = 210.0
 var topBox: float = -200.0
 var random_y:float   
+@export var difficulte = 1
 
 func _ready() -> void:
-	player = get_parent().get_node("Player")
+	player = get_parent().get_node("Scie")
 	progressBar = get_parent().get_node("ProgressBar")
+	maxSpeed = difficulte * -4 - 296
+	fallSpeed = difficulte * 4 + 296
 
 func _process(delta: float) -> void:
 	
