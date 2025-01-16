@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdu0u45dgmee5"]
+
+[ext_resource type="Script" path="res://Code/Scripts/main_menu.gd" id="1_mk6kf"]
+[ext_resource type="PackedScene" uid="uid://oo7vbl4x0ecv" path="res://Scenes/levels/Morgue.tscn" id="2_1yfcw"]
+[ext_resource type="Texture2D" uid="uid://bo83lp45ofo4p" path="res://Rescources/Textures/fond ecran.png" id="2_2jdvy"]
+[ext_resource type="Texture2D" uid="uid://h152tnqghhyp" path="res://Rescources/Textures/start_20250116095708.png" id="3_y7rqe"]
+[ext_resource type="Texture2D" uid="uid://cfaosrbylr7ay" path="res://Rescources/Textures/start_push_20250116133625.png" id="4_oyi6m"]
+[ext_resource type="Texture2D" uid="uid://d241cris5p5mv" path="res://Rescources/Textures/quit_button_20250116132307.png" id="5_uxt42"]
+[ext_resource type="Texture2D" uid="uid://dj1apht300knw" path="res://Rescources/Textures/quit_button_push_20250116132331.png" id="6_3doyk"]
+[ext_resource type="Texture2D" uid="uid://qsb1y3d5we2d" path="res://Rescources/Textures/ecran titre.png" id="7_r52qx"]
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("playButton", "quitButton", "title")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mk6kf")
+playButton = NodePath("playButton")
+quitButton = NodePath("quitButton")
+title = NodePath("EcranTitre")
+morgue = ExtResource("2_1yfcw")
+
+[node name="FondEcran" type="Sprite2D" parent="."]
+position = Vector2(576, 324.25)
+scale = Vector2(4.8, 2.70208)
+texture = ExtResource("2_2jdvy")
+
+[node name="playButton" type="TextureButton" parent="."]
+offset_left = 416.0
+offset_top = 325.0
+offset_right = 576.0
+offset_bottom = 405.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_y7rqe")
+texture_pressed = ExtResource("4_oyi6m")
+
+[node name="quitButton" type="TextureButton" parent="."]
+offset_left = 496.0
+offset_top = 485.0
+offset_right = 576.0
+offset_bottom = 525.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("5_uxt42")
+texture_pressed = ExtResource("6_3doyk")
+
+[node name="EcranTitre" type="Sprite2D" parent="."]
+position = Vector2(558, 191)
+scale = Vector2(4, 4)
+texture = ExtResource("7_r52qx")
+hframes = 4
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[connection signal="button_up" from="playButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="quitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

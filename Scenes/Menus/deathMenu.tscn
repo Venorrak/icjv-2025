@@ -1,16 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://c76vcn7ngxmgx"]
+[gd_scene load_steps=8 format=3 uid="uid://c76vcn7ngxmgx"]
 
+[ext_resource type="Script" path="res://Code/Scripts/death_menu.gd" id="1_ikp54"]
 [ext_resource type="Texture2D" uid="uid://ns0lrlejmsu" path="res://Rescources/Textures/game over.png" id="1_oie4a"]
+[ext_resource type="Texture2D" uid="uid://h152tnqghhyp" path="res://Rescources/Textures/start_20250116095708.png" id="2_36qgm"]
 [ext_resource type="Texture2D" uid="uid://d241cris5p5mv" path="res://Rescources/Textures/quit_button_20250116132307.png" id="2_65rt1"]
+[ext_resource type="PackedScene" uid="uid://oo7vbl4x0ecv" path="res://Scenes/levels/Morgue.tscn" id="2_w580r"]
+[ext_resource type="Texture2D" uid="uid://cfaosrbylr7ay" path="res://Rescources/Textures/start_push_20250116133625.png" id="3_o8w6t"]
 [ext_resource type="Texture2D" uid="uid://dj1apht300knw" path="res://Rescources/Textures/quit_button_push_20250116132331.png" id="3_xy73e"]
 
-[node name="DeathMenu" type="Control"]
+[node name="DeathMenu" type="Control" node_paths=PackedStringArray("playButton", "quitButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ikp54")
+playButton = NodePath("playButton")
+quitButton = NodePath("quitButton")
+morgue = ExtResource("2_w580r")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -23,12 +31,25 @@ position = Vector2(576, 191)
 scale = Vector2(3.48, 3.48)
 texture = ExtResource("1_oie4a")
 
-[node name="TextureButton" type="TextureButton" parent="."]
+[node name="playButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 260.0
+offset_right = 576.0
+offset_bottom = 340.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("2_36qgm")
+texture_pressed = ExtResource("3_o8w6t")
+
+[node name="quitButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 496.0
-offset_top = 387.785
+offset_top = 420.0
 offset_right = 576.0
-offset_bottom = 427.785
+offset_bottom = 460.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("2_65rt1")
 texture_pressed = ExtResource("3_xy73e")
+
+[connection signal="button_up" from="playButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="quitButton" to="." method="_on_quit_button_button_up"]
