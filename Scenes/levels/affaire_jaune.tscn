@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://6rqhbe3f1i35"]
+[gd_scene load_steps=15 format=4 uid="uid://6rqhbe3f1i35"]
 
 [ext_resource type="Texture2D" uid="uid://d3rnqug8kf1ue" path="res://Rescources/Textures/bone_walls_20250116115258 1.png" id="1_5u2yr"]
 [ext_resource type="Texture2D" uid="uid://cqyqclkkrpyrb" path="res://Rescources/Textures/Hammer_right_20250116135946.png" id="2_bqb72"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bcs7gdxs0dikg" path="res://Rescources/Textures/Corner_B.png" id="3_iwciw"]
 [ext_resource type="Texture2D" uid="uid://c6f1p63rud488" path="res://Rescources/Textures/Corner_C.png" id="4_6nyyy"]
 [ext_resource type="Texture2D" uid="uid://b38gjxxx37cmg" path="res://Rescources/Textures/Corner_D.png" id="5_ob5c1"]
+[ext_resource type="Script" path="res://Scenes/levels/affaire_jaune/tile_map_layer.gd" id="6_60rxp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kixbm"]
 texture = ExtResource("1_5u2yr")
@@ -51,6 +52,7 @@ texture_region_size = Vector2i(40, 40)
 [sub_resource type="TileSet" id="TileSet_wvx0b"]
 tile_size = Vector2i(40, 40)
 physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_kixbm")
 sources/1 = SubResource("TileSetAtlasSource_p4mfo")
 sources/2 = SubResource("TileSetAtlasSource_itpha")
@@ -64,17 +66,20 @@ position = Vector2(0, -1)
 position = Vector2(57, 97)
 tile_map_data = PackedByteArray("AAD+/wIAAQAAAAAAAAD9/wIAAAABAAAAAAD8/wIAAAABAAAAAAD7/wIAAAABAAAAAAD6/wIAAAABAAAAAAD5/wIAAAABAAAAAAD4/wIAAAABAAAAAAD3/wIAAgAAAAAAAAD3/wEAAAAAAAAAAAD3/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wAAAwAAAAAAAAD3////AwAAAAAAAAD4////AAABAAAAAAD5////AAABAAAAAAD6////AQAAAAAAAAD6//7/AAAAAAAAAAD6//3/AAAAAAAAAAD6//z/AAAAAAAAAAD6//v/AwAAAAAAAAD7//v/AAABAAAAAAD8//v/AAABAAAAAAD9//v/AAABAAAAAAD+//v/AAABAAAAAAD///v/AAABAAAAAAAAAPv/AAABAAAAAAABAPv/AAABAAAAAAACAPv/AAABAAAAAAD9//7/AQAAAAAAAAD8//3/AwAAAAAAAAD8//7/AgAAAAAAAAD9//3/BAAAAAAAAAD//wAAAAABAAAAAAAAAAAAAAABAAAAAAABAAAAAQAAAAAAAAABAP//AAAAAAAAAAABAP7/AwAAAAAAAAACAP7/AAABAAAAAAADAPv/AAABAAAAAAAEAPv/AAABAAAAAAAFAPv/AAABAAAAAAAGAPv/AAABAAAAAAADAP7/AAABAAAAAAAEAP7/BAAAAAAAAAAEAP//AAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAgAAAAAAAAAFAAIAAAABAAAAAAAGAAIAAAABAAAAAAAHAAIAAAABAAAAAAAIAPv/BAAAAAAAAAAIAAIAAQAAAAAAAAAIAAEAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAP//AAAAAAAAAAAIAP7/AAAAAAAAAAAIAP3/AAAAAAAAAAAIAPz/AAAAAAAAAAAHAPv/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_wvx0b")
+script = ExtResource("6_60rxp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-266, -56)
 
-[node name="Player" type="Sprite2D" parent="."]
-position = Vector2(-242, 168)
+[node name="Hammer" type="Sprite2D" parent="."]
+position = Vector2(-239, 148)
 scale = Vector2(1.3195, 1.45)
 texture = ExtResource("2_bqb72")
 script = ExtResource("2_ftb1r")
 
-[node name="Detection" type="RayCast2D" parent="Player"]
+[node name="Detection" type="RayCast2D" parent="Hammer"]
 position = Vector2(19.194, 0.824242)
 exclude_parent = false
 target_position = Vector2(14.3955, 1.47386e-06)
+
+[connection signal="changed" from="TileMapLayer" to="TileMapLayer" method="_on_changed"]

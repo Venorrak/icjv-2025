@@ -1,0 +1,19 @@
+extends TileMapLayer
+
+var tilemap: TileMapLayer
+var tileSet: TileSet
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	
+	print(tileSet.get_tile_set())
+	
+	pass
+
+
+func _on_changed() -> void:
+	pass # Replace with function body.
