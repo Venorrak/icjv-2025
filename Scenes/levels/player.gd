@@ -42,7 +42,3 @@ func _process(delta: float) -> void:
 	print("Position X:",position.x)
 	print("Position Y:",position.y)
 	
-
-
-func _on_hitbox_body_entered(body: Node2D) -> void:
-	pass
