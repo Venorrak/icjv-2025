@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=4 uid="uid://6rqhbe3f1i35"]
+[gd_scene load_steps=6 format=4 uid="uid://6rqhbe3f1i35"]
 
 [ext_resource type="Texture2D" uid="uid://dcxls1ccv5iab" path="res://Rescources/Textures/icon.svg" id="1_sifgj"]
+[ext_resource type="Texture2D" uid="uid://genifqlayfd7" path="res://Rescources/Textures/Hammer_20250116121243.png" id="2_dgn6c"]
 [ext_resource type="Script" path="res://Scenes/levels/player.gd" id="2_ftb1r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ntspc"]
@@ -143,18 +144,21 @@ sources/0 = SubResource("TileSetAtlasSource_ntspc")
 
 [node name="affaire_jaune" type="Node2D"]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-266, -56)
+
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-482, -60)
 tile_map_data = PackedByteArray("AAD7//3/AAAAAAAAAAD7//7/AAAAAAAAAAD7////AAAAAAAAAAD7/wAAAAAAAAAAAAD7/wEAAAAAAAAAAAD7/wIAAAAAAAAAAAD8/wIAAAAAAAAAAAD9/wIAAAAAAAAAAAD+/wIAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAP3/AAAAAAAAAAABAAIAAAAAAAAAAAACAP3/AAAAAAAAAAACAAIAAAAAAAAAAAADAP3/AAAAAAAAAAADAAIAAAAAAAAAAAAEAP3/AAAAAAAAAAAEAAIAAAAAAAAAAAAFAP3/AAAAAAAAAAAFAP7/AAAAAAAAAAAFAP//AAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAD7//j/AAAAAAAAAAD7//n/AAAAAAAAAAD7//r/AAAAAAAAAAD7//v/AAAAAAAAAAD7//z/AAAAAAAAAAD8//j/AAAAAAAAAAD9//j/AAAAAAAAAAD+//j/AAAAAAAAAAD///j/AAAAAAAAAAAAAPj/AAAAAAAAAAABAPj/AAAAAAAAAAACAPj/AAAAAAAAAAADAPj/AAAAAAAAAAAGAPv/AAAAAAAAAAAHAPj/AAAAAAAAAAAHAPn/AAAAAAAAAAAHAPr/AAAAAAAAAAAHAPv/AAAAAAAAAAABAPz/AAAAAAAAAAACAPz/AAAAAAAAAAADAPz/AAAAAAAAAAAEAPz/AAAAAAAAAAAFAPz/AAAAAAAAAAAFAPv/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_egsb2")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="Player" type="Sprite2D" parent="."]
-position = Vector2(-70, 1)
-texture = ExtResource("1_sifgj")
+position = Vector2(-115, -67)
+scale = Vector2(1.04199, 1.17969)
+texture = ExtResource("2_dgn6c")
 script = ExtResource("2_ftb1r")
 
-[node name="RayCast2D" type="RayCast2D" parent="Player"]
-position = Vector2(61, -1)
-target_position = Vector2(1, 1)
+[node name="Detection" type="RayCast2D" parent="Player"]
+position = Vector2(110.81, 56.4966)
+exclude_parent = false
+target_position = Vector2(115.51, 0)
