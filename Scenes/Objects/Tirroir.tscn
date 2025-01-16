@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://v3d1b6ie34qo"]
+[gd_scene load_steps=14 format=3 uid="uid://v3d1b6ie34qo"]
 
 [ext_resource type="Script" path="res://Code/Scripts/tirroir.gd" id="1_d0u0p"]
 [ext_resource type="PackedScene" uid="uid://dyssjq8keq4xc" path="res://Scenes/Objects/body.tscn" id="2_dx4vt"]
 [ext_resource type="Texture2D" uid="uid://mrjid8vgvb5u" path="res://Rescources/Textures/corpse_holder2.png" id="2_h7tld"]
+[ext_resource type="Texture2D" uid="uid://dmxwwltq7dhd7" path="res://Rescources/Textures/PRESS_E_20250116130308.png" id="3_oa5yy"]
 [ext_resource type="Texture2D" uid="uid://b0y8d6d5ti1cm" path="res://Rescources/Textures/pointer_20250116102925.png" id="4_ocl8f"]
 
 [sub_resource type="Animation" id="Animation_tpqb3"]
@@ -129,6 +130,10 @@ rotation = 4.71239
 shape = SubResource("CapsuleShape2D_xossx")
 
 [node name="indicator" type="Sprite2D" parent="Tirroir"]
+visible = false
+position = Vector2(40, 24)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_oa5yy")
 
 [node name="Body" parent="Tirroir" instance=ExtResource("2_dx4vt")]
 position = Vector2(40, -105)
