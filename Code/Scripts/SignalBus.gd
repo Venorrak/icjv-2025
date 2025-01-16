@@ -5,3 +5,5 @@ class_name signalBus
 # ex : signal ceciestuntest
 # to send signal : SignalBus.ceciestuntext.emit()
 # to receive signal : SignalBus.connect("ceciestuntext", funciton)
+
+signal directionShake

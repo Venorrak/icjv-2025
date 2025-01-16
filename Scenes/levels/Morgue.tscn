@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://oo7vbl4x0ecv"]
+
+[ext_resource type="Script" path="res://Code/Scripts/morgue.gd" id="1_0yhr0"]
+[ext_resource type="Script" path="res://Code/Scripts/spawn_helper.gd" id="2_ku3bk"]
+[ext_resource type="PackedScene" uid="uid://v3d1b6ie34qo" path="res://Scenes/Objects/Tirroir.tscn" id="3_jj7lt"]
+[ext_resource type="PackedScene" uid="uid://xjo7fa6ofxby" path="res://Scenes/Objects/Player.tscn" id="4_7ocno"]
+[ext_resource type="Script" path="res://Code/Scripts/camera.gd" id="4_ek7m2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uy1ou"]
+size = Vector2(800, 20)
+
+[node name="Morgue" type="Node2D"]
+script = ExtResource("1_0yhr0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 800.0
+offset_bottom = 800.0
+color = Color(0.867045, 0.846592, 0.845636, 1)
+
+[node name="SpawnHelpers" type="Node2D" parent="."]
+
+[node name="SpawnHelperTop" type="Node2D" parent="SpawnHelpers"]
+script = ExtResource("2_ku3bk")
+tirroir = ExtResource("3_jj7lt")
+width = 800.0
+quantity = 6
+passedDir = "up"
+
+[node name="SpawnHelperLeft" type="Node2D" parent="SpawnHelpers"]
+position = Vector2(0, 800)
+rotation = -1.5708
+script = ExtResource("2_ku3bk")
+tirroir = ExtResource("3_jj7lt")
+width = 800.0
+quantity = 6
+passedDir = "left"
+
+[node name="SpawnHelperBottom" type="Node2D" parent="SpawnHelpers"]
+position = Vector2(800, 800)
+rotation = -3.14159
+script = ExtResource("2_ku3bk")
+tirroir = ExtResource("3_jj7lt")
+width = 800.0
+quantity = 6
+passedDir = "down"
+
+[node name="SpawnHelperRight" type="Node2D" parent="SpawnHelpers"]
+position = Vector2(800, 0)
+rotation = 1.5708
+script = ExtResource("2_ku3bk")
+tirroir = ExtResource("3_jj7lt")
+width = 800.0
+quantity = 6
+passedDir = "right"
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(-10, 400)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("RectangleShape2D_uy1ou")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(810, 400)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+shape = SubResource("RectangleShape2D_uy1ou")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(400, 810)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+shape = SubResource("RectangleShape2D_uy1ou")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(400, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_uy1ou")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(400, 400)
+zoom = Vector2(0.77, 0.77)
+script = ExtResource("4_ek7m2")
+shakeDecayRate = 0.45
+
+[node name="Player" parent="." instance=ExtResource("4_7ocno")]
+position = Vector2(288, 138)
+speed = 400.0
