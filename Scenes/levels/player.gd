@@ -1,0 +1,16 @@
+extends ColorRect
+class_name Player
+
+@export var maxSpeed : float = -600
+@export var acceleration := 0.02
+@export var fallSpeed : float = 600
+var currentSpeed : float = 0
+
+func _process(delta: float) -> void:
+	
+	if Input.is_action_pressed("ui_accept"):
+		currentSpeed = lerp(currentSpeed, maxSpeed, acceleration)
+	else:
+		currentSpeed = lerp(currentSpeed ,fallSpeed, acceleration)
+
+	position.y += currentSpeed * delta

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brrq1ibhnfy0h"
-path="res://.godot/imported/Screenshot 2025-01-15 204318.png-98655cc8114d25bae282664108751dd5.ctex"
+uid="uid://c1xctteg7jolm"
+path="res://.godot/imported/Screenshot 2025-01-15 204318.png-975737b439e4679d3d4203f43083ff5d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/levels/jeuPoche/Screenshot 2025-01-15 204318.png"
-dest_files=["res://.godot/imported/Screenshot 2025-01-15 204318.png-98655cc8114d25bae282664108751dd5.ctex"]
+source_file="res://Scenes/levels/Screenshot 2025-01-15 204318.png"
+dest_files=["res://.godot/imported/Screenshot 2025-01-15 204318.png-975737b439e4679d3d4203f43083ff5d.ctex"]
 
 [params]
 
