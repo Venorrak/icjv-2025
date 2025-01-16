@@ -25,4 +25,7 @@ func applyDirectionShake(dir : Vector2) -> void:
 	targetDirecShake = dir
 
 func changeTarget(node : Node2D) -> void:
-	target = node
+	if node == null:
+		target = player
+	else:
+		target = node

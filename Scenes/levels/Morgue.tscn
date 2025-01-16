@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://xjo7fa6ofxby" path="res://Scenes/Objects/Player.tscn" id="4_7ocno"]
 [ext_resource type="Script" path="res://Code/Scripts/camera.gd" id="4_ek7m2"]
 [ext_resource type="Texture2D" uid="uid://chy6rf6vru8kk" path="res://Rescources/Textures/morgue-final.png" id="6_0cq2c"]
-[ext_resource type="Script" path="res://Code/nextBodyManager.gd" id="7_bh073"]
+[ext_resource type="Script" path="res://Code/Scripts/nextBodyManager.gd" id="7_bh073"]
 [ext_resource type="PackedScene" uid="uid://dyssjq8keq4xc" path="res://Scenes/Objects/body.tscn" id="7_ft27x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_obbgj"]
@@ -178,8 +178,9 @@ offset_top = 265.0
 offset_right = 432.0
 offset_bottom = 423.0
 
-[node name="Node2D" type="Node2D" parent="ColorRect"]
+[node name="Node2D" type="Node2D" parent="ColorRect" node_paths=PackedStringArray("body")]
 script = ExtResource("7_bh073")
+body = NodePath("Body")
 
 [node name="Body" parent="ColorRect/Node2D" instance=ExtResource("7_ft27x")]
-position = Vector2(-328, -265)
+position = Vector2(47, 65)

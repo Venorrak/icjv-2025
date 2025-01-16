@@ -59,21 +59,28 @@ func getPlayerSkin() -> Array:
 
 func setPlayerSkin(props : Array) -> void:
 	playerSkin = props
-	SignalBus.nextBodyStatus.emit(props)
-	for i in props:
-		match props[i]["part"]:
+	for sprites in get_children():
+		sprites.visible = false
+	for prop in props:
+		match prop["part"]:
 			"torso":
-				torso.frame = spriteReference[props[i]["type"]]["torso"]
+				torso.frame = spriteReference[prop["type"]]["torso"]
+				torso.visible = true
 			"leftLeg":
-				leftLeg.frame = spriteReference[props[i]["type"]]["leg"]
+				leftLeg.frame = spriteReference[prop["type"]]["leg"]
+				leftLeg.visible = true
 			"rightLeg":
-				rightLeg.frame = spriteReference[props[i]["type"]]["leg"]
+				rightLeg.frame = spriteReference[prop["type"]]["leg"]
+				rightLeg.visible = true
 			"leftArm":
-				leftArm.frame = spriteReference[props[i]["type"]]["arm"]
+				leftArm.frame = spriteReference[prop["type"]]["arm"]
+				leftArm.visible = true
 			"rightArm":
-				rightArm.frame = spriteReference[props[i]["type"]]["arm"]
+				rightArm.frame = spriteReference[prop["type"]]["arm"]
+				rightArm.visible = true
 			"head":
-				head.frame = spriteReference[props[i]["type"]]["head"]
+				head.frame = spriteReference[prop["type"]]["head"]
+				head.visible = true
 
 func randomiseBody() -> void:
 	var type : int = randi_range(0, 2)
