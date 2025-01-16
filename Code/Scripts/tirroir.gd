@@ -4,9 +4,14 @@ extends Node2D
 @export var width : float
 @export var shakeStrength : float
 @export var particles : CPUParticles2D
+@export var body : Node2D
 
 var direction : String = ""
+var members : Array = []
 var playerWithin : bool = false
+
+func _ready() -> void:
+	members = body.getParts()
 
 func _on_player_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
@@ -23,6 +28,17 @@ func _physics_process(delta: float) -> void:
 		applyOpenEffects()
 		animator.play("open")
 		
+func opened() -> void:
+	if not members.is_empty() and needsParts():
+		SignalBus.getFocus.emit(get_parent())
+		SignalBus.freezePlayer.emit(true)
+	else:
+		animator.play("close")
+
+func needsParts() -> bool:
+	return true
+	#TODO : check if we need part when main corpse is done
+
 func applyOpenEffects() -> void:
 	var shakeDirection : Vector2
 	match direction:

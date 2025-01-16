@@ -7,3 +7,7 @@ class_name signalBus
 # to receive signal : SignalBus.connect("ceciestuntext", funciton)
 
 signal directionShake
+signal getFocus
+signal freezePlayer
+signal requestNextBody
+signal setNextBody

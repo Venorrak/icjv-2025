@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://v3d1b6ie34qo"]
+[gd_scene load_steps=11 format=3 uid="uid://v3d1b6ie34qo"]
 
 [ext_resource type="Script" path="res://Code/Scripts/tirroir.gd" id="1_d0u0p"]
+[ext_resource type="PackedScene" uid="uid://dyssjq8keq4xc" path="res://Scenes/Objects/body.tscn" id="2_dx4vt"]
 
 [sub_resource type="Animation" id="Animation_tpqb3"]
 resource_name = "open"
@@ -16,6 +17,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-4, 1),
 "update": 0,
 "values": [Vector2(-40, 0), Vector2(-40, 110)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"opened"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_lsi82"]
@@ -74,7 +89,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0.580392, 0.580392, 0.580392, 0)
 
 [node name="Anchor" type="Node2D"]
 
-[node name="Tirroir" type="Node2D" parent="." node_paths=PackedStringArray("pressLabel", "animator", "particles")]
+[node name="Tirroir" type="Node2D" parent="." node_paths=PackedStringArray("pressLabel", "animator", "particles", "body")]
 position = Vector2(-40, 0)
 script = ExtResource("1_d0u0p")
 pressLabel = NodePath("Label")
@@ -82,6 +97,7 @@ animator = NodePath("AnimationPlayer")
 width = 80.0
 shakeStrength = 50.0
 particles = NodePath("../CPUParticles2D")
+body = NodePath("Body")
 
 [node name="ColorRect" type="ColorRect" parent="Tirroir"]
 offset_top = -110.0
@@ -95,6 +111,7 @@ libraries = {
 }
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Tirroir"]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Tirroir/StaticBody2D"]
 position = Vector2(40, -50)
@@ -115,6 +132,10 @@ offset_top = 10.0
 offset_right = 68.0
 offset_bottom = 33.0
 text = "Press E"
+
+[node name="Body" parent="Tirroir" instance=ExtResource("2_dx4vt")]
+position = Vector2(40, -105)
+randomise = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 position = Vector2(0, 10)
