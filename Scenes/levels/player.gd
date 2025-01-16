@@ -17,8 +17,10 @@ func _process(delta: float) -> void:
 	if (position.y>=topBox && position.y<=minBox):
 		position.y += currentSpeed * delta
 	if (position.y<=topBox):
-		position.y += -currentSpeed * delta
+		position.y = topBox
+		currentSpeed = 0
 	if (position.y>=minBox):
-		position.y += -currentSpeed * delta
+		position.y = minBox
+		currentSpeed = 0
 
 	
