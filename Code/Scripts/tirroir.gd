@@ -46,13 +46,12 @@ func _ready() -> void:
 	members = body.getParts()
 	var typesPossesed : Array = []
 	for member in members:
-		typesPossesed.append(member["type"])
+		typesPossesed.append(member["part"])
 	for type in arrowPositions.keys():
 		if not typesPossesed.has(type):
 			arrowPositions.erase(type)
 	if arrowPositions.keys().size() > 0:
 		cursorOn = arrowPositions.keys()[cursorIndex]
-		cursor.visible = true
 	SignalBus.connect("nextBodyStatus", updateNextBodyStatus)
 
 func _on_player_detect_body_entered(body: Node2D) -> void:
@@ -69,12 +68,12 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") and playerWithin:
 		applyOpenEffects()
 		animator.play("open")
-	if Input.is_action_just_pressed("ui_up") and cursorOn != "":
+	if Input.is_action_just_pressed("ui_up") and cursorOn != "" and cursor.visible:
 		if cursorIndex > 0:
 			cursorIndex -= 1
 		else:
 			cursorIndex = arrowPositions.keys().size() - 1
-	if Input.is_action_just_pressed("ui_down") and cursorOn != "":
+	if Input.is_action_just_pressed("ui_down") and cursorOn != "" and cursor.visible:
 		if cursorIndex == arrowPositions.keys().size() - 1:
 			cursorIndex = 0
 		else:
@@ -88,6 +87,7 @@ func opened() -> void:
 	if not members.is_empty() and needsParts():
 		SignalBus.getFocus.emit(get_parent())
 		SignalBus.freezePlayer.emit(true)
+		cursor.visible = true
 	else:
 		animator.play("close")
 
