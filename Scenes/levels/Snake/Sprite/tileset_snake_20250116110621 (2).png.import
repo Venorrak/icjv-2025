@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxcajymop6qix"
-path="res://.godot/imported/test3.png-42e1b9cc8cb52c250c4ab3a01a37ee89.ctex"
+uid="uid://kd78uq6dx6an"
+path="res://.godot/imported/tileset_snake_20250116110621 (2).png-2bb3e55ee25779226f1948afa6cb4b9f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/levels/Snake/Sprite/test3.png"
-dest_files=["res://.godot/imported/test3.png-42e1b9cc8cb52c250c4ab3a01a37ee89.ctex"]
+source_file="res://Scenes/levels/Snake/Sprite/tileset_snake_20250116110621 (2).png"
+dest_files=["res://.godot/imported/tileset_snake_20250116110621 (2).png-2bb3e55ee25779226f1948afa6cb4b9f.ctex"]
 
 [params]
 

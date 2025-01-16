@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dib0hecl6d06m"]
+
+[ext_resource type="Texture2D" uid="uid://cw51vrfg83sgn" path="res://Scenes/levels/Snake/Sprite/tileset_snake_20250116110621 (1).png" id="1_7elu7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13s6u"]
+size = Vector2(63.1579, 63.1579)
+
+[node name="Queue" type="Area2D"]
+position = Vector2(0, -2000)
+
+[node name="Trail_Sprite" type="Sprite2D" parent="."]
+z_index = 1
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("1_7elu7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.95, 0.95)
+shape = SubResource("RectangleShape2D_13s6u")
+disabled = true
