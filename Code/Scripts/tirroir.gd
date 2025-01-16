@@ -1,5 +1,5 @@
 extends Node2D
-@export var pressLabel : Label
+@export var pressLabel : Sprite2D
 @export var animator : AnimationPlayer
 @export var width : float
 @export var shakeStrength : float

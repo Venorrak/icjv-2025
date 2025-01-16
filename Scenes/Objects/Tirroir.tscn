@@ -94,7 +94,7 @@ colors = PackedColorArray(1, 1, 1, 1, 0.580392, 0.580392, 0.580392, 0)
 [node name="Tirroir" type="Node2D" parent="." node_paths=PackedStringArray("pressLabel", "animator", "particles", "body", "cursor", "timer")]
 position = Vector2(-40, 0)
 script = ExtResource("1_d0u0p")
-pressLabel = NodePath("Label")
+pressLabel = NodePath("indicator")
 animator = NodePath("AnimationPlayer")
 width = 80.0
 shakeStrength = 50.0
@@ -128,13 +128,7 @@ position = Vector2(40, 0)
 rotation = 4.71239
 shape = SubResource("CapsuleShape2D_xossx")
 
-[node name="Label" type="Label" parent="Tirroir"]
-visible = false
-offset_left = 13.0
-offset_top = 10.0
-offset_right = 68.0
-offset_bottom = 33.0
-text = "Press E"
+[node name="indicator" type="Sprite2D" parent="Tirroir"]
 
 [node name="Body" parent="Tirroir" instance=ExtResource("2_dx4vt")]
 position = Vector2(40, -105)
