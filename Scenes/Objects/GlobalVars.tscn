@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cfwi8s0hocn11"]
+
+[ext_resource type="Script" path="res://Code/Scripts/GlobalVars.gd" id="1_rqk8s"]
+
+[sub_resource type="Curve" id="Curve_djkt5"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.153465, 0.604396), 1.67983, 1.67983, 0, 0, Vector2(0.405941, 0.967033), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="GlobalVars" type="Node"]
+script = ExtResource("1_rqk8s")
+difficultyCurve = SubResource("Curve_djkt5")

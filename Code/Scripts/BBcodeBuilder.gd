@@ -59,7 +59,7 @@ func tornado(text : String, radius : float, freq : float, connected : bool) -> S
 	return text
 	
 func shake(text : String, rate : float, level : int, connected : bool) -> String:
-	text = "[shake rate=" + str(rate) + " level=" + str(level) + " connected=" + str(int(connected)) + "]" + text
+	text = "[shake rate=" + str(int(rate)) + " level=" + str(level) + " connected=" + str(int(connected)) + "]" + text
 	text += "[/shake]"
 	return text
 

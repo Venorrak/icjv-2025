@@ -1,6 +1,4 @@
 extends Node2D
-@export var diffCurve : Curve
-@export var wave : int
 
 @export var torso : Sprite2D
 @export var leftLeg : Sprite2D
@@ -112,7 +110,7 @@ func randomiseBody() -> void:
 
 func doesBodyPartExist() -> bool:
 	var rand : float = randf_range(0.0, 100.0)
-	if rand < (100 - diffCurve.sample(float(wave) / 100)):
+	if rand < (100 - GlobalVars.difficultyCurve.sample(float(GlobalVars.currentWave) / 100)):
 		return true
 	return false
 

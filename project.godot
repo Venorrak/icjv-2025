@@ -22,7 +22,7 @@ EmbedGameAutoload="*res://addons/fabimakesgames.embed_game/embed_game_autoload.g
 SignalBus="*res://Code/Scripts/SignalBus.gd"
 AudioManager="*res://Code/Scripts/AudioManager.gd"
 BBcodeBuild="*res://Code/Scripts/BBcodeBuilder.gd"
-GlobalVars="*res://Code/Scripts/GlobalVars.gd"
+GlobalVars="*res://Scenes/Objects/GlobalVars.tscn"
 
 [editor_plugins]
 

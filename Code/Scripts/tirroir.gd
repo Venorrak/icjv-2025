@@ -6,6 +6,7 @@ extends Node2D
 @export var particles : CPUParticles2D
 @export var body : Node2D
 @export var cursor : Sprite2D
+@export var timer : Timer
 
 var direction : String = ""
 var members : Array = []
@@ -156,4 +157,7 @@ func selectMember() -> void:
 		cursor.visible = false
 		isOpen = false
 		GlobalVars.tirroirOpened = false
-		animator.play("close")
+		timer.start()
+
+func _on_time_to_see_timeout() -> void:
+	animator.play("close")

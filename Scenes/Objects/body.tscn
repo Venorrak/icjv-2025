@@ -1,17 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dyssjq8keq4xc"]
+[gd_scene load_steps=3 format=3 uid="uid://dyssjq8keq4xc"]
 
 [ext_resource type="Script" path="res://Code/Scripts/body.gd" id="1_lflrb"]
 [ext_resource type="Texture2D" uid="uid://cnj655vne4vr4" path="res://Rescources/Textures/Spritesheet_corps_20250115231844.png" id="1_ne4q7"]
 
-[sub_resource type="Curve" id="Curve_2qlap"]
-max_value = 100.0
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.1, 24.1758), 104.396, 104.396, 0, 0, Vector2(0.231579, 50.5495), 67.5501, 67.5501, 0, 0, Vector2(0.468421, 71.4286), 34.7985, 34.7985, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
-point_count = 5
-
 [node name="Body" type="Node2D" node_paths=PackedStringArray("torso", "leftLeg", "rightLeg", "leftArm", "rightArm", "head")]
 script = ExtResource("1_lflrb")
-diffCurve = SubResource("Curve_2qlap")
-wave = 50
 torso = NodePath("Torso")
 leftLeg = NodePath("leftLeg")
 rightLeg = NodePath("rightLeg")
@@ -25,7 +18,7 @@ position = Vector2(0, 41)
 texture = ExtResource("1_ne4q7")
 hframes = 4
 vframes = 4
-frame = 8
+frame = 12
 
 [node name="leftLeg" type="Sprite2D" parent="."]
 visible = false

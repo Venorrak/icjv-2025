@@ -4,7 +4,10 @@ extends RigidBody2D
 var frozen : bool = false
 
 func _ready() -> void:
-	$Body.setParrain()
+	if GlobalVars.futureCharacter == []:
+		$Body.setParrain()
+	else:
+		$Body.setPlayerSkin(GlobalVars.futureCharacter)
 	SignalBus.connect("freezePlayer", setFrozen)
 
 func _physics_process(delta: float) -> void:
