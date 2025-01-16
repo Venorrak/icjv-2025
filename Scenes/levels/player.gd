@@ -1,4 +1,4 @@
-extends ColorRect
+extends Sprite2D
 class_name Player
 
 @export var maxSpeed : float = -600
@@ -22,5 +22,3 @@ func _process(delta: float) -> void:
 	if (position.y>=minBox):
 		position.y = minBox
 		currentSpeed = 0
-
-	

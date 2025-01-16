@@ -1,37 +1,46 @@
-[gd_scene load_steps=4 format=3 uid="uid://ynmoqk8rdgpv"]
+[gd_scene load_steps=6 format=3 uid="uid://ynmoqk8rdgpv"]
 
-[ext_resource type="Script" path="res://Scenes/levels/player.gd" id="1_mldmi"]
-[ext_resource type="Texture2D" uid="uid://c1xctteg7jolm" path="res://Scenes/levels/Screenshot 2025-01-15 204318.png" id="2_ogd5h"]
+[ext_resource type="Texture2D" uid="uid://dq517ogjgtdhb" path="res://Scenes/levels/bras.tres" id="1_lx7m3"]
+[ext_resource type="Texture2D" uid="uid://0vnc85a7sabg" path="res://Scenes/levels/cible.tres" id="2_357v4"]
+[ext_resource type="Texture2D" uid="uid://dm7y851hk6o2a" path="res://Scenes/levels/Scie.tres" id="3_5qb6x"]
 [ext_resource type="Script" path="res://Scenes/levels/bar.gd" id="3_ccjha"]
+[ext_resource type="Script" path="res://Scenes/levels/player.gd" id="4_lmwjm"]
 
 [node name="jeuPoche1" type="Node2D"]
 position = Vector2(-2, 2)
 
-[node name="Player" type="ColorRect" parent="."]
-offset_left = -111.0
-offset_top = -86.0
-offset_right = -92.0
-offset_bottom = 21.0
-script = ExtResource("1_mldmi")
+[node name="Bras" type="Sprite2D" parent="."]
+position = Vector2(1, -2)
+scale = Vector2(6.2622, 4.06908)
+texture = ExtResource("1_lx7m3")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = 133.0
-offset_top = -106.0
-offset_right = 163.0
-offset_bottom = 223.0
+modulate = Color(1, 0.27451, 0.27451, 1)
+self_modulate = Color(0.607843, 0, 0, 1)
+offset_left = 147.0
+offset_top = -232.0
+offset_right = 173.0
+offset_bottom = 225.0
 value = 50.0
 fill_mode = 3
 show_percentage = false
 
 [node name="Bar" type="Sprite2D" parent="."]
-position = Vector2(66, 19)
-scale = Vector2(0.221429, 0.0488722)
-texture = ExtResource("2_ogd5h")
+position = Vector2(-2, 89)
+scale = Vector2(2.99286, 2.35714)
+texture = ExtResource("2_357v4")
 script = ExtResource("3_ccjha")
 
 [node name="Timer" type="Timer" parent="Bar"]
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Player" type="Sprite2D" parent="."]
+position = Vector2(-61, 84)
+scale = Vector2(4.58333, 3.6)
+texture = ExtResource("3_5qb6x")
+centered = false
+script = ExtResource("4_lmwjm")
 
 [connection signal="timeout" from="Bar/Timer" to="Bar" method="_on_timer_timeout"]

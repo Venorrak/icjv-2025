@@ -10,9 +10,9 @@ var progress: float = 0
 
 var player: Player
 var currentSpeed : float = 0
-var minBox : float = 500.0
-var topBox: float = -500.0
-var random_y:float
+var minBox : float = 210.0
+var topBox: float = -200.0
+var random_y:float   
 
 func _ready() -> void:
 	player = get_parent().get_node("Player")
@@ -31,7 +31,7 @@ func _process(delta: float) -> void:
 	if (position.y>=minBox):
 		position.y += -currentSpeed * delta
 
-	if(position.y >= player.position.y && position.y <= player.position.y + player.size.y):
+	if(position.y >= player.position.y && position.y <= player.position.y +100):
 		print("JE SUIS LA")
 		progress += progressSpeed * delta
 		progress = clamp(progress, 0, 100)
@@ -43,7 +43,7 @@ func _process(delta: float) -> void:
 		progressBar.value = progress
 
 func _on_timer_timeout() -> void:
-	random_y  = randf_range(-500.0,500.0)
+	random_y  = randf_range(topBox,minBox)
 
 	
 
