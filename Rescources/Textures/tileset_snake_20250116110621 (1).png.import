@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://nar2gbjq6ml7"
-path="res://.godot/imported/turn_snake_20250116113842.png-5ad9435d17cdf4b358db8de9561b5747.ctex"
+uid="uid://cw51vrfg83sgn"
+path="res://.godot/imported/tileset_snake_20250116110621 (1).png-ec4145996bd616ddf61164abf486224f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/levels/Snake/Sprite/turn_snake_20250116113842.png"
-dest_files=["res://.godot/imported/turn_snake_20250116113842.png-5ad9435d17cdf4b358db8de9561b5747.ctex"]
+source_file="res://Rescources/Textures/tileset_snake_20250116110621 (1).png"
+dest_files=["res://.godot/imported/tileset_snake_20250116110621 (1).png-ec4145996bd616ddf61164abf486224f.ctex"]
 
 [params]
 

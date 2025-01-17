@@ -1,12 +1,12 @@
 [gd_scene load_steps=18 format=3 uid="uid://duuc1fj30xbqn"]
 
-[ext_resource type="Script" path="res://Scenes/levels/Snake/joueur.gd" id="1_cgcry"]
-[ext_resource type="Script" path="res://Scenes/levels/Snake/snake.gd" id="1_ncsu5"]
-[ext_resource type="PackedScene" uid="uid://dib0hecl6d06m" path="res://Scenes/levels/Snake/queue.tscn" id="2_b1ofl"]
-[ext_resource type="Texture2D" uid="uid://bmq8jtulr7fvh" path="res://Scenes/levels/Snake/Sprite/tileset_snake_20250116110621.png" id="3_kammk"]
-[ext_resource type="Script" path="res://Scenes/levels/Snake/point.gd" id="4_oqkf0"]
-[ext_resource type="Texture2D" uid="uid://dbg8dx06iihas" path="res://Scenes/levels/Snake/Sprite/Scalpel_20250116114044.png" id="6_tdt1n"]
-[ext_resource type="Texture2D" uid="uid://kd78uq6dx6an" path="res://Scenes/levels/Snake/Sprite/tileset_snake_20250116110621 (2).png" id="8_7jeja"]
+[ext_resource type="Script" path="res://Scenes/Objects/snake.gd" id="1_8kiwd"]
+[ext_resource type="Texture2D" uid="uid://bmq8jtulr7fvh" path="res://Rescources/Textures/tileset_snake_20250116110621.png" id="2_x2fq0"]
+[ext_resource type="Script" path="res://Scenes/Objects/joueur.gd" id="3_0uh2n"]
+[ext_resource type="PackedScene" uid="uid://dib0hecl6d06m" path="res://Scenes/Objects/queue.tscn" id="4_jfm2q"]
+[ext_resource type="Texture2D" uid="uid://dbg8dx06iihas" path="res://Rescources/Textures/Scalpel_20250116114044.png" id="5_giavp"]
+[ext_resource type="Script" path="res://Scenes/Objects/point.gd" id="6_pv73w"]
+[ext_resource type="Texture2D" uid="uid://kd78uq6dx6an" path="res://Rescources/Textures/tileset_snake_20250116110621 (2).png" id="7_ntcxi"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v3ikl"]
 
@@ -16,7 +16,7 @@ texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2jqh6"]
-texture = ExtResource("3_kammk")
+texture = ExtResource("2_x2fq0")
 texture_region_size = Vector2i(40, 40)
 0:0/0 = 0
 0:1/0 = 0
@@ -45,7 +45,7 @@ size = Vector2(1145, 68)
 size = Vector2(64, 64)
 
 [node name="Snake" type="Node2D"]
-script = ExtResource("1_ncsu5")
+script = ExtResource("1_8kiwd")
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(1.6, 1.6)
@@ -55,14 +55,14 @@ layer_0/tile_data = PackedInt32Array(2, 2, 0, 3, 2, 0, 4, 2, 0, 5, 2, 0, 6, 2, 0
 
 [node name="Joueur" type="CharacterBody2D" parent="."]
 z_index = 3
-script = ExtResource("1_cgcry")
+script = ExtResource("3_0uh2n")
 
-[node name="Queue" parent="Joueur" instance=ExtResource("2_b1ofl")]
+[node name="Queue" parent="Joueur" instance=ExtResource("4_jfm2q")]
 
 [node name="Sprite2D" type="Sprite2D" parent="Joueur"]
 position = Vector2(32, -2)
 scale = Vector2(1.6, 1.6)
-texture = ExtResource("6_tdt1n")
+texture = ExtResource("5_giavp")
 
 [node name="Area2D" type="Area2D" parent="Joueur"]
 
@@ -104,7 +104,7 @@ shape = SubResource("RectangleShape2D_s3fts")
 
 [node name="Point" type="Area2D" parent="."]
 position = Vector2(586, 330)
-script = ExtResource("4_oqkf0")
+script = ExtResource("6_pv73w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Point"]
 position = Vector2(22, 22)
@@ -115,7 +115,7 @@ shape = SubResource("RectangleShape2D_aopyf")
 z_index = 2
 position = Vector2(22, 22)
 scale = Vector2(1.6, 1.6)
-texture = ExtResource("8_7jeja")
+texture = ExtResource("7_ntcxi")
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0

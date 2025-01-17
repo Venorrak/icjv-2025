@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-@onready var trail = load("res://scenes/levels/Snake/queue.tscn")
+@onready var trail = load("res://Scenes/Objects/queue.tscn")
 @onready var snake = get_tree().get_root().get_node("Snake")
 
 var speed = 400
@@ -18,8 +18,8 @@ var array_direction = []
 var array_trail = []
 var point_counter = 0
 
-@onready var trail_texture_1 = preload("res://Scenes/levels/Snake/Sprite/turn_snake_20250116113842.png")
-@onready var trail_texture_2 = preload("res://Scenes/levels/Snake/Sprite/tileset_snake_20250116110621 (1).png")
+@onready var trail_texture_1 = preload("res://Rescources/Textures/turn_snake_20250116113842.png")
+@onready var trail_texture_2 = preload("res://Rescources/Textures/tileset_snake_20250116110621 (1).png")
 @onready var sprite: Sprite2D = $Trail_Sprite
 
 func get_input():
