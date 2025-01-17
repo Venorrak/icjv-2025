@@ -11,6 +11,8 @@ extends Control
 @export var imgBtnNight : Texture2D
 @export var imgBtnDay : Texture2D
 
+@export var lobbyMusic : AudioStream
+
 var morgue : PackedScene = GlobalVars.morgue
 
 var frameMov : int = 1
@@ -19,6 +21,8 @@ var inHow : bool = false
 func _ready() -> void:
 	playButton.grab_focus()
 	updateDN()
+	AudioManager.playMusic(lobbyMusic, 0.7)
+	
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel") and inHow:
