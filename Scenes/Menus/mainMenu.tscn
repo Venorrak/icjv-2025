@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://cdu0u45dgmee5"]
+[gd_scene load_steps=16 format=3 uid="uid://cdu0u45dgmee5"]
 
 [ext_resource type="Script" path="res://Code/Scripts/main_menu.gd" id="1_mk6kf"]
-[ext_resource type="PackedScene" uid="uid://oo7vbl4x0ecv" path="res://Scenes/levels/Morgue.tscn" id="2_1yfcw"]
 [ext_resource type="Texture2D" uid="uid://bo83lp45ofo4p" path="res://Rescources/Textures/fond ecran.png" id="2_2jdvy"]
 [ext_resource type="Texture2D" uid="uid://cg1iqleb04i7b" path="res://Rescources/Textures/fond decran nuit.png" id="3_260bv"]
 [ext_resource type="Texture2D" uid="uid://h152tnqghhyp" path="res://Rescources/Textures/start_20250116095708.png" id="3_y7rqe"]
@@ -39,7 +38,6 @@ fondEcran = ExtResource("2_2jdvy")
 fondEcranNuit = ExtResource("3_260bv")
 imgBtnNight = ExtResource("4_5hqwe")
 imgBtnDay = ExtResource("5_jrog4")
-morgue = ExtResource("2_1yfcw")
 
 [node name="FondEcran" type="Sprite2D" parent="."]
 position = Vector2(576, 324.25)
@@ -47,6 +45,7 @@ scale = Vector2(4.8, 2.70208)
 texture = ExtResource("2_2jdvy")
 
 [node name="playButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 416.0
 offset_top = 325.0
 offset_right = 576.0
@@ -72,6 +71,7 @@ texture_pressed = ExtResource("8_vcr1o")
 texture_focused = ExtResource("8_rdc2y")
 
 [node name="quitButton" type="TextureButton" parent="."]
+layout_mode = 0
 offset_left = 496.0
 offset_top = 540.0
 offset_right = 576.0

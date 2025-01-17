@@ -1,6 +1,6 @@
 extends Node2D
 @export var nextBody : Node2D
-@export var deathScene : PackedScene
+var deathScene : PackedScene = GlobalVars.deathMenu
 @export var spawnHelpersBase : Node2D
 
 @export var imgDayWindow : Texture2D

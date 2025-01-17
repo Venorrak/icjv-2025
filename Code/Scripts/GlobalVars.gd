@@ -6,6 +6,9 @@ var futureCharacter : Array = []
 var darkMode : bool = false
 
 @export var difficultyCurve : Curve
+@export var mainMenu : PackedScene
+@export var deathMenu : PackedScene
+@export var morgue : PackedScene
 
 func reset() -> void:
 	tirroirOpened = false

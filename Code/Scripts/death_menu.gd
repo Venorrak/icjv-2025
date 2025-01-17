@@ -2,8 +2,8 @@ extends Control
 
 @export var playButton : TextureButton
 @export var quitButton : TextureButton
-@export var morgue : PackedScene
-@export var menu : PackedScene
+var morgue : PackedScene = GlobalVars.morgue
+var menu : PackedScene = GlobalVars.mainMenu
 
 func _ready() -> void:
 	playButton.grab_focus()

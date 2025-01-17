@@ -11,7 +11,7 @@ extends Control
 @export var imgBtnNight : Texture2D
 @export var imgBtnDay : Texture2D
 
-@export var morgue : PackedScene
+var morgue : PackedScene = GlobalVars.morgue
 
 var frameMov : int = 1
 var inHow : bool = false

@@ -1,11 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://c76vcn7ngxmgx"]
+[gd_scene load_steps=11 format=3 uid="uid://c76vcn7ngxmgx"]
 
 [ext_resource type="Script" path="res://Code/Scripts/death_menu.gd" id="1_ikp54"]
 [ext_resource type="Texture2D" uid="uid://ns0lrlejmsu" path="res://Rescources/Textures/game over.png" id="1_oie4a"]
 [ext_resource type="Texture2D" uid="uid://h152tnqghhyp" path="res://Rescources/Textures/start_20250116095708.png" id="2_36qgm"]
 [ext_resource type="Texture2D" uid="uid://d241cris5p5mv" path="res://Rescources/Textures/quit_button_20250116132307.png" id="2_65rt1"]
-[ext_resource type="PackedScene" uid="uid://oo7vbl4x0ecv" path="res://Scenes/levels/Morgue.tscn" id="2_w580r"]
-[ext_resource type="PackedScene" uid="uid://cdu0u45dgmee5" path="res://Scenes/Menus/mainMenu.tscn" id="3_0j3ko"]
 [ext_resource type="Texture2D" uid="uid://cfaosrbylr7ay" path="res://Rescources/Textures/start_push_20250116133625.png" id="3_o8w6t"]
 [ext_resource type="Texture2D" uid="uid://dj1apht300knw" path="res://Rescources/Textures/quit_button_push_20250116132331.png" id="3_xy73e"]
 [ext_resource type="Texture2D" uid="uid://dv5agwdps452m" path="res://Rescources/Textures/start_select_20250116134552.png" id="6_8042q"]
@@ -23,8 +21,6 @@ grow_vertical = 2
 script = ExtResource("1_ikp54")
 playButton = NodePath("playButton")
 quitButton = NodePath("quitButton")
-morgue = ExtResource("2_w580r")
-menu = ExtResource("3_0j3ko")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
