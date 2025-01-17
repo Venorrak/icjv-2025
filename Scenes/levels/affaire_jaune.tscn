@@ -1,13 +1,13 @@
-[gd_scene load_steps=15 format=4 uid="uid://6rqhbe3f1i35"]
+[gd_scene load_steps=22 format=4 uid="uid://6rqhbe3f1i35"]
 
 [ext_resource type="Texture2D" uid="uid://d3rnqug8kf1ue" path="res://Rescources/Textures/bone_walls_20250116115258 1.png" id="1_5u2yr"]
 [ext_resource type="Texture2D" uid="uid://cqyqclkkrpyrb" path="res://Rescources/Textures/Hammer_right_20250116135946.png" id="2_bqb72"]
-[ext_resource type="Script" path="res://Scenes/levels/player.gd" id="2_ftb1r"]
 [ext_resource type="Texture2D" uid="uid://vayomceydeg" path="res://Rescources/Textures/Corner_A.png" id="2_iloyw"]
 [ext_resource type="Texture2D" uid="uid://bcs7gdxs0dikg" path="res://Rescources/Textures/Corner_B.png" id="3_iwciw"]
 [ext_resource type="Texture2D" uid="uid://c6f1p63rud488" path="res://Rescources/Textures/Corner_C.png" id="4_6nyyy"]
 [ext_resource type="Texture2D" uid="uid://b38gjxxx37cmg" path="res://Rescources/Textures/Corner_D.png" id="5_ob5c1"]
-[ext_resource type="Script" path="res://Scenes/levels/affaire_jaune/tile_map_layer.gd" id="6_60rxp"]
+[ext_resource type="Texture2D" uid="uid://cpkr4nxibljxc" path="res://Rescources/Textures/virus vert.png" id="8_8l5ev"]
+[ext_resource type="Script" path="res://Scenes/levels/affaire_jaune/enemy.gd" id="9_n513b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kixbm"]
 texture = ExtResource("1_5u2yr")
@@ -59,7 +59,84 @@ sources/2 = SubResource("TileSetAtlasSource_itpha")
 sources/3 = SubResource("TileSetAtlasSource_t14p2")
 sources/4 = SubResource("TileSetAtlasSource_chyxd")
 
-[node name="affaire_jaune" type="Node2D"]
+[sub_resource type="GDScript" id="GDScript_3gjdx"]
+script/source = "extends Sprite2D
+
+var speed: float = 1200.0 
+var direction = Vector2()
+var canMove: bool = true
+var last_mouvement = Vector2.ZERO
+func _ready() -> void:
+	pass
+
+func _process(delta: float) -> void:
+	if canMove:
+		if Input.is_action_pressed(\"down\"):
+			direction = Vector2(0, speed)
+			canMove=false
+		elif Input.is_action_pressed(\"up\"):
+			direction = Vector2(0, -speed)
+			canMove=false
+		elif Input.is_action_pressed(\"left\"):
+			direction = Vector2(-speed, 0)
+			canMove=false
+		elif Input.is_action_pressed(\"right\"):
+			direction = Vector2(speed, 0)
+			canMove=false
+		
+	if direction != Vector2.ZERO:
+		look_at(position + direction)
+		if(!$Detection.is_colliding()):
+			position += direction * delta
+		else:
+			canMove = true
+	
+	#get_collider_rid() const
+#Returns the RID of the first object that the ray intersects, or an empty RID if no object is intersecting the ray (i.e. is_colliding() returns false).
+#TileMapLayerscript
+#void_tile_data_runtime_update(coords: Vector2i, tile_data: TileData) virtualbool_use_tile_data_runtime_update(coords: Vector2i) virtualvoidclear()voiderase_cell(coords: Vector2i)voidfix_invalid_tiles()intget_cell_alternative_tile(coords: Vector2i) constVector2iget_cell_atlas_coords(coords: Vector2i) constintget_cell_source_id(coords: Vector2i) constTileDataget_cell_tile_data(coords: Vector2i) constVector2iget_coords_for_body_rid(body: RID) const
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4cq7n"]
+atlas = ExtResource("8_8l5ev")
+region = Rect2(0, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u5fpk"]
+atlas = ExtResource("8_8l5ev")
+region = Rect2(40, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdfir"]
+atlas = ExtResource("8_8l5ev")
+region = Rect2(80, 0, 40, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hygxp"]
+atlas = ExtResource("8_8l5ev")
+region = Rect2(120, 0, 40, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g8y8f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4cq7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u5fpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdfir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hygxp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4b1go"]
+radius = 18.0278
+
+[node name="spawn_0" type="Node2D"]
 position = Vector2(0, -1)
 
 [node name="Level" type="TileMapLayer" parent="."]
@@ -67,7 +144,6 @@ position = Vector2(57, 97)
 tile_map_data = PackedByteArray("AAD+/wIAAQAAAAAAAAD9/wIAAAABAAAAAAD8/wIAAAABAAAAAAD7/wIAAAABAAAAAAD6/wIAAAABAAAAAAD5/wIAAAABAAAAAAD4/wIAAAABAAAAAAD3/wIAAgAAAAAAAAD3/wEAAAAAAAAAAAD3/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wAAAwAAAAAAAAD3////AwAAAAAAAAD4////AAABAAAAAAD5////AAABAAAAAAD6////AQAAAAAAAAD6//7/AAAAAAAAAAD6//3/AAAAAAAAAAD6//z/AAAAAAAAAAD6//v/AwAAAAAAAAD7//v/AAABAAAAAAD8//v/AAABAAAAAAD9//v/AAABAAAAAAD+//v/AAABAAAAAAD///v/AAABAAAAAAAAAPv/AAABAAAAAAABAPv/AAABAAAAAAACAPv/AAABAAAAAAD9//7/AQAAAAAAAAD8//3/AwAAAAAAAAD8//7/AgAAAAAAAAD9//3/BAAAAAAAAAD//wAAAAABAAAAAAAAAAAAAAABAAAAAAABAAAAAQAAAAAAAAABAP//AAAAAAAAAAABAP7/AwAAAAAAAAACAP7/AAABAAAAAAADAPv/AAABAAAAAAAEAPv/AAABAAAAAAAFAPv/AAABAAAAAAAGAPv/AAABAAAAAAADAP7/AAABAAAAAAAEAP7/BAAAAAAAAAAEAP//AAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAgAAAAAAAAAFAAIAAAABAAAAAAAGAAIAAAABAAAAAAAHAAIAAAABAAAAAAAIAPv/BAAAAAAAAAAIAAIAAQAAAAAAAAAIAAEAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAP//AAAAAAAAAAAIAP7/AAAAAAAAAAAIAP3/AAAAAAAAAAAIAPz/AAAAAAAAAAAHAPv/AAABAAAAAAA=")
 tile_set = SubResource("TileSet_wvx0b")
 collision_visibility_mode = 1
-script = ExtResource("6_60rxp")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-266, -56)
@@ -76,11 +152,21 @@ position = Vector2(-266, -56)
 position = Vector2(-239, 148)
 scale = Vector2(1.3195, 1.45)
 texture = ExtResource("2_bqb72")
-script = ExtResource("2_ftb1r")
+script = SubResource("GDScript_3gjdx")
 
 [node name="Detection" type="RayCast2D" parent="Hammer"]
 position = Vector2(19.194, 0.824242)
 exclude_parent = false
 target_position = Vector2(14.3955, 1.47386e-06)
 
-[connection signal="changed" from="Level" to="Level" method="_on_changed"]
+[node name="Enemy" type="AnimatedSprite2D" parent="." groups=["Enemy"]]
+sprite_frames = SubResource("SpriteFrames_g8y8f")
+script = ExtResource("9_n513b")
+
+[node name="HitBox" type="Area2D" parent="Enemy"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/HitBox" groups=["Enemy"]]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_4b1go")
+
+[connection signal="body_entered" from="Enemy/HitBox" to="Enemy" method="_on_hit_box_body_entered"]
