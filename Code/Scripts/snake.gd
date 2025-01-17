@@ -1,4 +1,5 @@
 extends Node2D
+signal finished
 
 var point_counter = 0
 # Called when the node enters the scene tree for the first time.
