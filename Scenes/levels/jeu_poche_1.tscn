@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://ynmoqk8rdgpv"]
 
-[ext_resource type="Texture2D" uid="uid://dq517ogjgtdhb" path="res://Scenes/levels/bras.tres" id="1_lx7m3"]
-[ext_resource type="Texture2D" uid="uid://i376xr7jn14j" path="res://Scenes/levels/bras gore-Sheet.png" id="1_t24v4"]
-[ext_resource type="Script" path="res://Scenes/levels/jeu_poche_1.gd" id="1_w2e08"]
-[ext_resource type="Texture2D" uid="uid://0vnc85a7sabg" path="res://Scenes/levels/cible.tres" id="2_357v4"]
-[ext_resource type="Texture2D" uid="uid://dm7y851hk6o2a" path="res://Scenes/levels/Scie.tres" id="3_5qb6x"]
-[ext_resource type="Script" path="res://Scenes/levels/bar.gd" id="3_ccjha"]
-[ext_resource type="Script" path="res://Scenes/levels/scie.gd" id="4_lmwjm"]
+[ext_resource type="Texture2D" uid="uid://dq517ogjgtdhb" path="res://Scenes/Objects/bras.tres" id="1_lx7m3"]
+[ext_resource type="Texture2D" uid="uid://i376xr7jn14j" path="res://Rescources/Textures/bras gore-Sheet.png" id="1_t24v4"]
+[ext_resource type="Script" path="res://Code/Scripts/jeu_poche_1.gd" id="1_w2e08"]
+[ext_resource type="Texture2D" uid="uid://0vnc85a7sabg" path="res://Scenes/cible.tres" id="2_357v4"]
+[ext_resource type="Texture2D" uid="uid://dm7y851hk6o2a" path="res://Scenes/Objects/Scie.tres" id="3_5qb6x"]
+[ext_resource type="Script" path="res://Code/Scripts/bar.gd" id="3_ccjha"]
+[ext_resource type="Script" path="res://Code/Scripts/scie.gd" id="4_lmwjm"]
 
 [node name="jeuPoche1" type="Node2D"]
 position = Vector2(1, 6)

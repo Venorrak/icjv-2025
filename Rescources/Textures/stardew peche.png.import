@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i376xr7jn14j"
-path="res://.godot/imported/bras gore-Sheet.png-efe8d9191a264c1dde7515d1ca4f641f.ctex"
+uid="uid://gett7j1br5to"
+path="res://.godot/imported/stardew peche.png-9cb3a4acda1e158e308d166aebe06356.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/levels/bras gore-Sheet.png"
-dest_files=["res://.godot/imported/bras gore-Sheet.png-efe8d9191a264c1dde7515d1ca4f641f.ctex"]
+source_file="res://Rescources/Textures/stardew peche.png"
+dest_files=["res://.godot/imported/stardew peche.png-9cb3a4acda1e158e308d166aebe06356.ctex"]
 
 [params]
 
