@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://dm70ly4dvca6p"]
+
+[ext_resource type="Script" path="res://Scenes/script/hammer.gd" id="1_nbfl0"]
+[ext_resource type="Texture2D" uid="uid://cqyqclkkrpyrb" path="res://Rescources/Textures/Hammer_right_20250116135946.png" id="2_wa51f"]
+
+[node name="Hammer" type="CharacterBody2D"]
+position = Vector2(95.2727, 9)
+scale = Vector2(0.759314, 0.840001)
+script = ExtResource("1_nbfl0")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-2.64153, -1.19049)
+scale = Vector2(1.31698, 1.19048)
+zoom = Vector2(0.75, 0.75)
+
+[node name="Texture" type="Sprite2D" parent="."]
+position = Vector2(1.00287, -3.8147e-06)
+scale = Vector2(3.53402, 3.4)
+texture = ExtResource("2_wa51f")
+
+[node name="headShape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(22.0631, -47, 22.0631, 46, 74.2124, 46, 74.2124, -47)
+
+[node name="hammer_box" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hammer_box"]
+position = Vector2(2.00574, 1)
+polygon = PackedVector2Array(16.0459, -49, 17.0488, -11, -73.2095, -10, -73.2095, 11, 16.0459, 11, 16.0459, 48, 76.2181, 47, 75.2153, -49)
+
+[connection signal="area_entered" from="hammer_box" to="." method="_on_hammer_box_area_entered"]
