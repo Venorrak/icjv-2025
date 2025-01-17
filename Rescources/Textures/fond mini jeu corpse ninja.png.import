@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n85cbk2d47ok"
-path="res://.godot/imported/spritesheet_slice1_20250116020147.png-d699305dc7fab3e387f3aee8bea74103.ctex"
+uid="uid://bqhf5srns2kki"
+path="res://.godot/imported/fond mini jeu corpse ninja.png-bbfc84343f0058dd9de290659131876e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/levels/Fruit_ninja/Sprite/spritesheet_slice1_20250116020147.png"
-dest_files=["res://.godot/imported/spritesheet_slice1_20250116020147.png-d699305dc7fab3e387f3aee8bea74103.ctex"]
+source_file="res://Rescources/Textures/fond mini jeu corpse ninja.png"
+dest_files=["res://.godot/imported/fond mini jeu corpse ninja.png-bbfc84343f0058dd9de290659131876e.ctex"]
 
 [params]
 

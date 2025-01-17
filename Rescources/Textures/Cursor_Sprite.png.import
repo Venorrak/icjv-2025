@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmhosxweq76k6"
-path="res://.godot/imported/spritesheet_objets_20250116014832.png-6c9e9b4f0f1f1d6fc16b2ff5ea6e185a.ctex"
+uid="uid://dlvmdjjsnuyhv"
+path="res://.godot/imported/Cursor_Sprite.png-82935491b243e094d82977874eabddde.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/levels/Fruit_ninja/Sprite/spritesheet_objets_20250116014832.png"
-dest_files=["res://.godot/imported/spritesheet_objets_20250116014832.png-6c9e9b4f0f1f1d6fc16b2ff5ea6e185a.ctex"]
+source_file="res://Rescources/Textures/Cursor_Sprite.png"
+dest_files=["res://.godot/imported/Cursor_Sprite.png-82935491b243e094d82977874eabddde.ctex"]
 
 [params]
 
