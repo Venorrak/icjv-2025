@@ -13,5 +13,9 @@ func _process(delta: float) -> void:
 
 
 func _on_point_area_entered(area: Area2D) -> void:
-	point_counter += 1
-	$Label.text = str(point_counter)
+	if area.is_in_group("snakePlayer"):
+		point_counter += 1
+		$Label.text = str(point_counter)
+		if point_counter == 5:
+			finished.emit(true)
+			queue_free()

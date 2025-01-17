@@ -11,6 +11,7 @@ extends Node2D
 @export var takeMemberSound : AudioStream
 
 @export var armMiniGame : PackedScene
+@export var legMiniGame : PackedScene
 
 var direction : String = ""
 var members : Array = []
@@ -168,11 +169,12 @@ func selectMember() -> void:
 		"rightArm":
 			SignalBus.startMiniGame.emit(self, armMiniGame)
 		"leftLeg":
-			SignalBus.startMiniGame.emit(self, armMiniGame)
+			SignalBus.startMiniGame.emit(self, legMiniGame)
 		"rightLeg":
-			SignalBus.startMiniGame.emit(self, armMiniGame)
+			SignalBus.startMiniGame.emit(self, legMiniGame)
 
 func onMiniGameFinished(won : bool) -> void:
+	print(won)
 	if chosenPart != {}:
 		if won:
 			nextBody.append(chosenPart)

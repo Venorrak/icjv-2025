@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://xjo7fa6ofxby"]
+[gd_scene load_steps=4 format=3 uid="uid://cd15rksjkrncw"]
 
 [ext_resource type="Script" path="res://Code/Scripts/player.gd" id="1_ttyth"]
-[ext_resource type="PackedScene" uid="uid://dyssjq8keq4xc" path="res://Scenes/Objects/body.tscn" id="2_dr6gc"]
+[ext_resource type="PackedScene" uid="uid://yybgg6isxcvm" path="res://Scenes/Objects/body.tscn" id="2_dr6gc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_bnvit"]
 

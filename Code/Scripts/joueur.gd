@@ -2,9 +2,9 @@ extends CharacterBody2D
 
 
 @onready var trail = load("res://Scenes/Objects/queue.tscn")
-@onready var snake = get_tree().get_root().get_node("Snake")
+@export var snake : Node2D
 
-var speed = lerp(0, 1000, 0.4)# TODO : change difficulty
+var speed = lerp(0, 1000, GlobalVars.difficultyCurve.sample(float(GlobalVars.currentWave) / 100) / 100.0)
 var tile_size = 64
 var move_distance = 0
 var last_direction = ""
@@ -161,23 +161,33 @@ func go_down():
 	previous_direction = last_direction
 	input_dir.y = 1
 
-func _on_mur_haut_area_entered(area: Area2D) -> void:
-	fin = true
-	get_parent().finished.emit(false)
-
-func _on_mur_bas_area_entered(area: Area2D) -> void:
-	fin = true
-	get_parent().finished.emit(false)
-
-func _on_mur_gauche_area_entered(area: Area2D) -> void:
-	fin = true
-	get_parent().finished.emit(false)
-
-func _on_mur_droite_area_entered(area: Area2D) -> void:
-	fin = true
-	get_parent().finished.emit(false)
-
 func _on_point_area_entered(area: Area2D) -> void:
 	point_counter += 1
-	if point_counter == 5:
-		get_parent().finished.emit(true)
+	
+
+func _on_mur_haut_area_entered(area: Area2D) -> void:
+	if area.is_in_group("snakePlayer"):
+		fin = true
+		get_parent().finished.emit(false)
+		get_parent().queue_free()
+
+
+func _on_mur_gauche_area_entered(area: Area2D) -> void:
+	if area.is_in_group("snakePlayer"):
+		fin = true
+		get_parent().finished.emit(false)
+		get_parent().queue_free()
+
+
+func _on_mur_droite_area_entered(area: Area2D) -> void:
+	if area.is_in_group("snakePlayer"):
+		fin = true
+		get_parent().finished.emit(false)
+		get_parent().queue_free()
+
+
+func _on_mur_bas_area_entered(area: Area2D) -> void:
+	if area.is_in_group("snakePlayer"):
+		fin = true
+		get_parent().finished.emit(false)
+		get_parent().queue_free()
