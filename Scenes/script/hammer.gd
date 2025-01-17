@@ -6,8 +6,6 @@ var speed: int= 1000
 var acceleration:float= 0.05
 var friction:float= 0.2
 
-signal finish
-
 var score:int =0
 
 func _process(delta: float) -> void:
@@ -20,7 +18,7 @@ func _process(delta: float) -> void:
 	$Texture.rotation = velocity.angle()
 	move_and_slide()
 	if score == 5:
-		finish.emit(true)
+		get_parent().finish.emit(true)
 		get_parent().queue_free()
 
 func _on_hammer_box_area_entered(area: Area2D) -> void:
@@ -29,8 +27,6 @@ func _on_hammer_box_area_entered(area: Area2D) -> void:
 		score+=1
 		
 
-
 func _on_timer_timeout() -> void:
-	finish.emit(false)
+	get_parent().finish.emit(false)
 	get_parent().queue_free()
-	pass # Replace with function body.

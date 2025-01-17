@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=4 uid="uid://6rqhbe3f1i35"]
+[gd_scene load_steps=24 format=4 uid="uid://6rqhbe3f1i35"]
 
+[ext_resource type="Script" path="res://Code/Scripts/masterHammerLevel.gd" id="1_desiw"]
 [ext_resource type="Texture2D" uid="uid://d3rnqug8kf1ue" path="res://Rescources/Textures/bone_walls_20250116115258 1.png" id="1_v3f3y"]
 [ext_resource type="Texture2D" uid="uid://vayomceydeg" path="res://Rescources/Textures/Corner_A.png" id="2_jv8bm"]
 [ext_resource type="Texture2D" uid="uid://bcs7gdxs0dikg" path="res://Rescources/Textures/Corner_B.png" id="3_i55na"]
@@ -11,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cs256x7gnquok" path="res://Rescources/Textures/T_L.png" id="7_ap7ou"]
 [ext_resource type="Texture2D" uid="uid://dvjetxp36wlpg" path="res://Rescources/Textures/Background.png" id="8_yeg22"]
 [ext_resource type="PackedScene" uid="uid://dm70ly4dvca6p" path="res://Scenes/Objects/hammer.tscn" id="9_ob8s6"]
+[ext_resource type="Script" path="res://Code/Scripts/timeLabel.gd" id="12_gh56u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rjxue"]
 texture = ExtResource("8_yeg22")
@@ -111,6 +113,7 @@ sources/6 = SubResource("TileSetAtlasSource_pepg6")
 [node name="Level" type="Node2D"]
 position = Vector2(0, -1)
 scale = Vector2(0.997138, 1)
+script = ExtResource("1_desiw")
 
 [node name="Background" type="TileMapLayer" parent="."]
 position = Vector2(0, 1)
@@ -137,7 +140,17 @@ position = Vector2(-264.758, -43)
 position = Vector2(-673.929, -528)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 25.0
 autostart = true
+
+[node name="Label" type="Label" parent="." node_paths=PackedStringArray("timer")]
+offset_left = 38.0
+offset_top = -32.0
+offset_right = 105.0
+offset_bottom = -9.0
+theme_override_font_sizes/font_size = 24
+text = "25 s"
+script = ExtResource("12_gh56u")
+timer = NodePath("../Timer")
 
 [connection signal="timeout" from="Timer" to="Hammer" method="_on_timer_timeout"]
