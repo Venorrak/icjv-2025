@@ -1,6 +1,6 @@
 [gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dm7y851hk6o2a"]
 
-[ext_resource type="Texture2D" uid="uid://gett7j1br5to" path="res://Scenes/levels/stardew peche.png" id="1_e5yfo"]
+[ext_resource type="Texture2D" uid="uid://gett7j1br5to" path="res://Rescources/Textures/stardew peche.png" id="1_e5yfo"]
 
 [resource]
 atlas = ExtResource("1_e5yfo")
