@@ -45,8 +45,8 @@ func _process(delta: float) -> void:
 		progressBar.value = progress
 
 func _on_timer_timeout() -> void:
-	var topBound : float = clampf(position.y + 100, minBox, topBox)
-	var botBound : float = clampf(position.y - 100, minBox, topBox)
+	var topBound : float = clampf(position.y + 200, minBox, topBox)
+	var botBound : float = clampf(position.y - 200, minBox, topBox)
 	random_y = randf_range(topBound,botBound)
 
 func updateBackground() -> void:
