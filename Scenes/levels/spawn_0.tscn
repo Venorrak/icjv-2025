@@ -1,16 +1,16 @@
-[gd_scene load_steps=22 format=4 uid="uid://6rqhbe3f1i35"]
+[gd_scene load_steps=21 format=4 uid="uid://6rqhbe3f1i35"]
 
-[ext_resource type="Texture2D" uid="uid://d3rnqug8kf1ue" path="res://Rescources/Textures/bone_walls_20250116115258 1.png" id="1_5u2yr"]
-[ext_resource type="Texture2D" uid="uid://cqyqclkkrpyrb" path="res://Rescources/Textures/Hammer_right_20250116135946.png" id="2_bqb72"]
-[ext_resource type="Texture2D" uid="uid://vayomceydeg" path="res://Rescources/Textures/Corner_A.png" id="2_iloyw"]
-[ext_resource type="Texture2D" uid="uid://bcs7gdxs0dikg" path="res://Rescources/Textures/Corner_B.png" id="3_iwciw"]
-[ext_resource type="Texture2D" uid="uid://c6f1p63rud488" path="res://Rescources/Textures/Corner_C.png" id="4_6nyyy"]
-[ext_resource type="Texture2D" uid="uid://b38gjxxx37cmg" path="res://Rescources/Textures/Corner_D.png" id="5_ob5c1"]
-[ext_resource type="Texture2D" uid="uid://cpkr4nxibljxc" path="res://Rescources/Textures/virus vert.png" id="8_8l5ev"]
-[ext_resource type="Script" path="res://Scenes/levels/affaire_jaune/enemy.gd" id="9_n513b"]
+[ext_resource type="Texture2D" uid="uid://d3rnqug8kf1ue" path="res://Rescources/Textures/bone_walls_20250116115258 1.png" id="1_v3f3y"]
+[ext_resource type="Texture2D" uid="uid://vayomceydeg" path="res://Rescources/Textures/Corner_A.png" id="2_jdxri"]
+[ext_resource type="Texture2D" uid="uid://bcs7gdxs0dikg" path="res://Rescources/Textures/Corner_B.png" id="3_x5is6"]
+[ext_resource type="Texture2D" uid="uid://c6f1p63rud488" path="res://Rescources/Textures/Corner_C.png" id="4_7gcc0"]
+[ext_resource type="Texture2D" uid="uid://b38gjxxx37cmg" path="res://Rescources/Textures/Corner_D.png" id="5_ym3qr"]
+[ext_resource type="Texture2D" uid="uid://cqyqclkkrpyrb" path="res://Rescources/Textures/Hammer_right_20250116135946.png" id="6_duxxt"]
+[ext_resource type="Texture2D" uid="uid://cpkr4nxibljxc" path="res://Rescources/Textures/virus vert.png" id="7_xqygm"]
+[ext_resource type="Script" path="res://Scenes/levels/affaire_jaune/enemy.gd" id="8_e5r01"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kixbm"]
-texture = ExtResource("1_5u2yr")
+texture = ExtResource("1_v3f3y")
 texture_region_size = Vector2i(40, 40)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.47475, -20, 8.68687, -20, 9.09091, 20, -7.87879, 20)
@@ -26,25 +26,25 @@ texture_region_size = Vector2i(40, 40)
 4:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p4mfo"]
-texture = ExtResource("2_iloyw")
+texture = ExtResource("2_jdxri")
 texture_region_size = Vector2i(40, 40)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, 10.303, 10.303, 9.49495, 11.5152, -20, -6.66667, -20, -7.47475, -7.07071, -20, -6.26263)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itpha"]
-texture = ExtResource("3_iwciw")
+texture = ExtResource("3_x5is6")
 texture_region_size = Vector2i(40, 40)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.89899, -20, -9.89899, 10.303, 20, 10.7071, 20, -6.66667, 7.47475, -7.07071, 6.26263, -20)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t14p2"]
-texture = ExtResource("4_6nyyy")
+texture = ExtResource("4_7gcc0")
 texture_region_size = Vector2i(40, 40)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(20, 6.66667, 7.47475, 6.66667, 7.47475, 20, -10.7071, 20, -10.303, 6.26263, -9.49495, -9.89899, 20, -10.303)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_chyxd"]
-texture = ExtResource("5_ob5c1")
+texture = ExtResource("5_ym3qr")
 texture_region_size = Vector2i(40, 40)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -9.89899, 8.68687, -8.28283, 9.49495, 20, -7.87879, 20, -5.85859, 6.66667, -20, 7.07071)
@@ -97,25 +97,28 @@ func _process(delta: float) -> void:
 #void_tile_data_runtime_update(coords: Vector2i, tile_data: TileData) virtualbool_use_tile_data_runtime_update(coords: Vector2i) virtualvoidclear()voiderase_cell(coords: Vector2i)voidfix_invalid_tiles()intget_cell_alternative_tile(coords: Vector2i) constVector2iget_cell_atlas_coords(coords: Vector2i) constintget_cell_source_id(coords: Vector2i) constTileDataget_cell_tile_data(coords: Vector2i) constVector2iget_coords_for_body_rid(body: RID) const
 "
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hygxp"]
+atlas = ExtResource("7_xqygm")
+region = Rect2(120, 0, 40, 40)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cq7n"]
-atlas = ExtResource("8_8l5ev")
+atlas = ExtResource("7_xqygm")
 region = Rect2(0, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u5fpk"]
-atlas = ExtResource("8_8l5ev")
+atlas = ExtResource("7_xqygm")
 region = Rect2(40, 0, 40, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pdfir"]
-atlas = ExtResource("8_8l5ev")
+atlas = ExtResource("7_xqygm")
 region = Rect2(80, 0, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hygxp"]
-atlas = ExtResource("8_8l5ev")
-region = Rect2(120, 0, 40, 40)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g8y8f"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hygxp")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4cq7n")
 }, {
@@ -124,17 +127,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pdfir")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hygxp")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4b1go"]
-radius = 18.0278
 
 [node name="spawn_0" type="Node2D"]
 position = Vector2(0, -1)
@@ -151,7 +148,7 @@ position = Vector2(-266, -56)
 [node name="Hammer" type="Sprite2D" parent="."]
 position = Vector2(-239, 148)
 scale = Vector2(1.3195, 1.45)
-texture = ExtResource("2_bqb72")
+texture = ExtResource("6_duxxt")
 script = SubResource("GDScript_3gjdx")
 
 [node name="Detection" type="RayCast2D" parent="Hammer"]
@@ -160,13 +157,13 @@ exclude_parent = false
 target_position = Vector2(14.3955, 1.47386e-06)
 
 [node name="Enemy" type="AnimatedSprite2D" parent="." groups=["Enemy"]]
+position = Vector2(153, 8)
 sprite_frames = SubResource("SpriteFrames_g8y8f")
-script = ExtResource("9_n513b")
+frame_progress = 0.518842
+speed_scale = 0.1
+script = ExtResource("8_e5r01")
 
-[node name="HitBox" type="Area2D" parent="Enemy"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/HitBox" groups=["Enemy"]]
-position = Vector2(1, 0)
-shape = SubResource("CircleShape2D_4b1go")
-
-[connection signal="body_entered" from="Enemy/HitBox" to="Enemy" method="_on_hit_box_body_entered"]
+[node name="RayCast2D" type="RayCast2D" parent="Enemy"]
+position = Vector2(4, 12)
+exclude_parent = false
+target_position = Vector2(0, 17)

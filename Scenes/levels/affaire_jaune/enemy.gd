@@ -1,18 +1,30 @@
 extends AnimatedSprite2D
 
-
-# Called when the node enters the scene tree for the first time.
+@export var maxSpeed : float = 300
+@export var acceleration := 0.01
+@export var difficulte = 1
+var currentSpeed : float = 0
+var direction = Vector2()
+var goTop :bool=true
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	pass
+	direction = Vector2(0, currentSpeed)
+	if direction != Vector2.ZERO:
+		look_at(position + direction)
+	
+	if($Detection.is_colliding()):
+		if(goTop):
+			currentSpeed = lerp(direction, maxSpeed, acceleration)
+			
+			position += direction * delta
+			goTop=false
+			
+		else:
+			position -= direction * delta
+			goTop=true
 
 
-func _on_hit_box_body_entered(body: Node2D) -> void:
-	var area_name := body.name.to_lower()
-	print(area_name)
-	pass
+	
