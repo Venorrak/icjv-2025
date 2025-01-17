@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://6rqhbe3f1i35"]
+[gd_scene load_steps=21 format=4 uid="uid://6rqhbe3f1i35"]
 
 [ext_resource type="Texture2D" uid="uid://d3rnqug8kf1ue" path="res://Rescources/Textures/bone_walls_20250116115258 1.png" id="1_v3f3y"]
 [ext_resource type="Texture2D" uid="uid://vayomceydeg" path="res://Rescources/Textures/Corner_A.png" id="2_jdxri"]
@@ -97,6 +97,10 @@ func _process(delta: float) -> void:
 #void_tile_data_runtime_update(coords: Vector2i, tile_data: TileData) virtualbool_use_tile_data_runtime_update(coords: Vector2i) virtualvoidclear()voiderase_cell(coords: Vector2i)voidfix_invalid_tiles()intget_cell_alternative_tile(coords: Vector2i) constVector2iget_cell_atlas_coords(coords: Vector2i) constintget_cell_source_id(coords: Vector2i) constTileDataget_cell_tile_data(coords: Vector2i) constVector2iget_coords_for_body_rid(body: RID) const
 "
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hygxp"]
+atlas = ExtResource("7_xqygm")
+region = Rect2(120, 0, 40, 40)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4cq7n"]
 atlas = ExtResource("7_xqygm")
 region = Rect2(0, 0, 40, 40)
@@ -109,13 +113,12 @@ region = Rect2(40, 0, 40, 40)
 atlas = ExtResource("7_xqygm")
 region = Rect2(80, 0, 40, 40)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hygxp"]
-atlas = ExtResource("7_xqygm")
-region = Rect2(120, 0, 40, 40)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_g8y8f"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hygxp")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4cq7n")
 }, {
@@ -124,17 +127,11 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pdfir")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hygxp")
 }],
 "loop": true,
 "name": &"default",
 "speed": 3.0
 }]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4b1go"]
-radius = 18.0278
 
 [node name="spawn_0" type="Node2D"]
 position = Vector2(0, -1)
@@ -160,16 +157,13 @@ exclude_parent = false
 target_position = Vector2(14.3955, 1.47386e-06)
 
 [node name="Enemy" type="AnimatedSprite2D" parent="." groups=["Enemy"]]
-position = Vector2(171, 15)
+position = Vector2(153, 8)
 sprite_frames = SubResource("SpriteFrames_g8y8f")
 frame_progress = 0.518842
 speed_scale = 0.1
 script = ExtResource("8_e5r01")
 
-[node name="HitBox" type="Area2D" parent="Enemy"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy/HitBox" groups=["Enemy"]]
-position = Vector2(1, 0)
-shape = SubResource("CircleShape2D_4b1go")
-
-[connection signal="body_entered" from="Enemy/HitBox" to="Enemy" method="_on_hit_box_body_entered"]
+[node name="RayCast2D" type="RayCast2D" parent="Enemy"]
+position = Vector2(4, 12)
+exclude_parent = false
+target_position = Vector2(0, 17)
