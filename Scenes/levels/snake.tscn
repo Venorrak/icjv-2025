@@ -1,10 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://duuc1fj30xbqn"]
+[gd_scene load_steps=18 format=3 uid="uid://dmpljy08wk7n8"]
 
 [ext_resource type="Script" path="res://Code/Scripts/snake.gd" id="1_8kiwd"]
-[ext_resource type="Texture2D" uid="uid://bmq8jtulr7fvh" path="res://Rescources/Textures/tileset_snake_20250116110621.png" id="2_x2fq0"]
+[ext_resource type="Texture2D" uid="uid://bicoh6utu7iyr" path="res://Rescources/Textures/tileset_snake_20250116110621.png" id="2_x2fq0"]
 [ext_resource type="Script" path="res://Code/Scripts/joueur.gd" id="3_0uh2n"]
-[ext_resource type="PackedScene" uid="uid://dib0hecl6d06m" path="res://Scenes/Objects/queue.tscn" id="4_jfm2q"]
-[ext_resource type="Texture2D" uid="uid://dbg8dx06iihas" path="res://Rescources/Textures/Scalpel_20250116114044.png" id="5_giavp"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/queue.tscn" id="4_jfm2q"]
+[ext_resource type="Texture2D" uid="uid://cqjwatewrdwbu" path="res://Rescources/Textures/Scalpel_20250116114044.png" id="5_giavp"]
 [ext_resource type="Script" path="res://Code/Scripts/point.gd" id="6_pv73w"]
 [ext_resource type="Texture2D" uid="uid://kd78uq6dx6an" path="res://Rescources/Textures/tileset_snake_20250116110621 (2).png" id="7_ntcxi"]
 

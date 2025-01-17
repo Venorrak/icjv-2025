@@ -7,6 +7,7 @@ var deathScene : PackedScene = GlobalVars.deathMenu
 @export var imgNightWindow : Texture2D
 @export var dark : Sprite2D
 @export var window : Sprite2D
+@export var roundTimer : Timer
 
 @export var gameMusic : AudioStream
 
@@ -18,6 +19,8 @@ func _ready() -> void:
 		dark.visible = false
 		window.texture = imgDayWindow
 	AudioManager.playMusic(gameMusic)
+	roundTimer.wait_time = GlobalVars.roundTime
+	roundTimer.start()
 
 func _on_round_timer_timeout() -> void:
 	GlobalVars.reset()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc8e5unc6jxqi"]
+[gd_scene load_steps=4 format=3 uid="uid://vdiy1xqb6y3u"]
 
 [ext_resource type="Script" path="res://Code/Scripts/body.gd" id="1_lflrb"]
 [ext_resource type="Texture2D" uid="uid://d1jqvael2ky51" path="res://Rescources/Textures/Spritesheet_corps_20250115231844.png" id="1_ne4q7"]

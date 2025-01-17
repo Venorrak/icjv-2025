@@ -28,7 +28,7 @@ func updateTimerLabel(remainingTime : float, accentColor : Color) -> void:
 		secondes = "0" + secondes
 	if minutes.length() < 2:
 		minutes = "0" + minutes
-	var text = minutes + " : " + secondes
+	var text = "life : " + str(GlobalVars.currentWave) + " - " + minutes + " : " + secondes
 	text = BBcodeBuild.color(text, accentColor)
 	text = BBcodeBuild.fontSize(text, 30)
 	text = BBcodeBuild.center(text)
@@ -37,6 +37,7 @@ func updateTimerLabel(remainingTime : float, accentColor : Color) -> void:
 	timerLabel.text = text
 
 func newLoopAnimation() -> void:
+	GlobalVars.roundTime = GlobalVars.baseRoundTime + (roundTimer.time_left / 2)
 	animator.play("loop")
 	AudioManager.playSound(shockSound, 0.5)
 

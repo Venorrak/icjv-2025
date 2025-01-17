@@ -21,6 +21,7 @@ scale = Vector2(3.53402, 3.4)
 texture = ExtResource("2_wa51f")
 
 [node name="headShape" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(22.0631, -47, 22.0631, 46, 74.2124, 46, 74.2124, -47)
 
 [node name="hammer_box" type="Area2D" parent="."]

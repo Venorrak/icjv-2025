@@ -58,6 +58,8 @@ func changeVisibility() -> void:
 	quitButton.visible = !quitButton.visible
 	title.visible = !title.visible
 	howToSection.visible = !howToSection.visible
+	if howToSection.visible == false:
+		playButton.grab_focus()
 
 func _on_day_night_button_button_down() -> void:
 	GlobalVars.darkMode = !GlobalVars.darkMode

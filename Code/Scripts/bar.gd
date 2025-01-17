@@ -6,15 +6,15 @@ var progressBar: ProgressBar
 @export var maxSpeed : float = -300
 @export var acceleration := 0.01
 @export var fallSpeed : float = 300
-var progress: float = 25
+var progress: float = 35
 @export var progressSpeed: float = 15
 
 var player: Scie
 var currentSpeed : float = 0
-var minBox : float = 539.0
-var topBox: float = 119.0
+var minBox : float = 525.0
+var topBox: float = 115.0
 var random_y:float   
-@export var difficulte = 40
+var difficulte = GlobalVars.difficultyCurve.sample(float(GlobalVars.currentWave) / 100)
 
 func _ready() -> void:
 	player = get_parent().get_node("Scie")

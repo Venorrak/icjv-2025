@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://chy6rf6vru8kk" path="res://Rescources/Textures/morgue-final.png" id="6_0cq2c"]
 [ext_resource type="Texture2D" uid="uid://boegwvmjx2cet" path="res://Rescources/Textures/table_chair_20250116142713.png" id="6_51hek"]
 [ext_resource type="Script" path="res://Code/Scripts/nextBodyManager.gd" id="7_bh073"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/body.tscn" id="7_ft27x"]
+[ext_resource type="PackedScene" uid="uid://vdiy1xqb6y3u" path="res://Scenes/Objects/body.tscn" id="7_ft27x"]
 [ext_resource type="Texture2D" uid="uid://bjho1ixqswjvp" path="res://Rescources/Textures/PRESS_E_20250116130308.png" id="9_ysgd4"]
 [ext_resource type="Script" path="res://Code/Scripts/hud.gd" id="10_b5658"]
 [ext_resource type="Texture2D" uid="uid://c35gdl6e7xn2c" path="res://Rescources/Textures/éclair-Sheet.png" id="12_0vc0y"]
@@ -367,7 +367,7 @@ _data = {
 "loop": SubResource("Animation_45a0x")
 }
 
-[node name="Morgue" type="Node2D" node_paths=PackedStringArray("nextBody", "spawnHelpersBase", "dark", "window")]
+[node name="Morgue" type="Node2D" node_paths=PackedStringArray("nextBody", "spawnHelpersBase", "dark", "window", "roundTimer")]
 script = ExtResource("1_0yhr0")
 nextBody = NodePath("Table/Node2D/Body")
 spawnHelpersBase = NodePath("SpawnHelpers")
@@ -375,6 +375,7 @@ imgDayWindow = ExtResource("3_pnkte")
 imgNightWindow = ExtResource("16_n81mo")
 dark = NodePath("Dark")
 window = NodePath("Window")
+roundTimer = NodePath("roundTimer")
 gameMusic = ExtResource("4_riedu")
 
 [node name="floor" type="TileMapLayer" parent="."]
@@ -467,7 +468,7 @@ cameraSpeed = 0.05
 autostart = true
 
 [node name="roundTimer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 160.0
 one_shot = true
 autostart = true
 

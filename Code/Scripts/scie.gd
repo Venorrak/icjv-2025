@@ -5,8 +5,8 @@ class_name Scie
 @export var acceleration := 0.02
 @export var fallSpeed : float = 600
 var currentSpeed : float = 0
-var minBox : float = 408.0
-var topBox: float = 119.0
+var minBox : float = 460.0
+var topBox: float = 90.0
 
 func _process(delta: float) -> void:
 	
