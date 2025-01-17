@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfwi8s0hocn11"]
+
+[ext_resource type="Script" path="res://Code/Scripts/GlobalVars.gd" id="1_rqk8s"]
+[ext_resource type="PackedScene" uid="uid://cdu0u45dgmee5" path="res://Scenes/Menus/mainMenu.tscn" id="2_i81ok"]
+[ext_resource type="PackedScene" uid="uid://c76vcn7ngxmgx" path="res://Scenes/Menus/deathMenu.tscn" id="3_3h31k"]
+[ext_resource type="PackedScene" uid="uid://oo7vbl4x0ecv" path="res://Scenes/levels/Morgue.tscn" id="4_4xvmu"]
+
+[sub_resource type="Curve" id="Curve_djkt5"]
+max_value = 100.0
+_data = [Vector2(0, 40.6593), 0.0, 0.0, 0, 0, Vector2(0.0792079, 79.1209), 1.67983, 1.67983, 0, 0, Vector2(0.207921, 97.8022), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="GlobalVars" type="Node"]
+script = ExtResource("1_rqk8s")
+difficultyCurve = SubResource("Curve_djkt5")
+mainMenu = ExtResource("2_i81ok")
+deathMenu = ExtResource("3_3h31k")
+morgue = ExtResource("4_4xvmu")

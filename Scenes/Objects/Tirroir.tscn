@@ -1,0 +1,185 @@
+[gd_scene load_steps=16 format=3 uid="uid://v3d1b6ie34qo"]
+
+[ext_resource type="Script" path="res://Code/Scripts/tirroir.gd" id="1_d0u0p"]
+[ext_resource type="AudioStream" uid="uid://c6vetst352fbi" path="res://Rescources/Music/drawer2.wav" id="2_d8s6o"]
+[ext_resource type="PackedScene" uid="uid://dyssjq8keq4xc" path="res://Scenes/Objects/body.tscn" id="2_dx4vt"]
+[ext_resource type="Texture2D" uid="uid://mrjid8vgvb5u" path="res://Rescources/Textures/corpse_holder2.png" id="2_h7tld"]
+[ext_resource type="AudioStream" uid="uid://dj6ff20l0ptih" path="res://Rescources/Music/pickup.wav" id="3_h6hm3"]
+[ext_resource type="Texture2D" uid="uid://dmxwwltq7dhd7" path="res://Rescources/Textures/PRESS_E_20250116130308.png" id="3_oa5yy"]
+[ext_resource type="Texture2D" uid="uid://b0y8d6d5ti1cm" path="res://Rescources/Textures/pointer_20250116102925.png" id="4_ocl8f"]
+
+[sub_resource type="Animation" id="Animation_tpqb3"]
+resource_name = "open"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-4, 1),
+"update": 0,
+"values": [Vector2(-40, 0), Vector2(-40, 110)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"opened"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_lsi82"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-40, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iyfkl"]
+resource_name = "close"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-4, 1),
+"update": 0,
+"values": [Vector2(-40, 110), Vector2(-40, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g2dth"]
+_data = {
+"RESET": SubResource("Animation_lsi82"),
+"close": SubResource("Animation_iyfkl"),
+"open": SubResource("Animation_tpqb3")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5chk4"]
+size = Vector2(80, 120)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xossx"]
+radius = 20.0
+height = 76.85
+
+[sub_resource type="Curve" id="Curve_ofiq1"]
+min_value = -200.0
+max_value = 200.0
+_data = [Vector2(0, 200), 0.0, 0.0, 0, 0, Vector2(1, 6.59341), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_xdx1l"]
+colors = PackedColorArray(1, 1, 1, 1, 0.580392, 0.580392, 0.580392, 0)
+
+[node name="Anchor" type="Node2D"]
+
+[node name="Tirroir" type="Node2D" parent="." node_paths=PackedStringArray("pressLabel", "animator", "particles", "body", "cursor", "timer")]
+position = Vector2(-40, 0)
+script = ExtResource("1_d0u0p")
+pressLabel = NodePath("indicator")
+animator = NodePath("AnimationPlayer")
+width = 80.0
+shakeStrength = 50.0
+particles = NodePath("../CPUParticles2D")
+body = NodePath("Body")
+cursor = NodePath("../cursor")
+timer = NodePath("timeToSee")
+openingSound = ExtResource("2_d8s6o")
+takeMemberSound = ExtResource("3_h6hm3")
+
+[node name="drawer" type="Sprite2D" parent="Tirroir"]
+position = Vector2(40, -50)
+texture = ExtResource("2_h7tld")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Tirroir"]
+libraries = {
+"": SubResource("AnimationLibrary_g2dth")
+}
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Tirroir"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tirroir/StaticBody2D"]
+position = Vector2(40, -50)
+shape = SubResource("RectangleShape2D_5chk4")
+
+[node name="PlayerDetect" type="Area2D" parent="Tirroir"]
+visible = false
+position = Vector2(0, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tirroir/PlayerDetect"]
+position = Vector2(40, 0)
+rotation = 4.71239
+shape = SubResource("CapsuleShape2D_xossx")
+
+[node name="indicator" type="Sprite2D" parent="Tirroir"]
+visible = false
+position = Vector2(40, 24)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_oa5yy")
+
+[node name="Body" parent="Tirroir" instance=ExtResource("2_dx4vt")]
+position = Vector2(40, -105)
+randomise = true
+
+[node name="timeToSee" type="Timer" parent="Tirroir"]
+wait_time = 0.5
+one_shot = true
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, 60)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.65
+emission_shape = 3
+emission_rect_extents = Vector2(40, 1)
+direction = Vector2(0, 1)
+spread = 35.91
+gravity = Vector2(0, 0)
+initial_velocity_min = 242.42
+initial_velocity_max = 383.83
+angular_velocity_min = -203.64
+angular_velocity_max = 160.0
+linear_accel_curve = SubResource("Curve_ofiq1")
+scale_amount_max = 16.66
+split_scale = true
+scale_curve_x = null
+scale_curve_y = null
+color_ramp = SubResource("Gradient_xdx1l")
+
+[node name="cursor" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-31, 35)
+rotation = -1.07687
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("4_ocl8f")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[connection signal="body_entered" from="Tirroir/PlayerDetect" to="Tirroir" method="_on_player_detect_body_entered"]
+[connection signal="body_exited" from="Tirroir/PlayerDetect" to="Tirroir" method="_on_player_detect_body_exited"]
+[connection signal="timeout" from="Tirroir/timeToSee" to="Tirroir" method="_on_time_to_see_timeout"]

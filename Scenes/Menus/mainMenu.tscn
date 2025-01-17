@@ -1,0 +1,239 @@
+[gd_scene load_steps=16 format=3 uid="uid://cdu0u45dgmee5"]
+
+[ext_resource type="Script" path="res://Code/Scripts/main_menu.gd" id="1_mk6kf"]
+[ext_resource type="Texture2D" uid="uid://bo83lp45ofo4p" path="res://Rescources/Textures/fond ecran.png" id="2_2jdvy"]
+[ext_resource type="Texture2D" uid="uid://cg1iqleb04i7b" path="res://Rescources/Textures/fond decran nuit.png" id="3_260bv"]
+[ext_resource type="Texture2D" uid="uid://h152tnqghhyp" path="res://Rescources/Textures/start_20250116095708.png" id="3_y7rqe"]
+[ext_resource type="Texture2D" uid="uid://v6kxa67gqn7h" path="res://Rescources/Textures/oeil fermer.png" id="4_5hqwe"]
+[ext_resource type="Texture2D" uid="uid://cfaosrbylr7ay" path="res://Rescources/Textures/start_push_20250116133625.png" id="4_oyi6m"]
+[ext_resource type="Texture2D" uid="uid://doj2gcjv85hmk" path="res://Rescources/Textures/oeil ouvert.png" id="5_jrog4"]
+[ext_resource type="Texture2D" uid="uid://d241cris5p5mv" path="res://Rescources/Textures/quit_button_20250116132307.png" id="5_uxt42"]
+[ext_resource type="Texture2D" uid="uid://dj1apht300knw" path="res://Rescources/Textures/quit_button_push_20250116132331.png" id="6_3doyk"]
+[ext_resource type="Texture2D" uid="uid://dv5agwdps452m" path="res://Rescources/Textures/start_select_20250116134552.png" id="6_udjhf"]
+[ext_resource type="Texture2D" uid="uid://y56x8jpbio77" path="res://Rescources/Textures/htp_button_20250116132307.png" id="7_q406a"]
+[ext_resource type="Texture2D" uid="uid://qsb1y3d5we2d" path="res://Rescources/Textures/ecran titre.png" id="7_r52qx"]
+[ext_resource type="Texture2D" uid="uid://crhmjaet44lu" path="res://Rescources/Textures/Bone_button_select_20250116134207.png" id="8_rdc2y"]
+[ext_resource type="Texture2D" uid="uid://b2sw8r78ubt78" path="res://Rescources/Textures/htp_button_push_20250116132331.png" id="8_vcr1o"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_pnql5"]
+color = Color(1, 1, 1, 1)
+thickness = 6
+vertical = true
+
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("playButton", "quitButton", "howToButton", "dayNightButton", "title", "howToSection")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mk6kf")
+playButton = NodePath("playButton")
+quitButton = NodePath("quitButton")
+howToButton = NodePath("HowToButton")
+dayNightButton = NodePath("dayNightButton")
+title = NodePath("EcranTitre")
+howToSection = NodePath("HowTo")
+fondEcran = ExtResource("2_2jdvy")
+fondEcranNuit = ExtResource("3_260bv")
+imgBtnNight = ExtResource("4_5hqwe")
+imgBtnDay = ExtResource("5_jrog4")
+
+[node name="FondEcran" type="Sprite2D" parent="."]
+position = Vector2(576, 324.25)
+scale = Vector2(4.8, 2.70208)
+texture = ExtResource("2_2jdvy")
+
+[node name="playButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 416.0
+offset_top = 325.0
+offset_right = 576.0
+offset_bottom = 405.0
+scale = Vector2(2, 2)
+focus_neighbor_top = NodePath("../quitButton")
+focus_neighbor_bottom = NodePath("../HowToButton")
+texture_normal = ExtResource("3_y7rqe")
+texture_pressed = ExtResource("4_oyi6m")
+texture_focused = ExtResource("6_udjhf")
+
+[node name="HowToButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 460.0
+offset_right = 576.0
+offset_bottom = 500.0
+scale = Vector2(2, 2)
+focus_neighbor_top = NodePath("../playButton")
+focus_neighbor_bottom = NodePath("../quitButton")
+texture_normal = ExtResource("7_q406a")
+texture_pressed = ExtResource("8_vcr1o")
+texture_focused = ExtResource("8_rdc2y")
+
+[node name="quitButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 540.0
+offset_right = 576.0
+offset_bottom = 580.0
+scale = Vector2(2, 2)
+focus_neighbor_top = NodePath("../HowToButton")
+focus_neighbor_bottom = NodePath("../playButton")
+texture_normal = ExtResource("5_uxt42")
+texture_pressed = ExtResource("6_3doyk")
+texture_focused = ExtResource("8_rdc2y")
+
+[node name="EcranTitre" type="Sprite2D" parent="."]
+position = Vector2(558, 191)
+scale = Vector2(4, 4)
+texture = ExtResource("7_r52qx")
+hframes = 4
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.4
+autostart = true
+
+[node name="HowTo" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="HowTo"]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 649.0
+color = Color(0, 0, 0, 0.807843)
+
+[node name="Label" type="Label" parent="HowTo"]
+layout_mode = 0
+offset_left = 207.0
+offset_top = 12.0
+offset_right = 349.0
+offset_bottom = 56.0
+theme_override_font_sizes/font_size = 24
+text = "But du jeu :"
+
+[node name="Label2" type="Label" parent="HowTo"]
+layout_mode = 0
+offset_left = 35.0
+offset_top = 82.0
+offset_right = 534.0
+offset_bottom = 287.0
+text = "Le but du jeu est simple, vous devez transférer votre âme dans un autre corps avant de mourir ! Pour ce faire, vous devrez accomplir des tâches afin de récupérer des parties de cadavres qui serviront à reconstituer un nouveau corps. Les parties de cadavre se trouvent dans les tiroirs de la morgue. Un coup toutes les parties rassemblées sur la table, activez le mécanisme de transfert de corps avant de mourir."
+autowrap_mode = 3
+
+[node name="VSeparator" type="VSeparator" parent="HowTo"]
+layout_mode = 0
+offset_left = 576.0
+offset_top = -54.0
+offset_right = 580.0
+offset_bottom = 663.0
+theme_override_styles/separator = SubResource("StyleBoxLine_pnql5")
+
+[node name="Label3" type="Label" parent="HowTo"]
+layout_mode = 0
+offset_left = 803.0
+offset_top = 20.0
+offset_right = 923.0
+offset_bottom = 54.0
+theme_override_font_sizes/font_size = 24
+text = "Mini-jeux :"
+
+[node name="Label4" type="Label" parent="HowTo"]
+layout_mode = 0
+offset_left = 622.0
+offset_top = 69.0
+offset_right = 822.0
+offset_bottom = 97.0
+theme_override_font_sizes/font_size = 20
+text = "Chirurgie Serpentine :"
+
+[node name="Label5" type="Label" parent="HowTo"]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 107.0
+offset_right = 1098.0
+offset_bottom = 197.0
+text = "Dans ce jeu, vous devez vous servir des flèches directionnelles pour diriger le scalpel pour trancher les veines."
+autowrap_mode = 3
+
+[node name="Label6" type="Label" parent="HowTo"]
+layout_mode = 0
+offset_left = 626.0
+offset_top = 199.0
+offset_right = 666.0
+offset_bottom = 222.0
+theme_override_font_sizes/font_size = 20
+text = "Boucherie écologique :"
+
+[node name="Label7" type="Label" parent="HowTo"]
+layout_mode = 0
+offset_left = 628.0
+offset_top = 239.0
+offset_right = 1080.0
+offset_bottom = 321.0
+text = "Dans ce jeu, vous devez vous débarrasser des déchets qui sortent du patient pendant l'opération en les tranchant à l'aide de votre souris. Attention à ne pas couper les précieux organes."
+autowrap_mode = 3
+
+[node name="Label8" type="Label" parent="HowTo"]
+layout_mode = 0
+offset_left = 626.0
+offset_top = 356.0
+offset_right = 788.0
+offset_bottom = 384.0
+theme_override_font_sizes/font_size = 20
+text = "Sciage précaire : "
+
+[node name="Label9" type="Label" parent="HowTo"]
+layout_mode = 0
+offset_left = 626.0
+offset_top = 396.0
+offset_right = 1087.0
+offset_bottom = 483.0
+text = "Dans ce jeu, vous devez garder votre scie dans la bonne région pour correctement couper le membre convoité. Appuyez sur la barre espace pour contrôler la scie."
+autowrap_mode = 3
+
+[node name="Label10" type="Label" parent="HowTo"]
+layout_mode = 0
+offset_left = 627.0
+offset_top = 491.0
+offset_right = 667.0
+offset_bottom = 514.0
+theme_override_font_sizes/font_size = 20
+text = "Marteau immunitaire "
+
+[node name="Label11" type="Label" parent="HowTo"]
+layout_mode = 0
+offset_left = 629.0
+offset_top = 535.0
+offset_right = 1082.0
+offset_bottom = 634.0
+text = "Dans ce jeu, vous devez vous propulser à travers le patient avec le marteau pour détruire les virus présents. Utilisez les flèches directionnelles pour vous déplacer."
+autowrap_mode = 3
+
+[node name="Label12" type="Label" parent="HowTo"]
+layout_mode = 0
+offset_left = 173.0
+offset_top = 556.0
+offset_right = 396.0
+offset_bottom = 615.0
+theme_override_font_sizes/font_size = 20
+text = "Appuyer sur \"Esc\" pour revenir au menu"
+autowrap_mode = 3
+
+[node name="dayNightButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 548.0
+offset_right = 60.0
+offset_bottom = 588.0
+scale = Vector2(2, 2)
+focus_mode = 0
+texture_normal = ExtResource("5_jrog4")
+
+[connection signal="button_up" from="playButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="HowToButton" to="." method="_on_how_to_button_button_up"]
+[connection signal="button_up" from="quitButton" to="." method="_on_quit_button_button_up"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="dayNightButton" to="." method="_on_day_night_button_button_down"]
