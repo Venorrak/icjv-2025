@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://dnjl3uc2rm7ub"
+=======
+uid="uid://cs256x7gnquok"
+>>>>>>> origin/Jeux_poche_S
 path="res://.godot/imported/T_L.png-a56b1052615bbd12d8abf2cca83a6f1d.ctex"
 metadata={
 "vram_texture": false

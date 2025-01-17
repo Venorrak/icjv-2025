@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://isvlaphgs1v2"
-=======
-uid="uid://dno7735dt62hm"
->>>>>>> origin/Jeux_poche_S
-path="res://.godot/imported/T_B.png-e890740e5c511eaa1cded967537629c7.ctex"
+uid="uid://d3rnqug8kf1ue"
+path="res://.godot/imported/bone_walls_20250116115258 1.png-bcb6b5792a75fe6933818f2865b8ed59.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rescources/Textures/T_B.png"
-dest_files=["res://.godot/imported/T_B.png-e890740e5c511eaa1cded967537629c7.ctex"]
+source_file="res://Rescources/Textures/bone_walls_20250116115258 1.png"
+dest_files=["res://.godot/imported/bone_walls_20250116115258 1.png-bcb6b5792a75fe6933818f2865b8ed59.ctex"]
 
 [params]
 

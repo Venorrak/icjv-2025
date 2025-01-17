@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcxls1ccv5iab"
-path="res://.godot/imported/icon.svg-8754a43910bf0c3659bffe1659ac8a5b.ctex"
+uid="uid://cpkr4nxibljxc"
+path="res://.godot/imported/virus vert.png-3d1acc1ff7c448fbd1619f477cf1ad65.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rescources/Textures/icon.svg"
-dest_files=["res://.godot/imported/icon.svg-8754a43910bf0c3659bffe1659ac8a5b.ctex"]
+source_file="res://Rescources/Textures/virus vert.png"
+dest_files=["res://.godot/imported/virus vert.png-3d1acc1ff7c448fbd1619f477cf1ad65.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=1.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

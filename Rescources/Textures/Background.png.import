@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://isvlaphgs1v2"
-=======
-uid="uid://dno7735dt62hm"
->>>>>>> origin/Jeux_poche_S
-path="res://.godot/imported/T_B.png-e890740e5c511eaa1cded967537629c7.ctex"
+uid="uid://dvjetxp36wlpg"
+path="res://.godot/imported/Background.png-c42f836680299b8fdf66e54a86134f32.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Rescources/Textures/T_B.png"
-dest_files=["res://.godot/imported/T_B.png-e890740e5c511eaa1cded967537629c7.ctex"]
+source_file="res://Rescources/Textures/Background.png"
+dest_files=["res://.godot/imported/Background.png-c42f836680299b8fdf66e54a86134f32.ctex"]
 
 [params]
 

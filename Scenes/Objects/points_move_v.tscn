@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://dtxrlhij7yifr"]
+
+[ext_resource type="Script" path="res://Scenes/script/points_move_V.gd" id="1_r8870"]
+[ext_resource type="Texture2D" uid="uid://cpkr4nxibljxc" path="res://Rescources/Textures/virus vert.png" id="2_japit"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aerxk"]
+atlas = ExtResource("2_japit")
+region = Rect2(129, 4, 29, 33)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ll5xr"]
+radius = 18.0793
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sk0l7"]
+radius = 19.0808
+
+[node name="Points_move_V" type="RigidBody2D"]
+position = Vector2(426.22, -176)
+script = ExtResource("1_r8870")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_aerxk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ll5xr")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_sk0l7")
+
+[connection signal="body_entered" from="Hitbox" to="." method="_on_hitbox_body_entered"]
