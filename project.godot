@@ -18,11 +18,11 @@ config/icon="res://Rescources/Textures/icon.svg"
 
 [autoload]
 
-EmbedGameAutoload="*res://addons/fabimakesgames.embed_game/embed_game_autoload.gd"
 SignalBus="*res://Code/Scripts/SignalBus.gd"
 AudioManager="*res://Code/Scripts/AudioManager.gd"
 BBcodeBuild="*res://Code/Scripts/BBcodeBuilder.gd"
 GlobalVars="*res://Scenes/Objects/GlobalVars.tscn"
+EmbedGameAutoload="*res://addons/fabimakesgames.embed_game/embed_game_autoload.gd"
 
 [editor_plugins]
 

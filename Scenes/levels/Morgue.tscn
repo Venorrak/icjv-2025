@@ -415,7 +415,7 @@ tile_map_data = PackedByteArray("AAAAAP//AAACAAEAAAABAP//AAACAAEAAAACAP//AAACAAE
 tile_set = SubResource("TileSet_falgi")
 
 [node name="Table" type="StaticBody2D" parent="."]
-position = Vector2(400, 539)
+position = Vector2(400, 445)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Table"]
 polygon = PackedVector2Array(1, -95, 27, -73, 32, -40, 41, -40, 42, 122, -42, 122, -41, -40, -27, -41, -26, -74)
@@ -443,7 +443,7 @@ position = Vector2(0, -120)
 texture = ExtResource("9_ysgd4")
 
 [node name="Player" parent="." instance=ExtResource("4_7ocno")]
-position = Vector2(398, 320)
+position = Vector2(398, 215)
 speed = 400.0
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("player")]

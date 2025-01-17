@@ -1,12 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://c76vcn7ngxmgx"]
+[gd_scene load_steps=13 format=3 uid="uid://c76vcn7ngxmgx"]
 
 [ext_resource type="Script" path="res://Code/Scripts/death_menu.gd" id="1_ikp54"]
 [ext_resource type="Texture2D" uid="uid://ns0lrlejmsu" path="res://Rescources/Textures/game over.png" id="1_oie4a"]
 [ext_resource type="Texture2D" uid="uid://h152tnqghhyp" path="res://Rescources/Textures/start_20250116095708.png" id="2_36qgm"]
 [ext_resource type="Texture2D" uid="uid://d241cris5p5mv" path="res://Rescources/Textures/quit_button_20250116132307.png" id="2_65rt1"]
 [ext_resource type="PackedScene" uid="uid://oo7vbl4x0ecv" path="res://Scenes/levels/Morgue.tscn" id="2_w580r"]
+[ext_resource type="PackedScene" uid="uid://cdu0u45dgmee5" path="res://Scenes/Menus/mainMenu.tscn" id="3_0j3ko"]
 [ext_resource type="Texture2D" uid="uid://cfaosrbylr7ay" path="res://Rescources/Textures/start_push_20250116133625.png" id="3_o8w6t"]
 [ext_resource type="Texture2D" uid="uid://dj1apht300knw" path="res://Rescources/Textures/quit_button_push_20250116132331.png" id="3_xy73e"]
+[ext_resource type="Texture2D" uid="uid://dv5agwdps452m" path="res://Rescources/Textures/start_select_20250116134552.png" id="6_8042q"]
+[ext_resource type="Texture2D" uid="uid://dc7sdkqr8x6d1" path="res://Rescources/Textures/menu_button_20250116132307.png" id="7_djm8d"]
+[ext_resource type="Texture2D" uid="uid://bolr28uovgfia" path="res://Rescources/Textures/menu_button_push_20250116132331.png" id="8_5gm1g"]
 [ext_resource type="Texture2D" uid="uid://crhmjaet44lu" path="res://Rescources/Textures/Bone_button_select_20250116134207.png" id="8_uuj8d"]
 
 [node name="DeathMenu" type="Control" node_paths=PackedStringArray("playButton", "quitButton")]
@@ -20,6 +24,7 @@ script = ExtResource("1_ikp54")
 playButton = NodePath("playButton")
 quitButton = NodePath("quitButton")
 morgue = ExtResource("2_w580r")
+menu = ExtResource("3_0j3ko")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -39,20 +44,39 @@ offset_top = 260.0
 offset_right = 576.0
 offset_bottom = 340.0
 scale = Vector2(2, 2)
+focus_neighbor_top = NodePath("../quitButton")
+focus_neighbor_bottom = NodePath("../MenuButton")
 texture_normal = ExtResource("2_36qgm")
 texture_pressed = ExtResource("3_o8w6t")
+texture_focused = ExtResource("6_8042q")
+
+[node name="MenuButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 400.0
+offset_right = 576.0
+offset_bottom = 440.0
+scale = Vector2(2, 2)
+focus_neighbor_top = NodePath("../playButton")
+focus_neighbor_bottom = NodePath("../quitButton")
+texture_normal = ExtResource("7_djm8d")
+texture_pressed = ExtResource("8_5gm1g")
+texture_focused = ExtResource("8_uuj8d")
 
 [node name="quitButton" type="TextureButton" parent="."]
 layout_mode = 0
 offset_left = 496.0
-offset_top = 420.0
+offset_top = 500.0
 offset_right = 576.0
-offset_bottom = 460.0
+offset_bottom = 540.0
 scale = Vector2(2, 2)
+focus_neighbor_top = NodePath("../MenuButton")
+focus_neighbor_bottom = NodePath("../playButton")
 texture_normal = ExtResource("2_65rt1")
 texture_pressed = ExtResource("3_xy73e")
 texture_hover = ExtResource("8_uuj8d")
 texture_focused = ExtResource("8_uuj8d")
 
 [connection signal="button_up" from="playButton" to="." method="_on_play_button_button_up"]
+[connection signal="button_up" from="MenuButton" to="." method="_on_menu_button_button_up"]
 [connection signal="button_up" from="quitButton" to="." method="_on_quit_button_button_up"]
