@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://ci370x0f1852e"]
+[gd_scene load_steps=12 format=3 uid="uid://ci370x0f1852e"]
 
 [ext_resource type="Script" path="res://Scenes/levels/Fruit_ninja/fruit_ninja.gd" id="1_w36is"]
 [ext_resource type="Script" path="res://Scenes/levels/Fruit_ninja/cursor.gd" id="3_br63e"]
 [ext_resource type="Texture2D" uid="uid://dlvmdjjsnuyhv" path="res://Scenes/levels/Fruit_ninja/Sprite/Cursor_Sprite.png" id="4_bvmdp"]
 [ext_resource type="Texture2D" uid="uid://bqhf5srns2kki" path="res://Scenes/levels/Fruit_ninja/Sprite/fond mini jeu corpse ninja.png" id="5_5b6a3"]
 [ext_resource type="PackedScene" uid="uid://cficowmyaf88k" path="res://Scenes/levels/Fruit_ninja/target_2.tscn" id="5_ilb4c"]
+[ext_resource type="PackedScene" uid="uid://cr1ltjfug7i0o" path="res://Scenes/levels/Fruit_ninja/piece.tscn" id="6_mh5rf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_isp05"]
 radius = 9.0
@@ -81,6 +82,8 @@ offset_left = 296.0
 offset_top = -1.0
 offset_right = 473.0
 offset_bottom = 22.0
+
+[node name="Piece" parent="." instance=ExtResource("6_mh5rf")]
 
 [connection signal="body_entered" from="Cursor" to="." method="_on_cursor_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

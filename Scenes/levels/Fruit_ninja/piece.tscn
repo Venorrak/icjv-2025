@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cr1ltjfug7i0o"]
+
+[ext_resource type="Texture2D" uid="uid://n85cbk2d47ok" path="res://Scenes/levels/Fruit_ninja/Sprite/spritesheet_slice1_20250116020147.png" id="1_mgwg1"]
+
+[node name="Piece" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-100, 0)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_mgwg1")
+hframes = 4
+vframes = 6
+frame = 23

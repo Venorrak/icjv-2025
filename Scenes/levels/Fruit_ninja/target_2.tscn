@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cficowmyaf88k"]
+[gd_scene load_steps=4 format=3 uid="uid://cficowmyaf88k"]
 
+[ext_resource type="Script" path="res://Scenes/levels/Fruit_ninja/target_2.gd" id="1_s7y7b"]
 [ext_resource type="Texture2D" uid="uid://dmhosxweq76k6" path="res://Scenes/levels/Fruit_ninja/Sprite/spritesheet_objets_20250116014832.png" id="2_aswua"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4lmep"]
@@ -7,6 +8,7 @@
 [node name="Target2" type="RigidBody2D" groups=["target"]]
 position = Vector2(100, 0)
 scale = Vector2(1.7, 1.7)
+script = ExtResource("1_s7y7b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(3, 3)
