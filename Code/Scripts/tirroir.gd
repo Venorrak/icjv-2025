@@ -13,6 +13,7 @@ extends Node2D
 @export var armMiniGame : PackedScene
 @export var legMiniGame : PackedScene
 @export var torsoMiniGame : PackedScene
+@export var headMiniGame : PackedScene
 
 var direction : String = ""
 var members : Array = []
@@ -164,7 +165,7 @@ func selectMember() -> void:
 		"torso":
 			SignalBus.startMiniGame.emit(self, torsoMiniGame)
 		"head":
-			SignalBus.startMiniGame.emit(self, armMiniGame)
+			SignalBus.startMiniGame.emit(self, headMiniGame)
 		"leftArm":
 			SignalBus.startMiniGame.emit(self, armMiniGame)
 		"rightArm":

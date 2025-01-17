@@ -1,15 +1,16 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8kk6wgurrav4"]
+[gd_scene load_steps=20 format=3 uid="uid://pgnl80hm26u8"]
 
 [ext_resource type="Script" path="res://Code/Scripts/tirroir.gd" id="1_d0u0p"]
 [ext_resource type="AudioStream" uid="uid://c6vetst352fbi" path="res://Rescources/Music/drawer2.wav" id="2_d8s6o"]
-[ext_resource type="PackedScene" uid="uid://cc8e5unc6jxqi" path="res://Scenes/Objects/body.tscn" id="2_dx4vt"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/body.tscn" id="2_dx4vt"]
 [ext_resource type="Texture2D" uid="uid://bhd7ld0pn3esj" path="res://Rescources/Textures/corpse_holder2.png" id="2_h7tld"]
 [ext_resource type="AudioStream" uid="uid://dj6ff20l0ptih" path="res://Rescources/Music/pickup.wav" id="3_h6hm3"]
 [ext_resource type="Texture2D" uid="uid://bjho1ixqswjvp" path="res://Rescources/Textures/PRESS_E_20250116130308.png" id="3_oa5yy"]
 [ext_resource type="PackedScene" path="res://Scenes/levels/jeu_poche_1.tscn" id="4_jiq77"]
 [ext_resource type="Texture2D" uid="uid://bp0odjjjhqtu4" path="res://Rescources/Textures/pointer_20250116102925.png" id="4_ocl8f"]
 [ext_resource type="PackedScene" path="res://Scenes/levels/snake.tscn" id="5_0dcqo"]
-[ext_resource type="PackedScene" uid="uid://ci370x0f1852e" path="res://Scenes/levels/Fruit_ninja.tscn" id="6_f7p8l"]
+[ext_resource type="PackedScene" uid="uid://7gxb54gq2uas" path="res://Scenes/levels/Fruit_ninja.tscn" id="6_f7p8l"]
+[ext_resource type="PackedScene" uid="uid://6rqhbe3f1i35" path="res://Scenes/levels/Level.tscn" id="7_ffd6x"]
 
 [sub_resource type="Animation" id="Animation_lsi82"]
 length = 0.001
@@ -113,6 +114,7 @@ takeMemberSound = ExtResource("3_h6hm3")
 armMiniGame = ExtResource("4_jiq77")
 legMiniGame = ExtResource("5_0dcqo")
 torsoMiniGame = ExtResource("6_f7p8l")
+headMiniGame = ExtResource("7_ffd6x")
 
 [node name="drawer" type="Sprite2D" parent="Tirroir"]
 position = Vector2(40, -50)

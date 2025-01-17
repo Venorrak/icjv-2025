@@ -1,11 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://dm70ly4dvca6p"]
 
 [ext_resource type="Script" path="res://Scenes/script/hammer.gd" id="1_nbfl0"]
-[ext_resource type="Texture2D" uid="uid://cqyqclkkrpyrb" path="res://Rescources/Textures/Hammer_right_20250116135946.png" id="2_wa51f"]
+[ext_resource type="Texture2D" uid="uid://dv8by56r1wbmw" path="res://Rescources/Textures/Hammer_right_20250116135946.png" id="2_wa51f"]
 
 [node name="Hammer" type="CharacterBody2D"]
 position = Vector2(95.2727, 9)
 scale = Vector2(0.759314, 0.840001)
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_nbfl0")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -22,6 +24,8 @@ texture = ExtResource("2_wa51f")
 polygon = PackedVector2Array(22.0631, -47, 22.0631, 46, 74.2124, 46, 74.2124, -47)
 
 [node name="hammer_box" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hammer_box"]
 position = Vector2(2.00574, 1)

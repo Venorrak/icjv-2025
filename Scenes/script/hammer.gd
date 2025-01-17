@@ -8,8 +8,11 @@ var friction:float= 0.2
 
 var score:int =0
 
+func _ready() -> void:
+	$Camera2D.make_current()
+
 func _process(delta: float) -> void:
-	direction = Input.get_vector("left","right","up", "down")
+	direction = Input.get_vector("ui_left","ui_right","ui_up", "ui_down")
 	direction.normalized()
 	if(direction.length()>0):
 		velocity = velocity.lerp(direction*speed, acceleration)
@@ -18,8 +21,8 @@ func _process(delta: float) -> void:
 	$Texture.rotation = velocity.angle()
 	move_and_slide()
 	if score == 5:
-		get_parent().finish.emit(true)
-		get_parent().queue_free()
+		get_parent().get_parent().finished.emit(true)
+		get_parent().get_parent().queue_free()
 
 func _on_hammer_box_area_entered(area: Area2D) -> void:
 	if(area.get_parent() is RigidBody2D):
@@ -28,5 +31,5 @@ func _on_hammer_box_area_entered(area: Area2D) -> void:
 		
 
 func _on_timer_timeout() -> void:
-	get_parent().finish.emit(false)
-	get_parent().queue_free()
+	get_parent().get_parent().finished.emit(false)
+	get_parent().get_parent().queue_free()

@@ -1,10 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://ci370x0f1852e"]
+[gd_scene load_steps=12 format=3 uid="uid://7gxb54gq2uas"]
 
 [ext_resource type="Script" path="res://Code/Scripts/fruit_ninja.gd" id="1_w36is"]
 [ext_resource type="Script" path="res://Code/Scripts/cursor.gd" id="3_br63e"]
 [ext_resource type="Texture2D" uid="uid://dlvmdjjsnuyhv" path="res://Rescources/Textures/Cursor_Sprite.png" id="4_bvmdp"]
 [ext_resource type="Texture2D" uid="uid://bqhf5srns2kki" path="res://Rescources/Textures/fond mini jeu corpse ninja.png" id="5_5b6a3"]
-[ext_resource type="PackedScene" uid="uid://cficowmyaf88k" path="res://Scenes/Objects/target_2.tscn" id="5_ilb4c"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/target_2.tscn" id="5_ilb4c"]
 [ext_resource type="PackedScene" path="res://Scenes/Objects/piece.tscn" id="6_mh5rf"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_isp05"]
