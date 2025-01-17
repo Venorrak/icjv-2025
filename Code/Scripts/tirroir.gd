@@ -1,5 +1,6 @@
 extends Node2D
 @export var pressLabel : Sprite2D
+@export var lockedLabel : Sprite2D
 @export var animator : AnimationPlayer
 @export var width : float
 @export var shakeStrength : float
@@ -9,6 +10,7 @@ extends Node2D
 @export var timer : Timer
 @export var openingSound : AudioStream
 @export var takeMemberSound : AudioStream
+@export var lockedSound : AudioStream
 
 @export var armMiniGame : PackedScene
 @export var legMiniGame : PackedScene
@@ -61,12 +63,16 @@ func _ready() -> void:
 
 func _on_player_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		pressLabel.visible = true
+		if hasBeenOpened:
+			lockedLabel.visible = true
+		else:
+			pressLabel.visible = true
 		playerWithin = true
 
 func _on_player_detect_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		pressLabel.visible = false
+		lockedLabel.visible = false
 		playerWithin = false
 		
 func _physics_process(delta: float) -> void:
@@ -74,9 +80,13 @@ func _physics_process(delta: float) -> void:
 		if isOpen:
 			selectMember()
 		else:
-			AudioManager.playSound(openingSound, 1, 0.12)
-			applyOpenEffects()
-			animator.play("open")
+			if not hasBeenOpened:
+				AudioManager.playSound(openingSound, 1, 0.12)
+				applyOpenEffects()
+				animator.play("open")
+			else:
+				AudioManager.playSound(lockedSound)
+				#TODO: red logo "locked"???
 	if Input.is_action_just_pressed("interact") and cursor.visible and not isInMiniGame:
 		selectMember()
 	if Input.is_action_just_pressed("ui_up") and cursorOn != "" and cursor.visible:
@@ -176,7 +186,6 @@ func selectMember() -> void:
 			SignalBus.startMiniGame.emit(self, legMiniGame)
 
 func onMiniGameFinished(won : bool) -> void:
-	print(won)
 	if chosenPart != {}:
 		if won:
 			nextBody.append(chosenPart)
@@ -191,3 +200,5 @@ func onMiniGameFinished(won : bool) -> void:
 
 func _on_time_to_see_timeout() -> void:
 	animator.play("close")
+	AudioManager.playSound(lockedSound)
+	pressLabel.visible = false

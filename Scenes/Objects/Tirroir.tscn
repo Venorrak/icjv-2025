@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://pgnl80hm26u8"]
+[gd_scene load_steps=22 format=3 uid="uid://pgnl80hm26u8"]
 
 [ext_resource type="Script" path="res://Code/Scripts/tirroir.gd" id="1_d0u0p"]
 [ext_resource type="AudioStream" uid="uid://c6vetst352fbi" path="res://Rescources/Music/drawer2.wav" id="2_d8s6o"]
@@ -7,10 +7,12 @@
 [ext_resource type="AudioStream" uid="uid://dj6ff20l0ptih" path="res://Rescources/Music/pickup.wav" id="3_h6hm3"]
 [ext_resource type="Texture2D" uid="uid://bjho1ixqswjvp" path="res://Rescources/Textures/PRESS_E_20250116130308.png" id="3_oa5yy"]
 [ext_resource type="PackedScene" uid="uid://ddaxeuf33j0ll" path="res://Scenes/levels/jeu_poche_1.tscn" id="4_jiq77"]
+[ext_resource type="AudioStream" uid="uid://6it5odfxg61m" path="res://Rescources/Music/locked.mp3" id="4_lpfgt"]
 [ext_resource type="Texture2D" uid="uid://bp0odjjjhqtu4" path="res://Rescources/Textures/pointer_20250116102925.png" id="4_ocl8f"]
 [ext_resource type="PackedScene" uid="uid://dmpljy08wk7n8" path="res://Scenes/levels/snake.tscn" id="5_0dcqo"]
 [ext_resource type="PackedScene" uid="uid://7gxb54gq2uas" path="res://Scenes/levels/Fruit_ninja.tscn" id="6_f7p8l"]
 [ext_resource type="PackedScene" uid="uid://6rqhbe3f1i35" path="res://Scenes/levels/Level.tscn" id="7_ffd6x"]
+[ext_resource type="Texture2D" uid="uid://ces7madwp21qb" path="res://Rescources/Textures/locked.png" id="11_vobnj"]
 
 [sub_resource type="Animation" id="Animation_lsi82"]
 length = 0.001
@@ -98,10 +100,11 @@ colors = PackedColorArray(1, 1, 1, 1, 0.580392, 0.580392, 0.580392, 0)
 
 [node name="Anchor" type="Node2D"]
 
-[node name="Tirroir" type="Node2D" parent="." node_paths=PackedStringArray("pressLabel", "animator", "particles", "body", "cursor", "timer")]
+[node name="Tirroir" type="Node2D" parent="." node_paths=PackedStringArray("pressLabel", "lockedLabel", "animator", "particles", "body", "cursor", "timer")]
 position = Vector2(-40, 0)
 script = ExtResource("1_d0u0p")
 pressLabel = NodePath("indicator")
+lockedLabel = NodePath("indicator(locked)")
 animator = NodePath("AnimationPlayer")
 width = 80.0
 shakeStrength = 50.0
@@ -111,6 +114,7 @@ cursor = NodePath("../cursor")
 timer = NodePath("timeToSee")
 openingSound = ExtResource("2_d8s6o")
 takeMemberSound = ExtResource("3_h6hm3")
+lockedSound = ExtResource("4_lpfgt")
 armMiniGame = ExtResource("4_jiq77")
 legMiniGame = ExtResource("5_0dcqo")
 torsoMiniGame = ExtResource("6_f7p8l")
@@ -146,6 +150,11 @@ visible = false
 position = Vector2(40, 24)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_oa5yy")
+
+[node name="indicator(locked)" type="Sprite2D" parent="Tirroir"]
+visible = false
+position = Vector2(40, 32)
+texture = ExtResource("11_vobnj")
 
 [node name="Body" parent="Tirroir" instance=ExtResource("2_dx4vt")]
 position = Vector2(40, -105)
