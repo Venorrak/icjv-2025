@@ -1,18 +1,28 @@
 extends AnimatedSprite2D
 
+var direction := Vector2.ZERO
+var acceleration:=0.01
+var currentSpeed:float=0
+var upSpeed:float = 200
+var downSpeed:float = -200
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
 	
 	pass
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	var area_name := body.name.to_lower()
+	
+	if (area_name == "level"):
+		currentSpeed = lerp(direction.y,upSpeed,acceleration)
+		position+=direction*currentSpeed
+	else:
+		currentSpeed = lerp(direction.y,downSpeed,acceleration)
 	print(area_name)
-	pass
