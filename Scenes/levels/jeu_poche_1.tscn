@@ -1,13 +1,22 @@
-[gd_scene load_steps=6 format=3 uid="uid://ynmoqk8rdgpv"]
+[gd_scene load_steps=8 format=3 uid="uid://ynmoqk8rdgpv"]
 
 [ext_resource type="Texture2D" uid="uid://dq517ogjgtdhb" path="res://Scenes/levels/bras.tres" id="1_lx7m3"]
+[ext_resource type="Texture2D" uid="uid://i376xr7jn14j" path="res://Scenes/levels/bras gore-Sheet.png" id="1_t24v4"]
+[ext_resource type="Script" path="res://Scenes/levels/jeu_poche_1.gd" id="1_w2e08"]
 [ext_resource type="Texture2D" uid="uid://0vnc85a7sabg" path="res://Scenes/levels/cible.tres" id="2_357v4"]
 [ext_resource type="Texture2D" uid="uid://dm7y851hk6o2a" path="res://Scenes/levels/Scie.tres" id="3_5qb6x"]
 [ext_resource type="Script" path="res://Scenes/levels/bar.gd" id="3_ccjha"]
 [ext_resource type="Script" path="res://Scenes/levels/scie.gd" id="4_lmwjm"]
 
 [node name="jeuPoche1" type="Node2D"]
-position = Vector2(-2, 2)
+position = Vector2(1, 6)
+script = ExtResource("1_w2e08")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-360, -32)
+scale = Vector2(2.93, 2.93)
+texture = ExtResource("1_t24v4")
+hframes = 6
 
 [node name="Bras" type="Sprite2D" parent="."]
 position = Vector2(1, -2)
@@ -15,26 +24,29 @@ scale = Vector2(6.2622, 4.06908)
 texture = ExtResource("1_lx7m3")
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-modulate = Color(1, 0.27451, 0.27451, 1)
-self_modulate = Color(0.607843, 0, 0, 1)
-offset_left = 147.0
-offset_top = -232.0
-offset_right = 173.0
-offset_bottom = 225.0
+modulate = Color(1, 0, 0, 1)
+self_modulate = Color(1, 0, 0, 1)
+offset_left = 48.0
+offset_top = -234.0
+offset_right = 74.0
+offset_bottom = 223.0
 value = 50.0
 fill_mode = 3
 show_percentage = false
+metadata/_edit_use_anchors_ = true
 
-[node name="Bar" type="Sprite2D" parent="."]
+[node name="Bar" type="Sprite2D" parent="." node_paths=PackedStringArray("background")]
 position = Vector2(-2, 89)
 scale = Vector2(2.99286, 2.35714)
 texture = ExtResource("2_357v4")
 script = ExtResource("3_ccjha")
+background = NodePath("../Sprite2D")
 
 [node name="Timer" type="Timer" parent="Bar"]
 autostart = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-365, 0)
 
 [node name="Scie" type="Sprite2D" parent="."]
 position = Vector2(-61, 84)
@@ -42,5 +54,7 @@ scale = Vector2(4.58333, 3.6)
 texture = ExtResource("3_5qb6x")
 centered = false
 script = ExtResource("4_lmwjm")
+
+[node name="Timer" type="Timer" parent="."]
 
 [connection signal="timeout" from="Bar/Timer" to="Bar" method="_on_timer_timeout"]

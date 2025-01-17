@@ -1,11 +1,12 @@
 extends Sprite2D
 class_name Bar
 
-@export var progressBar: ProgressBar
+var progressBar: ProgressBar
+@export var background : Sprite2D
 @export var maxSpeed : float = -300
 @export var acceleration := 0.01
 @export var fallSpeed : float = 300
-var progress: float = 0
+var progress: float = 25
 @export var progressSpeed: float = 15
 
 var player: Scie
@@ -13,16 +14,16 @@ var currentSpeed : float = 0
 var minBox : float = 210.0
 var topBox: float = -200.0
 var random_y:float   
-@export var difficulte = 1
+@export var difficulte = 40
 
 func _ready() -> void:
 	player = get_parent().get_node("Scie")
 	progressBar = get_parent().get_node("ProgressBar")
-	maxSpeed = difficulte * -4 - 296
-	fallSpeed = difficulte * 4 + 296
+	maxSpeed = difficulte * -4 - 140
+	fallSpeed = difficulte * 4 + 140
 
 func _process(delta: float) -> void:
-	
+	updateBackground()
 	if(random_y < position.y):
 		currentSpeed = lerp(currentSpeed, maxSpeed, acceleration)
 	else:
@@ -35,7 +36,6 @@ func _process(delta: float) -> void:
 		position.y += -currentSpeed * delta
 
 	if(position.y >= player.position.y && position.y <= player.position.y +100):
-		print("JE SUIS LA")
 		progress += progressSpeed * delta
 		progress = clamp(progress, 0, 100)
 		progressBar.value = progress
@@ -48,6 +48,7 @@ func _process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	random_y  = randf_range(topBox,minBox)
 
-	
+func updateBackground() -> void:
+	background.frame = int(lerp(0, 5, progressBar.value / 100))
 
 	
