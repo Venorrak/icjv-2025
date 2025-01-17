@@ -1,7 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://yybgg6isxcvm"]
+[gd_scene load_steps=4 format=3 uid="uid://cc8e5unc6jxqi"]
 
 [ext_resource type="Script" path="res://Code/Scripts/body.gd" id="1_lflrb"]
-[ext_resource type="Texture2D" uid="uid://cnj655vne4vr4" path="res://Rescources/Textures/Spritesheet_corps_20250115231844.png" id="1_ne4q7"]
+[ext_resource type="Texture2D" uid="uid://d1jqvael2ky51" path="res://Rescources/Textures/Spritesheet_corps_20250115231844.png" id="1_ne4q7"]
 
 [sub_resource type="Gradient" id="Gradient_1dsyt"]
 colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 0.117647)

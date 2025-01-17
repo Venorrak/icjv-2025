@@ -33,6 +33,8 @@ texture = ExtResource("5_5b6a3")
 
 [node name="Cursor" type="Area2D" parent="."]
 position = Vector2(580, 333)
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("3_br63e")
 
 [node name="Sprite2D" type="Sprite2D" parent="Cursor"]
@@ -47,12 +49,10 @@ shape = SubResource("CapsuleShape2D_isp05")
 wait_time = 1.5
 autostart = true
 
-[node name="Target2" parent="." instance=ExtResource("5_ilb4c")]
-position = Vector2(-255, 7)
-script = null
-
 [node name="Mur_Gauche" type="StaticBody2D" parent="."]
 position = Vector2(-10, 1)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mur_Gauche"]
 position = Vector2(0, 336)
@@ -60,6 +60,8 @@ shape = SubResource("RectangleShape2D_mvo0y")
 
 [node name="Mur_Droite" type="StaticBody2D" parent="."]
 position = Vector2(1162, 7)
+collision_layer = 2
+collision_mask = 2
 physics_material_override = SubResource("PhysicsMaterial_0emvv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Mur_Droite"]
@@ -68,6 +70,8 @@ shape = SubResource("RectangleShape2D_ib3ma")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-17, 734)
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(589.5, 0)
@@ -83,8 +87,6 @@ offset_left = 296.0
 offset_top = -1.0
 offset_right = 473.0
 offset_bottom = 22.0
-
-[node name="Piece" parent="." instance=ExtResource("6_mh5rf")]
 
 [connection signal="body_entered" from="Cursor" to="." method="_on_cursor_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -7,7 +7,7 @@ var velocity = Vector2.ZERO
 var gravity = Vector2(0, 200)
 var speed_ini = Vector2(rng.randf_range(-100, 100), rng.randf_range(-500, -400))
 var life = 3
-var difficulty = 0
+var difficulty = GlobalVars.difficultyCurve.sample(float(GlobalVars.currentWave) / 100)
 @export var target : PackedScene
 
 @export var sprite : PackedScene 
@@ -134,7 +134,7 @@ func _on_cursor_body_entered(body: Node2D) -> void:
 		self.add_child(piece_inst1)
 		self.add_child(piece_inst2)
 		$Label.text = str("Points: " + str(point))
-		if point >= 5:
+		if point >= 10:
 			finished.emit(true)
 			queue_free()
 
