@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bu48l5xkjwf38"]
+
+[ext_resource type="Texture2D" uid="uid://cpkr4nxibljxc" path="res://Rescources/Textures/virus vert.png" id="1_moeyk"]
+[ext_resource type="Script" path="res://Scenes/levels/affaire_jaune/enemy_left_right.gd" id="2_0px0n"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4eur"]
+atlas = ExtResource("1_moeyk")
+region = Rect2(4, 5, 33, 29)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_64uvj"]
+radius = 14.4282
+
+[node name="EnemyLeft_right" type="Sprite2D"]
+position = Vector2(264, 89)
+texture = SubResource("AtlasTexture_n4eur")
+script = ExtResource("2_0px0n")
+
+[node name="hitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitBox"]
+position = Vector2(0, -1.19209e-07)
+scale = Vector2(1.34077, 1.06047)
+shape = SubResource("CircleShape2D_64uvj")
+
+[connection signal="body_entered" from="hitBox" to="." method="_on_hit_box_body_entered"]

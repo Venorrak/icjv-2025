@@ -1,71 +1,26 @@
-[gd_scene load_steps=21 format=4 uid="uid://6rqhbe3f1i35"]
+[gd_scene load_steps=9 format=3 uid="uid://6rqhbe3f1i35"]
 
 [ext_resource type="Texture2D" uid="uid://d3rnqug8kf1ue" path="res://Rescources/Textures/bone_walls_20250116115258 1.png" id="1_v3f3y"]
-[ext_resource type="Texture2D" uid="uid://vayomceydeg" path="res://Rescources/Textures/Corner_A.png" id="2_jdxri"]
-[ext_resource type="Texture2D" uid="uid://bcs7gdxs0dikg" path="res://Rescources/Textures/Corner_B.png" id="3_x5is6"]
-[ext_resource type="Texture2D" uid="uid://c6f1p63rud488" path="res://Rescources/Textures/Corner_C.png" id="4_7gcc0"]
-[ext_resource type="Texture2D" uid="uid://b38gjxxx37cmg" path="res://Rescources/Textures/Corner_D.png" id="5_ym3qr"]
 [ext_resource type="Texture2D" uid="uid://cqyqclkkrpyrb" path="res://Rescources/Textures/Hammer_right_20250116135946.png" id="6_duxxt"]
-[ext_resource type="Texture2D" uid="uid://cpkr4nxibljxc" path="res://Rescources/Textures/virus vert.png" id="7_xqygm"]
-[ext_resource type="Script" path="res://Scenes/levels/affaire_jaune/enemy.gd" id="8_e5r01"]
+[ext_resource type="PackedScene" uid="uid://bu48l5xkjwf38" path="res://Scenes/Objects/enemy_labiryth_v.tscn" id="7_60yi7"]
+[ext_resource type="PackedScene" uid="uid://t28n0kgtvd6" path="res://Scenes/Objects/enemy_top_bottom.tscn" id="7_rr0gf"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kixbm"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r4nmv"]
 texture = ExtResource("1_v3f3y")
-texture_region_size = Vector2i(40, 40)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-7.47475, -20, 8.68687, -20, 9.09091, 20, -7.87879, 20)
-1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -7.07071, 20, -7.07071, 20, 7.87879, -20, 8.28283)
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
+texture_region_size = Vector2i(60, 60)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p4mfo"]
-texture = ExtResource("2_jdxri")
-texture_region_size = Vector2i(40, 40)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, 10.303, 10.303, 9.49495, 11.5152, -20, -6.66667, -20, -7.47475, -7.07071, -20, -6.26263)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_itpha"]
-texture = ExtResource("3_x5is6")
-texture_region_size = Vector2i(40, 40)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.89899, -20, -9.89899, 10.303, 20, 10.7071, 20, -6.66667, 7.47475, -7.07071, 6.26263, -20)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t14p2"]
-texture = ExtResource("4_7gcc0")
-texture_region_size = Vector2i(40, 40)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(20, 6.66667, 7.47475, 6.66667, 7.47475, 20, -10.7071, 20, -10.303, 6.26263, -9.49495, -9.89899, 20, -10.303)
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_chyxd"]
-texture = ExtResource("5_ym3qr")
-texture_region_size = Vector2i(40, 40)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-20, -9.89899, 8.68687, -8.28283, 9.49495, 20, -7.87879, 20, -5.85859, 6.66667, -20, 7.07071)
-
-[sub_resource type="TileSet" id="TileSet_wvx0b"]
-tile_size = Vector2i(40, 40)
-physics_layer_0/collision_layer = 1
-physics_layer_0/collision_mask = 2
-sources/0 = SubResource("TileSetAtlasSource_kixbm")
-sources/1 = SubResource("TileSetAtlasSource_p4mfo")
-sources/2 = SubResource("TileSetAtlasSource_itpha")
-sources/3 = SubResource("TileSetAtlasSource_t14p2")
-sources/4 = SubResource("TileSetAtlasSource_chyxd")
+[sub_resource type="TileSet" id="TileSet_b18i7"]
+tile_size = Vector2i(60, 60)
+sources/0 = SubResource("TileSetAtlasSource_r4nmv")
 
 [sub_resource type="GDScript" id="GDScript_3gjdx"]
 script/source = "extends Sprite2D
 
-var speed: float = 1200.0 
+var speed: float = 500.0 
 var direction = Vector2()
 var canMove: bool = true
 var last_mouvement = Vector2.ZERO
+var area_name:String
 func _ready() -> void:
 	pass
 
@@ -83,87 +38,64 @@ func _process(delta: float) -> void:
 		elif Input.is_action_pressed(\"right\"):
 			direction = Vector2(speed, 0)
 			canMove=false
-		
+	
 	if direction != Vector2.ZERO:
 		look_at(position + direction)
-		if(!$Detection.is_colliding()):
-			position += direction * delta
-		else:
-			canMove = true
+		position +=direction*delta
 	
-	#get_collider_rid() const
-#Returns the RID of the first object that the ray intersects, or an empty RID if no object is intersecting the ray (i.e. is_colliding() returns false).
-#TileMapLayerscript
-#void_tile_data_runtime_update(coords: Vector2i, tile_data: TileData) virtualbool_use_tile_data_runtime_update(coords: Vector2i) virtualvoidclear()voiderase_cell(coords: Vector2i)voidfix_invalid_tiles()intget_cell_alternative_tile(coords: Vector2i) constVector2iget_cell_atlas_coords(coords: Vector2i) constintget_cell_source_id(coords: Vector2i) constTileDataget_cell_tile_data(coords: Vector2i) constVector2iget_coords_for_body_rid(body: RID) const
+	
+
+
+
+func _on_hit_box_body_entered(body: Node2D) -> void:
+	area_name = body.name.to_lower()
+	if(area_name==\"level\"):
+		direction=Vector2.ZERO
+		canMove = true
+	else:
+		print(area_name)
+	
+
+
+func _on_hit_box_area_entered(area: Area2D) -> void:
+	area_name = area.name.to_lower()
+	if(area_name==\"hitbox\"):
+		var _tmp = get_tree().call_deferred(\"reload_current_scene\")
 "
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hygxp"]
-atlas = ExtResource("7_xqygm")
-region = Rect2(120, 0, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4cq7n"]
-atlas = ExtResource("7_xqygm")
-region = Rect2(0, 0, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u5fpk"]
-atlas = ExtResource("7_xqygm")
-region = Rect2(40, 0, 40, 40)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pdfir"]
-atlas = ExtResource("7_xqygm")
-region = Rect2(80, 0, 40, 40)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_g8y8f"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hygxp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4cq7n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u5fpk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pdfir")
-}],
-"loop": true,
-"name": &"default",
-"speed": 3.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2c1u"]
+size = Vector2(5.5704, 18.056)
 
 [node name="spawn_0" type="Node2D"]
 position = Vector2(0, -1)
+scale = Vector2(0.997138, 1)
 
 [node name="Level" type="TileMapLayer" parent="."]
-position = Vector2(57, 97)
-tile_map_data = PackedByteArray("AAD+/wIAAQAAAAAAAAD9/wIAAAABAAAAAAD8/wIAAAABAAAAAAD7/wIAAAABAAAAAAD6/wIAAAABAAAAAAD5/wIAAAABAAAAAAD4/wIAAAABAAAAAAD3/wIAAgAAAAAAAAD3/wEAAAAAAAAAAAD3/wAAAAAAAAAAAAD+/wEAAAAAAAAAAAD+/wAAAwAAAAAAAAD3////AwAAAAAAAAD4////AAABAAAAAAD5////AAABAAAAAAD6////AQAAAAAAAAD6//7/AAAAAAAAAAD6//3/AAAAAAAAAAD6//z/AAAAAAAAAAD6//v/AwAAAAAAAAD7//v/AAABAAAAAAD8//v/AAABAAAAAAD9//v/AAABAAAAAAD+//v/AAABAAAAAAD///v/AAABAAAAAAAAAPv/AAABAAAAAAABAPv/AAABAAAAAAACAPv/AAABAAAAAAD9//7/AQAAAAAAAAD8//3/AwAAAAAAAAD8//7/AgAAAAAAAAD9//3/BAAAAAAAAAD//wAAAAABAAAAAAAAAAAAAAABAAAAAAABAAAAAQAAAAAAAAABAP//AAAAAAAAAAABAP7/AwAAAAAAAAACAP7/AAABAAAAAAADAPv/AAABAAAAAAAEAPv/AAABAAAAAAAFAPv/AAABAAAAAAAGAPv/AAABAAAAAAADAP7/AAABAAAAAAAEAP7/BAAAAAAAAAAEAP//AAAAAAAAAAAEAAAAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAgAAAAAAAAAFAAIAAAABAAAAAAAGAAIAAAABAAAAAAAHAAIAAAABAAAAAAAIAPv/BAAAAAAAAAAIAAIAAQAAAAAAAAAIAAEAAAAAAAAAAAAIAAAAAAAAAAAAAAAIAP//AAAAAAAAAAAIAP7/AAAAAAAAAAAIAP3/AAAAAAAAAAAIAPz/AAAAAAAAAAAHAPv/AAABAAAAAAA=")
-tile_set = SubResource("TileSet_wvx0b")
+position = Vector2(56.1607, 97)
+tile_set = SubResource("TileSet_b18i7")
 collision_visibility_mode = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-266, -56)
 
 [node name="Hammer" type="Sprite2D" parent="."]
-position = Vector2(-239, 148)
-scale = Vector2(1.3195, 1.45)
+position = Vector2(-256.735, 105)
+scale = Vector2(3.26092, 3.045)
 texture = ExtResource("6_duxxt")
 script = SubResource("GDScript_3gjdx")
 
-[node name="Detection" type="RayCast2D" parent="Hammer"]
-position = Vector2(19.194, 0.824242)
-exclude_parent = false
-target_position = Vector2(14.3955, 1.47386e-06)
+[node name="hitBox" type="Area2D" parent="Hammer"]
+position = Vector2(12.1258, -1.05233e-05)
+scale = Vector2(1, 0.8069)
 
-[node name="Enemy" type="AnimatedSprite2D" parent="." groups=["Enemy"]]
-position = Vector2(153, 8)
-sprite_frames = SubResource("SpriteFrames_g8y8f")
-frame_progress = 0.518842
-speed_scale = 0.1
-script = ExtResource("8_e5r01")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hammer/hitBox"]
+position = Vector2(7.87419, -0.0617923)
+scale = Vector2(1.66415, 1.52882)
+shape = SubResource("RectangleShape2D_h2c1u")
 
-[node name="RayCast2D" type="RayCast2D" parent="Enemy"]
-position = Vector2(4, 12)
-exclude_parent = false
-target_position = Vector2(0, 17)
+[node name="EnemyTop_bottom" parent="." instance=ExtResource("7_rr0gf")]
+
+[node name="EnemyLeft_right" parent="." instance=ExtResource("7_60yi7")]
+
+[connection signal="area_entered" from="Hammer/hitBox" to="Hammer" method="_on_hit_box_area_entered"]
+[connection signal="body_entered" from="Hammer/hitBox" to="Hammer" method="_on_hit_box_body_entered"]
