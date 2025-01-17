@@ -6,7 +6,7 @@ var progressBar: ProgressBar
 @export var maxSpeed : float = -300
 @export var acceleration := 0.01
 @export var fallSpeed : float = 300
-var progress: float = 35
+var progress: float = 20
 @export var progressSpeed: float = 15
 
 var player: Scie
@@ -45,7 +45,9 @@ func _process(delta: float) -> void:
 		progressBar.value = progress
 
 func _on_timer_timeout() -> void:
-	random_y  = randf_range(topBox,minBox)
+	var topBound : float = clampf(position.y + 100, minBox, topBox)
+	var botBound : float = clampf(position.y - 100, minBox, topBox)
+	random_y = randf_range(topBound,botBound)
 
 func updateBackground() -> void:
 	background.frame = int(lerp(0, 5, progressBar.value / 100))

@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" path="res://Scenes/Objects/queue.tscn" id="4_jfm2q"]
 [ext_resource type="Texture2D" uid="uid://cqjwatewrdwbu" path="res://Rescources/Textures/Scalpel_20250116114044.png" id="5_giavp"]
 [ext_resource type="Script" path="res://Code/Scripts/point.gd" id="6_pv73w"]
-[ext_resource type="Texture2D" uid="uid://kd78uq6dx6an" path="res://Rescources/Textures/tileset_snake_20250116110621 (2).png" id="7_ntcxi"]
+[ext_resource type="Texture2D" uid="uid://dfnp1q5fwpfqi" path="res://Rescources/Textures/tileset_snake_20250117044430.png" id="7_6ik3s"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v3ikl"]
 
@@ -117,7 +117,10 @@ shape = SubResource("RectangleShape2D_aopyf")
 z_index = 2
 position = Vector2(22, 22)
 scale = Vector2(1.6, 1.6)
-texture = ExtResource("7_ntcxi")
+texture = ExtResource("7_6ik3s")
+hframes = 2
+vframes = 2
+frame = 3
 
 [node name="Label" type="Label" parent="."]
 offset_right = 40.0
