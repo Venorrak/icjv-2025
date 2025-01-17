@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://v3d1b6ie34qo"]
+[gd_scene load_steps=17 format=3 uid="uid://v3d1b6ie34qo"]
 
 [ext_resource type="Script" path="res://Code/Scripts/tirroir.gd" id="1_d0u0p"]
 [ext_resource type="AudioStream" uid="uid://c6vetst352fbi" path="res://Rescources/Music/drawer2.wav" id="2_d8s6o"]
@@ -6,37 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://mrjid8vgvb5u" path="res://Rescources/Textures/corpse_holder2.png" id="2_h7tld"]
 [ext_resource type="AudioStream" uid="uid://dj6ff20l0ptih" path="res://Rescources/Music/pickup.wav" id="3_h6hm3"]
 [ext_resource type="Texture2D" uid="uid://dmxwwltq7dhd7" path="res://Rescources/Textures/PRESS_E_20250116130308.png" id="3_oa5yy"]
+[ext_resource type="PackedScene" uid="uid://ynmoqk8rdgpv" path="res://Scenes/levels/jeu_poche_1.tscn" id="4_jiq77"]
 [ext_resource type="Texture2D" uid="uid://b0y8d6d5ti1cm" path="res://Rescources/Textures/pointer_20250116102925.png" id="4_ocl8f"]
-
-[sub_resource type="Animation" id="Animation_tpqb3"]
-resource_name = "open"
-length = 0.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(-4, 1),
-"update": 0,
-"values": [Vector2(-40, 0), Vector2(-40, 110)]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.166667),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"opened"
-}]
-}
 
 [sub_resource type="Animation" id="Animation_lsi82"]
 length = 0.001
@@ -67,6 +38,36 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(-4, 1),
 "update": 0,
 "values": [Vector2(-40, 110), Vector2(-40, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_tpqb3"]
+resource_name = "open"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(-4, 1),
+"update": 0,
+"values": [Vector2(-40, 0), Vector2(-40, 110)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.166667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"opened"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g2dth"]
@@ -107,6 +108,7 @@ cursor = NodePath("../cursor")
 timer = NodePath("timeToSee")
 openingSound = ExtResource("2_d8s6o")
 takeMemberSound = ExtResource("3_h6hm3")
+armMiniGame = ExtResource("4_jiq77")
 
 [node name="drawer" type="Sprite2D" parent="Tirroir"]
 position = Vector2(40, -50)

@@ -10,6 +10,8 @@ extends Node2D
 @export var openingSound : AudioStream
 @export var takeMemberSound : AudioStream
 
+@export var armMiniGame : PackedScene
+
 var direction : String = ""
 var members : Array = []
 var playerWithin : bool = false
@@ -17,9 +19,11 @@ var nextBody : Array = []
 
 var cursorIndex : int = 0
 var cursorOn : String = ""
+var chosenPart : Dictionary = {}
 
 var isOpen : bool = false
 var hasBeenOpened : bool = false
+var isInMiniGame : bool = false
 
 var arrowPositions : Dictionary = {
 	"head" : {
@@ -63,14 +67,14 @@ func _on_player_detect_body_exited(body: Node2D) -> void:
 		playerWithin = false
 		
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact") and playerWithin:
+	if Input.is_action_just_pressed("interact") and playerWithin and not isInMiniGame:
 		if isOpen:
 			selectMember()
 		else:
 			AudioManager.playSound(openingSound, 1, 0.12)
 			applyOpenEffects()
 			animator.play("open")
-	if Input.is_action_just_pressed("interact") and cursor.visible:
+	if Input.is_action_just_pressed("interact") and cursor.visible and not isInMiniGame:
 		selectMember()
 	if Input.is_action_just_pressed("ui_up") and cursorOn != "" and cursor.visible:
 		if cursorIndex > 0:
@@ -152,16 +156,34 @@ func takeMember(memberName : String) -> Dictionary:
 	return {} #crashes
 
 func selectMember() -> void:
-	var chosenPart : Dictionary = takeMember(cursorOn)
+	isInMiniGame = true
+	chosenPart = takeMember(cursorOn)
+	match cursorOn:
+		"torso":
+			SignalBus.startMiniGame.emit(self, armMiniGame)
+		"head":
+			SignalBus.startMiniGame.emit(self, armMiniGame)
+		"leftArm":
+			SignalBus.startMiniGame.emit(self, armMiniGame)
+		"rightArm":
+			SignalBus.startMiniGame.emit(self, armMiniGame)
+		"leftLeg":
+			SignalBus.startMiniGame.emit(self, armMiniGame)
+		"rightLeg":
+			SignalBus.startMiniGame.emit(self, armMiniGame)
+
+func onMiniGameFinished(won : bool) -> void:
 	if chosenPart != {}:
-		nextBody.append(chosenPart)
-		SignalBus.setNextBody.emit(nextBody)
+		if won:
+			nextBody.append(chosenPart)
+			SignalBus.setNextBody.emit(nextBody)
 		SignalBus.getFocus.emit(null)
 		SignalBus.freezePlayer.emit(false)
 		cursor.visible = false
 		isOpen = false
 		GlobalVars.tirroirOpened = false
 		timer.start()
+	isInMiniGame = false
 
 func _on_time_to_see_timeout() -> void:
 	animator.play("close")

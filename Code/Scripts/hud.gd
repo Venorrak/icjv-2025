@@ -6,8 +6,11 @@ extends CanvasLayer
 @export var animator : AnimationPlayer
 @export var shockSound : AudioStream
 
+var currentMiniGame = null
+
 func _ready() -> void:
 	SignalBus.connect("newLoop", newLoopAnimation)
+	SignalBus.connect("startMiniGame", startMiniGame)
 
 func _physics_process(delta: float) -> void:
 	var remainingTime : float = roundTimer.time_left
@@ -39,3 +42,8 @@ func newLoopAnimation() -> void:
 
 func loopAnimationEnd() -> void:
 	get_tree().reload_current_scene()
+
+func startMiniGame(caller: Node2D, minigame : PackedScene) -> void:
+	var newMiniGame = minigame.instantiate()
+	newMiniGame.connect("finished", caller.onMiniGameFinished)
+	add_child(newMiniGame)

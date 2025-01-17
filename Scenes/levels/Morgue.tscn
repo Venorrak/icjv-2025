@@ -469,6 +469,17 @@ wait_time = 120.0
 one_shot = true
 autostart = true
 
+[node name="Dark" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.760784)
+position = Vector2(406, 315)
+scale = Vector2(5.505, 5.505)
+texture = ExtResource("15_wjl3k")
+
+[node name="Window" type="Sprite2D" parent="."]
+position = Vector2(404, 196)
+scale = Vector2(3.605, 3.605)
+texture = ExtResource("16_n81mo")
+
 [node name="HUD" type="CanvasLayer" parent="." node_paths=PackedStringArray("timerLabel", "roundTimer", "animator")]
 script = ExtResource("10_b5658")
 timerLabel = NodePath("timerLabel")
@@ -476,12 +487,6 @@ roundTimer = NodePath("../roundTimer")
 timerLabelAccent = Color(1, 0, 0, 1)
 animator = NodePath("loopAnimation")
 shockSound = ExtResource("12_8acy6")
-
-[node name="timerLabel" type="RichTextLabel" parent="HUD"]
-offset_right = 1152.0
-offset_bottom = 62.0
-bbcode_enabled = true
-scroll_active = false
 
 [node name="shade" type="ColorRect" parent="HUD"]
 offset_left = -209.0
@@ -531,16 +536,11 @@ libraries = {
 "": SubResource("AnimationLibrary_4o58o")
 }
 
-[node name="Dark" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.760784)
-position = Vector2(406, 315)
-scale = Vector2(5.505, 5.505)
-texture = ExtResource("15_wjl3k")
-
-[node name="Window" type="Sprite2D" parent="."]
-position = Vector2(404, 196)
-scale = Vector2(3.605, 3.605)
-texture = ExtResource("16_n81mo")
+[node name="timerLabel" type="RichTextLabel" parent="HUD"]
+offset_right = 1152.0
+offset_bottom = 62.0
+bbcode_enabled = true
+scroll_active = false
 
 [connection signal="body_entered" from="Table/Area2D" to="Table/Node2D" method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Table/Area2D" to="Table/Node2D" method="_on_area_2d_body_exited"]

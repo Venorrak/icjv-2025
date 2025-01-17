@@ -12,3 +12,4 @@ signal freezePlayer
 signal setNextBody
 signal nextBodyStatus
 signal newLoop
+signal startMiniGame

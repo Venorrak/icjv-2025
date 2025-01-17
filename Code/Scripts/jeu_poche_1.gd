@@ -2,8 +2,7 @@ extends Node2D
 
 var progressBar: ProgressBar
 var timer: Timer
-signal win
-signal lose
+signal finished
 
 func _ready() -> void:
 	progressBar = get_node("ProgressBar")
@@ -11,6 +10,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if progressBar.value == 100:
-		win.emit()
+		finished.emit(true)
+		queue_free()
 	if progressBar.value == 0:
-		lose.emit()
+		finished.emit(false)
+		queue_free()

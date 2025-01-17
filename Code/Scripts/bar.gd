@@ -11,8 +11,8 @@ var progress: float = 25
 
 var player: Scie
 var currentSpeed : float = 0
-var minBox : float = 210.0
-var topBox: float = -200.0
+var minBox : float = 539.0
+var topBox: float = 119.0
 var random_y:float   
 @export var difficulte = 40
 
@@ -40,7 +40,6 @@ func _process(delta: float) -> void:
 		progress = clamp(progress, 0, 100)
 		progressBar.value = progress
 	else:
-		print(progress)
 		progress -= progressSpeed * delta
 		progress = clamp(progress, 0, 100)
 		progressBar.value = progress
