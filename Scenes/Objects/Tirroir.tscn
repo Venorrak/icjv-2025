@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://pgnl80hm26u8"]
+[gd_scene load_steps=23 format=3 uid="uid://pgnl80hm26u8"]
 
 [ext_resource type="Script" path="res://Code/Scripts/tirroir.gd" id="1_d0u0p"]
 [ext_resource type="AudioStream" uid="uid://c6vetst352fbi" path="res://Rescources/Music/drawer2.wav" id="2_d8s6o"]
@@ -10,6 +10,7 @@
 [ext_resource type="AudioStream" uid="uid://6it5odfxg61m" path="res://Rescources/Music/locked.mp3" id="4_lpfgt"]
 [ext_resource type="Texture2D" uid="uid://bp0odjjjhqtu4" path="res://Rescources/Textures/pointer_20250116102925.png" id="4_ocl8f"]
 [ext_resource type="PackedScene" uid="uid://dmpljy08wk7n8" path="res://Scenes/levels/snake.tscn" id="5_0dcqo"]
+[ext_resource type="AudioStream" uid="uid://bhag12bdc5lh" path="res://Rescources/Music/boo-6377.mp3" id="5_ntiv0"]
 [ext_resource type="PackedScene" uid="uid://7gxb54gq2uas" path="res://Scenes/levels/Fruit_ninja.tscn" id="6_f7p8l"]
 [ext_resource type="PackedScene" uid="uid://6rqhbe3f1i35" path="res://Scenes/levels/Level.tscn" id="7_ffd6x"]
 [ext_resource type="Texture2D" uid="uid://ces7madwp21qb" path="res://Rescources/Textures/locked.png" id="11_vobnj"]
@@ -115,6 +116,7 @@ timer = NodePath("timeToSee")
 openingSound = ExtResource("2_d8s6o")
 takeMemberSound = ExtResource("3_h6hm3")
 lockedSound = ExtResource("4_lpfgt")
+booSound = ExtResource("5_ntiv0")
 armMiniGame = ExtResource("4_jiq77")
 legMiniGame = ExtResource("5_0dcqo")
 torsoMiniGame = ExtResource("6_f7p8l")

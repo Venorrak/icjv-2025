@@ -11,6 +11,7 @@ extends Node2D
 @export var openingSound : AudioStream
 @export var takeMemberSound : AudioStream
 @export var lockedSound : AudioStream
+@export var booSound : AudioStream
 
 @export var armMiniGame : PackedScene
 @export var legMiniGame : PackedScene
@@ -190,6 +191,8 @@ func onMiniGameFinished(won : bool) -> void:
 		if won:
 			nextBody.append(chosenPart)
 			SignalBus.setNextBody.emit(nextBody)
+		else:
+			AudioManager.playSound(booSound)
 		SignalBus.getFocus.emit(null)
 		SignalBus.freezePlayer.emit(false)
 		cursor.visible = false
