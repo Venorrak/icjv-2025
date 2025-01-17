@@ -162,22 +162,18 @@ func go_down():
 	input_dir.y = 1
 
 func _on_mur_haut_area_entered(area: Area2D) -> void:
-	print("La collision haut à été touché")
 	fin = true
 
 
 func _on_mur_bas_area_entered(area: Area2D) -> void:
-	print("La collision bas à été touché")
 	fin = true
 
 
 func _on_mur_gauche_area_entered(area: Area2D) -> void:
-	print("La collision gauche à été touché")
 	fin = true
 
 
 func _on_mur_droite_area_entered(area: Area2D) -> void:
-	print("La collision droite à été touché")
 	fin = true
 
 

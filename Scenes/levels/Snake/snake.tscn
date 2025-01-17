@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://kd78uq6dx6an" path="res://Scenes/levels/Snake/Sprite/tileset_snake_20250116110621 (2).png" id="8_7jeja"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v3ikl"]
-load_path = "res://.godot/imported/test2.png-9360da5c466b9102da0b7ca81e1fc650.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_558hh"]
 texture = SubResource("CompressedTexture2D_v3ikl")
