@@ -2,8 +2,14 @@ extends Control
 @export var playButton : TextureButton
 @export var quitButton : TextureButton
 @export var howToButton : TextureButton
+@export var dayNightButton : TextureButton
 @export var title : Sprite2D
 @export var howToSection : Control
+
+@export var fondEcran : Texture2D
+@export var fondEcranNuit : Texture2D
+@export var imgBtnNight : Texture2D
+@export var imgBtnDay : Texture2D
 
 @export var morgue : PackedScene
 
@@ -12,6 +18,7 @@ var inHow : bool = false
 
 func _ready() -> void:
 	playButton.grab_focus()
+	updateDN()
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel") and inHow:
@@ -22,6 +29,14 @@ func _on_timer_timeout() -> void:
 	if title.frame == 0:
 		frameMov = 1
 	title.frame += frameMov
+
+func updateDN() -> void:
+	if GlobalVars.darkMode:
+		dayNightButton.texture_normal = imgBtnNight
+		$FondEcran.texture = fondEcranNuit
+	else:
+		dayNightButton.texture_normal = imgBtnDay
+		$FondEcran.texture = fondEcran
 
 func _on_play_button_button_up() -> void:
 	get_tree().change_scene_to_packed(morgue)
@@ -39,3 +54,7 @@ func changeVisibility() -> void:
 	quitButton.visible = !quitButton.visible
 	title.visible = !title.visible
 	howToSection.visible = !howToSection.visible
+
+func _on_day_night_button_button_down() -> void:
+	GlobalVars.darkMode = !GlobalVars.darkMode
+	updateDN()

@@ -1,10 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://cdu0u45dgmee5"]
+[gd_scene load_steps=17 format=3 uid="uid://cdu0u45dgmee5"]
 
 [ext_resource type="Script" path="res://Code/Scripts/main_menu.gd" id="1_mk6kf"]
 [ext_resource type="PackedScene" uid="uid://oo7vbl4x0ecv" path="res://Scenes/levels/Morgue.tscn" id="2_1yfcw"]
 [ext_resource type="Texture2D" uid="uid://bo83lp45ofo4p" path="res://Rescources/Textures/fond ecran.png" id="2_2jdvy"]
+[ext_resource type="Texture2D" uid="uid://cg1iqleb04i7b" path="res://Rescources/Textures/fond decran nuit.png" id="3_260bv"]
 [ext_resource type="Texture2D" uid="uid://h152tnqghhyp" path="res://Rescources/Textures/start_20250116095708.png" id="3_y7rqe"]
+[ext_resource type="Texture2D" uid="uid://v6kxa67gqn7h" path="res://Rescources/Textures/oeil fermer.png" id="4_5hqwe"]
 [ext_resource type="Texture2D" uid="uid://cfaosrbylr7ay" path="res://Rescources/Textures/start_push_20250116133625.png" id="4_oyi6m"]
+[ext_resource type="Texture2D" uid="uid://doj2gcjv85hmk" path="res://Rescources/Textures/oeil ouvert.png" id="5_jrog4"]
 [ext_resource type="Texture2D" uid="uid://d241cris5p5mv" path="res://Rescources/Textures/quit_button_20250116132307.png" id="5_uxt42"]
 [ext_resource type="Texture2D" uid="uid://dj1apht300knw" path="res://Rescources/Textures/quit_button_push_20250116132331.png" id="6_3doyk"]
 [ext_resource type="Texture2D" uid="uid://dv5agwdps452m" path="res://Rescources/Textures/start_select_20250116134552.png" id="6_udjhf"]
@@ -18,7 +21,7 @@ color = Color(1, 1, 1, 1)
 thickness = 6
 vertical = true
 
-[node name="MainMenu" type="Control" node_paths=PackedStringArray("playButton", "quitButton", "howToButton", "title", "howToSection")]
+[node name="MainMenu" type="Control" node_paths=PackedStringArray("playButton", "quitButton", "howToButton", "dayNightButton", "title", "howToSection")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,8 +32,13 @@ script = ExtResource("1_mk6kf")
 playButton = NodePath("playButton")
 quitButton = NodePath("quitButton")
 howToButton = NodePath("HowToButton")
+dayNightButton = NodePath("dayNightButton")
 title = NodePath("EcranTitre")
 howToSection = NodePath("HowTo")
+fondEcran = ExtResource("2_2jdvy")
+fondEcranNuit = ExtResource("3_260bv")
+imgBtnNight = ExtResource("4_5hqwe")
+imgBtnDay = ExtResource("5_jrog4")
 morgue = ExtResource("2_1yfcw")
 
 [node name="FondEcran" type="Sprite2D" parent="."]
@@ -214,7 +222,18 @@ theme_override_font_sizes/font_size = 20
 text = "Appuyer sur \"Esc\" pour revenir au menu"
 autowrap_mode = 3
 
+[node name="dayNightButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 548.0
+offset_right = 60.0
+offset_bottom = 588.0
+scale = Vector2(2, 2)
+focus_mode = 0
+texture_normal = ExtResource("5_jrog4")
+
 [connection signal="button_up" from="playButton" to="." method="_on_play_button_button_up"]
 [connection signal="button_up" from="HowToButton" to="." method="_on_how_to_button_button_up"]
 [connection signal="button_up" from="quitButton" to="." method="_on_quit_button_button_up"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="button_down" from="dayNightButton" to="." method="_on_day_night_button_button_down"]
