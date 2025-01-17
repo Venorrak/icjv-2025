@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://d208imik12pm3"
+=======
+uid="uid://cpfqbj4svk3so"
+>>>>>>> origin/Fruit_Ninja
 path="res://.godot/imported/breaking_bones_20250116115646.png-ad93b7bf57cc594bc6e79c2ca7b23b45.ctex"
 metadata={
 "vram_texture": false

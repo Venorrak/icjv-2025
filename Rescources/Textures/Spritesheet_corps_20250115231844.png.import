@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://cnj655vne4vr4"
+=======
+uid="uid://dnljeyb2t6qq6"
+>>>>>>> origin/Fruit_Ninja
 path="res://.godot/imported/Spritesheet_corps_20250115231844.png-5a148d2a87391e9e3596da78e6e7ab73.ctex"
 metadata={
 "vram_texture": false

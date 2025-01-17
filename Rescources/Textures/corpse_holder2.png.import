@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://mrjid8vgvb5u"
+=======
+uid="uid://dkflcrec5ys8w"
+>>>>>>> origin/Fruit_Ninja
 path="res://.godot/imported/corpse_holder2.png-722dad3cc7661ddad1c48682afb46f35.ctex"
 metadata={
 "vram_texture": false

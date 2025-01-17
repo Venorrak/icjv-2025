@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://btirx0cdvfk7u"
+=======
+uid="uid://ktkcaeciofgf"
+>>>>>>> origin/Fruit_Ninja
 path="res://.godot/imported/Hammer_right_20250116135946.png-9221cfb0e0384f994f9065f015a13325.ctex"
 metadata={
 "vram_texture": false

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://crhmjaet44lu"
+=======
+uid="uid://44sg6aaps50v"
+>>>>>>> origin/Fruit_Ninja
 path="res://.godot/imported/Bone_button_select_20250116134207.png-21600984dfbc6b139598ae0a7995c6b8.ctex"
 metadata={
 "vram_texture": false

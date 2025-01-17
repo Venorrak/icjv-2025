@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://ucgghwtw202p"
+=======
+uid="uid://dnk7o47bw4suy"
+>>>>>>> origin/Fruit_Ninja
 path="res://.godot/imported/Corner_B.png-47df14bbb98a97ccfa9582ca388a1157.ctex"
 metadata={
 "vram_texture": false

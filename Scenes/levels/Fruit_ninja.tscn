@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://ci370x0f1852e"]
+
+[ext_resource type="Script" path="res://Code/Scripts/fruit_ninja.gd" id="1_w36is"]
+[ext_resource type="Script" path="res://Code/Scripts/cursor.gd" id="3_br63e"]
+[ext_resource type="Texture2D" uid="uid://dlvmdjjsnuyhv" path="res://Rescources/Textures/Cursor_Sprite.png" id="4_bvmdp"]
+[ext_resource type="Texture2D" uid="uid://bqhf5srns2kki" path="res://Rescources/Textures/fond mini jeu corpse ninja.png" id="5_5b6a3"]
+[ext_resource type="PackedScene" uid="uid://cficowmyaf88k" path="res://Scenes/Objects/target_2.tscn" id="5_ilb4c"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/piece.tscn" id="6_mh5rf"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_isp05"]
+radius = 9.0
+height = 92.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvo0y"]
+size = Vector2(20, 692)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0emvv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ib3ma"]
+size = Vector2(20, 680)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o7vd0"]
+size = Vector2(1245, 20)
+
+[node name="FruitNinja" type="Node2D"]
+script = ExtResource("1_w36is")
+target = ExtResource("5_ilb4c")
+sprite = ExtResource("6_mh5rf")
+
+[node name="FondMiniJeuCorpseNinja" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+texture = ExtResource("5_5b6a3")
+
+[node name="Cursor" type="Area2D" parent="."]
+position = Vector2(580, 333)
+script = ExtResource("3_br63e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Cursor"]
+position = Vector2(2, -10)
+rotation = 0.785398
+texture = ExtResource("4_bvmdp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cursor"]
+shape = SubResource("CapsuleShape2D_isp05")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
+
+[node name="Target2" parent="." instance=ExtResource("5_ilb4c")]
+position = Vector2(-255, 7)
+script = null
+
+[node name="Mur_Gauche" type="StaticBody2D" parent="."]
+position = Vector2(-10, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mur_Gauche"]
+position = Vector2(0, 336)
+shape = SubResource("RectangleShape2D_mvo0y")
+
+[node name="Mur_Droite" type="StaticBody2D" parent="."]
+position = Vector2(1162, 7)
+physics_material_override = SubResource("PhysicsMaterial_0emvv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mur_Droite"]
+position = Vector2(0, 330)
+shape = SubResource("RectangleShape2D_ib3ma")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-17, 734)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(589.5, 0)
+shape = SubResource("RectangleShape2D_o7vd0")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 988.0
+offset_right = 1028.0
+offset_bottom = 23.0
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 296.0
+offset_top = -1.0
+offset_right = 473.0
+offset_bottom = 22.0
+
+[node name="Piece" parent="." instance=ExtResource("6_mh5rf")]
+
+[connection signal="body_entered" from="Cursor" to="." method="_on_cursor_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
