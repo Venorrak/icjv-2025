@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://dtxrlhij7yifr"]
 
-[ext_resource type="Script" path="res://Scenes/script/points_move_V.gd" id="1_r8870"]
+[ext_resource type="Script" path="res://Code/Scripts/points_move_V.gd" id="1_r8870"]
 [ext_resource type="Texture2D" uid="uid://cpkr4nxibljxc" path="res://Rescources/Textures/virus vert.png" id="2_japit"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_aerxk"]

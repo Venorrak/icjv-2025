@@ -21,7 +21,7 @@ var inHow : bool = false
 func _ready() -> void:
 	playButton.grab_focus()
 	updateDN()
-	AudioManager.playMusic(lobbyMusic, 0.7)
+	AudioManager.playMusic(lobbyMusic, 0.5)
 	
 
 func _physics_process(delta: float) -> void:

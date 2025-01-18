@@ -64,7 +64,7 @@ func _ready() -> void:
 
 func _on_player_detect_body_entered(body: Node2D) -> void:
 	if body.is_in_group("player"):
-		if hasBeenOpened:
+		if hasBeenOpened or not needsParts():
 			lockedLabel.visible = true
 		else:
 			pressLabel.visible = true
@@ -81,13 +81,13 @@ func _physics_process(delta: float) -> void:
 		if isOpen:
 			selectMember()
 		else:
-			if not hasBeenOpened:
+			if not hasBeenOpened and needsParts():
 				AudioManager.playSound(openingSound, 1, 0.12)
 				applyOpenEffects()
 				animator.play("open")
 			else:
+				hasBeenOpened = true
 				AudioManager.playSound(lockedSound)
-				#TODO: red logo "locked"???
 	if Input.is_action_just_pressed("interact") and cursor.visible and not isInMiniGame:
 		selectMember()
 	if Input.is_action_just_pressed("ui_up") and cursorOn != "" and cursor.visible:
@@ -192,7 +192,7 @@ func onMiniGameFinished(won : bool) -> void:
 			nextBody.append(chosenPart)
 			SignalBus.setNextBody.emit(nextBody)
 		else:
-			AudioManager.playSound(booSound)
+			AudioManager.playSound(booSound, 0.5)
 		SignalBus.getFocus.emit(null)
 		SignalBus.freezePlayer.emit(false)
 		cursor.visible = false

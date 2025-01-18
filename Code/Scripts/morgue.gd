@@ -18,7 +18,7 @@ func _ready() -> void:
 	else:
 		dark.visible = false
 		window.texture = imgDayWindow
-	AudioManager.playMusic(gameMusic)
+	AudioManager.playMusic(gameMusic, 0.5)
 	roundTimer.wait_time = GlobalVars.roundTime
 	roundTimer.start()
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dm70ly4dvca6p"]
 
-[ext_resource type="Script" path="res://Scenes/script/hammer.gd" id="1_nbfl0"]
+[ext_resource type="Script" path="res://Code/Scripts/hammer.gd" id="1_nbfl0"]
 [ext_resource type="Texture2D" uid="uid://dv8by56r1wbmw" path="res://Rescources/Textures/Hammer_right_20250116135946.png" id="2_wa51f"]
 
 [node name="Hammer" type="CharacterBody2D"]

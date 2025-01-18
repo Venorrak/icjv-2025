@@ -173,4 +173,12 @@ timer = NodePath("../Timer")
 position = Vector2(575.648, 325)
 texture = SubResource("ViewportTexture_gmkc8")
 
+[node name="Label" type="Label" parent="."]
+offset_left = 498.0
+offset_top = 3.0
+offset_right = 654.0
+offset_bottom = 37.0
+theme_override_font_sizes/font_size = 24
+text = "Tuez les virus"
+
 [connection signal="timeout" from="SubViewport/Timer" to="SubViewport/Hammer" method="_on_timer_timeout"]

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Code/Scripts/spawn_helper.gd" id="2_ku3bk"]
 [ext_resource type="PackedScene" uid="uid://pgnl80hm26u8" path="res://Scenes/Objects/Tirroir.tscn" id="3_jj7lt"]
 [ext_resource type="Texture2D" uid="uid://cak56edefi6v7" path="res://Rescources/Textures/Day_Window_20250116224635.png" id="3_pnkte"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Player.tscn" id="4_7ocno"]
+[ext_resource type="PackedScene" uid="uid://cd15rksjkrncw" path="res://Scenes/Objects/Player.tscn" id="4_7ocno"]
 [ext_resource type="Script" path="res://Code/Scripts/camera.gd" id="4_ek7m2"]
 [ext_resource type="AudioStream" uid="uid://cma3f6fh60ibo" path="res://Rescources/Music/relaxing-guitar-loop-v5-245859.mp3" id="4_riedu"]
 [ext_resource type="Texture2D" uid="uid://chy6rf6vru8kk" path="res://Rescources/Textures/morgue-final.png" id="6_0cq2c"]
