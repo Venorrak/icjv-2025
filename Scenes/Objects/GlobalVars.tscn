@@ -2,12 +2,12 @@
 
 [ext_resource type="Script" path="res://Code/Scripts/GlobalVars.gd" id="1_rqk8s"]
 [ext_resource type="PackedScene" uid="uid://2wougpf8rmfo" path="res://Scenes/Menus/mainMenu.tscn" id="2_i81ok"]
-[ext_resource type="PackedScene" path="res://Scenes/Menus/deathMenu.tscn" id="3_3h31k"]
-[ext_resource type="PackedScene" uid="uid://cpjv14rds1tcu" path="res://Scenes/levels/Morgue.tscn" id="4_4xvmu"]
+[ext_resource type="PackedScene" uid="uid://c66j3vywnk6yx" path="res://Scenes/Menus/deathMenu.tscn" id="3_3h31k"]
+[ext_resource type="PackedScene" uid="uid://cpjv14rds1tcu" path="res://Scenes/Levels/Morgue.tscn" id="4_4xvmu"]
 
 [sub_resource type="Curve" id="Curve_djkt5"]
 max_value = 100.0
-_data = [Vector2(0, 40.6593), 0.0, 0.0, 0, 0, Vector2(0.0792079, 79.1209), 1.67983, 1.67983, 0, 0, Vector2(0.207921, 97.8022), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 40.6593), 0.0, 0.0, 0, 0, Vector2(0.1, 86.8132), 193.325, 193.325, 0, 0, Vector2(0.289474, 97.8022), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
 point_count = 4
 
 [node name="GlobalVars" type="Node"]
